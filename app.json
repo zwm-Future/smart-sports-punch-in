@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/punch/punch",
+    "pages/my/my",
+    "pages/welcome/welcome",
+    "pages/notice/notice",
+    "pages/message/message",
+    "pages/task/task",
+    "pages/record/record"
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#9EA1A7",
+    "selectedColor": "#44CAAC",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/img/tarbar/home@3x.png",
+        "selectedIconPath": "/img/tarbar/home-selected@3x.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/punch/punch",
+        "text": "打卡",
+        "iconPath": "/img/tarbar/clock@3x.png",
+        "selectedIconPath": "/img/tarbar/clock@3x.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/img/tarbar/my@3x.png",
+        "selectedIconPath": "/img/tarbar/my-selected@3x.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "requiredBackgroundModes": ["location"],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的定位"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

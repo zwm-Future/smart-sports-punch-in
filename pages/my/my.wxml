@@ -1,0 +1,36 @@
+
+<view class="my-wrap">
+  <view class="my-bg">
+    <image  src="/img/my/personalbackground@3x.png" class="bg-img"></image>
+    <view class="person-container">
+      <view class="person-avatar"></view>
+      <view class="person-msg">
+        <text class="name">猪小明</text>
+        <text class="username">学号:3120004860</text>
+        <text class="teacher">绑定的教师：彭于晏</text>
+      </view>
+    </view>
+  </view>
+  <view class="my-list">
+    <view class="list-item">
+      <text class="item-text">我的成绩单（暂定）</text>
+      <text class="arrow">></text>
+    </view> 
+    <view class="list-item">
+      <text class="item-text">我绑定的教师</text>
+      <text class="arrow">></text>
+    </view> 
+    <view class="list-item">
+      <text class="item-text">帮助中心</text>
+      <text class="arrow">></text>
+    </view> 
+    <view class="list-item">
+      <text class="item-text">联系我们</text>
+      <text class="arrow">></text>
+    </view> 
+    <view class="list-item">
+      <text class="item-text">修改密码</text>
+      <text class="arrow">></text>
+    </view> 
+  </view>
+</view>

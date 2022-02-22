@@ -1,0 +1,199 @@
+map {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.type-wrap {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 130px;
+  left: 49rpx;
+  width: 652rpx;
+  height: 206px;
+  padding: 0 30rpx;
+  font-size: 16px;
+  color:#fff;
+  background: linear-gradient(to left,#44caac,#44c2ca);
+  border-radius: 10px;
+}
+.type-wrap .type-title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 54px;
+}
+.type-wrap .type-title .title-icon{
+  width: 22px;
+    height: 22px;
+}
+.type-wrap .type-title .title-text{
+  font-weight: bolder;
+}
+.type-wrap .select-type-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.select-type-container .type-name {
+  font-weight: bold;
+}
+.select-type-container .change-text {
+  text-decoration: underline;
+}
+.type-wrap .punch-btn {
+  width: 100%;
+  height: 47px;
+  /* line-height: 47px; */
+}
+.move-current-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-color: pink;
+}
+.turn-mode-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+}
+
+.count-down-mask {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: #44caac;
+  z-index: 99;
+}
+.count-down-mask .center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+}
+.count-down-mask .circle-out {
+  width: 1314rpx;
+  height: 1314rpx;
+  background-color: #51ceb2
+}
+.count-down-mask .circle-middle {
+  width: 894rpx;
+  height: 894rpx;
+  background-color: #5fd2b8;
+}
+.count-down-mask .circle-in {
+  width: 422rpx;
+  height: 422rpx;
+  background-color: #6dd6be;
+}
+
+.count-down-mask .count-num {
+  font-size: 120px;
+  color:#fff;
+  text-shadow: 0 2px 4px #00000050;
+}
+
+.sport-stauts-container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 130px;
+  left: 49rpx;
+  width: 652rpx;
+  height: 78px;
+  padding: 0 30rpx;
+  font-size: 16px;
+  color:#000;
+  background: #fff;
+  border-radius: 10px;
+}
+.sport-stauts-container .status-item{
+  display: flex;
+}
+
+.status-item .icon {
+  width: 36px;
+  height: 36px;
+}
+
+.status-item .num-box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.num-box .num {
+  font-size: 16px;
+  font-weight: bolder;
+}
+.num-box .unit {
+  font-size: 14px;
+  color:#9EA1A7;
+  font-weight: 500;
+}
+
+
+.collect-wrap {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 130px;
+  left: 49rpx;
+  width: 652rpx;
+  height: 156px;
+  padding: 0 30rpx;
+  font-size: 16px;
+  color:#fff;
+  background: linear-gradient(to left,#44caac,#44c2ca);
+  border-radius: 10px;
+}
+
+.collect-wrap .collect-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 54px;
+}
+.collect-header .header-icon{
+  width: 22px;
+  height: 22px;
+}
+
+.collect-header .header-placeholder-text {
+  font-size: 14px;
+  color:#abc5e8;
+  font-weight: 400;
+}
+.collect-header .header-text{
+  display: inline-block;
+  height: 21px;
+  font-size: 14px;
+  color:#f0fbf9;
+  font-weight: 400;
+  padding: 0 20rpx;
+  background-color: #7ff5db;
+  border-radius: 5rpx;
+  font-weight: bolder;
+}
+.collect-header .collect-confirm {
+  box-sizing: border-box !important;
+  padding: 0;
+  width: 100rpx;
+  line-height: 22px;
+  height: 22px;
+  font-size: 16px;
+}
+.collect-wrap .collect-main {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
