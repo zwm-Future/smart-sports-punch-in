@@ -1,0 +1,15 @@
+<view class="today-done-wrap">
+  <view class="today-done">
+    <view class="done-title">
+      <text class="tip-text">今日已打卡</text>
+      <text class="detail-text">详细信息＞</text>
+    </view>
+    <view class="done-main">
+      <view class="done-type">跑步</view>
+      <view class="done-time">
+        <text class="time-num">35</text>
+        <text class="time-unit">积分</text>
+      </view>
+    </view>
+  </view>
+</view>

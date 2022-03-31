@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "top-bar":"./top-bar/top-bar",
+    "punch-card":"./punch-card/punch-card",
+    "operation-tab":"./operation-tab/operation-tab"
+  }
 }

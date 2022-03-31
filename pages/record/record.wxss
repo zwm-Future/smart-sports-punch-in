@@ -1,1 +1,70 @@
-/* pages/record/record.wxss */
+.header {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 5.54vh;
+  padding: 40rpx;
+}
+
+.record-main {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 38rpx;
+}
+
+.record-main .record-all {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  width: 322rpx;
+  height: 21.49vh;
+  margin-bottom: 2vh;
+  padding: 3% 9% 5%;
+  color:#fff;
+  background-color: #44caac;
+  border-radius: 20rpx;
+  box-shadow: 0 0 10px 5px #efeff1;
+}
+
+.record-all .record-type {
+  display: flex;
+  flex-direction: column;
+}
+
+.record-all .type-name {
+  font-size: 24px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.record-all .type-date {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.record-all .record-time {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.record-all .time-num {
+  font-size: 38px;
+  font-weight: bolder;
+}
+
+.record-all .time-unit {
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.record-main .record-item {
+  width: 322rpx;
+  height: 28.84vh;
+  margin-bottom: 2vh;
+}

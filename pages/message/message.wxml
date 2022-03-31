@@ -1,2 +1,47 @@
-<!--pages/message/message.wxml-->
-<text>pages/message/message.wxml</text>
+<view class="message-wrap">
+  <view class="message-item">
+    <view class="item-left">
+      <view class="portrait-wrap">
+        <view class="red-num">1</view>
+        <image class="portrait"></image>
+      </view>
+    </view>
+    <view class="item-right">
+      <view class="message-main">
+        <view class="message-title">运动数据</view>
+        <view class="message-detail">您的运动周报</view>
+      </view>
+      <view class="message-date"><text>12:21</text></view>
+    </view>
+  </view>
+  <view class="message-item">
+    <view class="item-left">
+      <view class="portrait-wrap">
+        <view class="red-num">1</view>
+        <image class="portrait"></image>
+      </view>
+    </view>
+    <view class="item-right">
+      <view class="message-main">
+        <view class="message-title">我的教师</view>
+        <view class="message-detail">有一条来自您绑定教师的信息</view>
+      </view>
+      <view class="message-date"><text>12:21</text></view>
+    </view>
+  </view>
+  <view class="message-item">
+    <view class="item-left">
+      <view class="portrait-wrap">
+        <view class="red-num">1</view>
+        <image class="portrait"></image>
+      </view>
+    </view>
+    <view class="item-right">
+      <view class="message-main">
+        <view class="message-title">我的任务</view>
+        <view class="message-detail">有一条关于您的任务的进度提醒</view>
+      </view>
+      <view class="message-date"><text>12:21</text></view>
+    </view>
+  </view>
+</view>

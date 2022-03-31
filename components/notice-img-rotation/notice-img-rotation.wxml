@@ -1,0 +1,8 @@
+<view class="notiece-img">
+  <swiper autoplay="true" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#039d71" circular>
+    <swiper-item>轮播图（展示重要公告）
+    </swiper-item>
+    <swiper-item>轮播图（展示重要公告）
+    </swiper-item>
+  </swiper>
+</view>

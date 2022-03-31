@@ -1,2 +1,29 @@
-<!--pages/record/record.wxml-->
-<text>pages/record/record.wxml</text>
+<view class="record-wrap">
+  <picker>
+    <view class="header">
+      <text>2021-2022学年 第2学期</text>
+      <text>切换 ></text>
+    </view>
+  </picker>
+  <view class="record-main">
+    <view class="main-left">
+      <view class="record-all">
+        <view class="record-type">
+          <text class="type-name">所有运动</text>
+          <text class="type-date">2021/02/11</text>
+        </view>
+        <view class="record-time">
+          <text class="time-num">{{35}}</text>
+          <text class="time-unit">min</text>
+        </view>
+      </view>
+      <view class="record-item"><record-card name="网球"></record-card></view>
+      <view class="record-item"><record-card name="羽毛球"></record-card></view>
+    </view>
+    <view class="main-right">
+      <view class="record-item"><record-card name="篮球" number="{{35}}"></record-card></view>
+      <view class="record-item"><record-card name="排球"></record-card></view>
+      <view class="record-item"><record-card name="足球"></record-card></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+<view class="notiece-text">
+    <swiper autoplay="true" vertical="true" circular>
+      <swiper-item>文字公告滚动轮播</swiper-item>
+      <swiper-item>文字公告滚动轮播</swiper-item>
+    </swiper>
+  </view>

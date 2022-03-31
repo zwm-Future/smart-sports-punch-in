@@ -1,7 +1,9 @@
 .my-bg {
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
   position: relative;
-  height: 112px;
+  height: 15.5vh;
 }
 .my-bg .bg-img {
   position: absolute;
@@ -14,7 +16,7 @@
   display: flex;
   align-items: center;
   height: 71px;
-  padding: 25px 0 0 30px;
+  margin-left: 60rpx;
 }
 .person-container .person-avatar {
   width: 128rpx;
@@ -36,13 +38,13 @@
 }
 
 .my-list {
-  padding: 5px 20px 0 20px;
+  padding: .5vh 40rpx 0 40rpx;
 }
 
 .my-list .list-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
+  height: 5.54vh;
   color: #9EA1A7;
 }

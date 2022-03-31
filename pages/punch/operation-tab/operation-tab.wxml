@@ -1,0 +1,4 @@
+<view class="operation-container">
+  <!-- <view class="refresh">刷新</view> -->
+  <pause-btn></pause-btn>
+</view>

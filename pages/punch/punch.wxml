@@ -1,7 +1,10 @@
 <view class="punch-wrap">
   <map id="map" name="punch-map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="true"
     show-scale="true" enable-rotate min-scale="8" max-scale="20" polygons="{{polygons}}" markers="{{markers}}">
-    <view class="type-wrap" hidden="{{mode == 1}}">
+    <top-bar bindtoLocation="handleToLocation" class="top-bar-wrap"></top-bar>
+    <!-- <punch-card class="punch-card-wrap"></punch-card> -->
+    <operation-tab class="operation-tab-wrap"></operation-tab>
+    <!-- <view class="type-wrap" hidden="{{mode == 1}}">
       <view class="type-title">
         <image class="title-icon" src="/img/map/Indicator@3x.png"></image>
         <text class="title-text">运动打卡区域</text>
@@ -21,24 +24,24 @@
         </view>
       </picker>
       <button class="punch-btn" bindtap="bindBegin">开始运动打卡</button>
-    </view>
-    <view class="collect-wrap" hidden="{{mode == 2}}">
+    </view> -->
+    <!-- <view class="collect-wrap" hidden="{{mode == 2}}">
       <view class="collect-header">
         <view>
          <view>
           <image class="header-icon" src="/img/map/Indicator@3x.png"></image>
-          <!-- <text class="header-text">运动打卡区域</text> -->
+          <text class="header-text">运动打卡区域</text>
           <input class="header-text" type="text" value="{{typeName}}" bindinput="bindInput" name="typeName" maxlength="20" placeholder="请输入打卡名称" placeholder-class="header-placeholder-text"/>
          </view>
         </view>
         <button class="collect-confirm" bindtap="bindSubmitPoint">确定</button>
       </view>
       <view class="collect-main">
-        <!-- <text class="collect-back">撤回</text> -->
-        <!-- <text class="collect-go">前进</text> -->
+        <text class="collect-back">撤回</text>
+        <text class="collect-go">前进</text>
       </view>
       <button class="cellect-btn" bindtap="bindSetPoint">踩点</button>
-    </view>
+    </view> -->
     <!-- <view class="count-down-mask">
         <view class="circle-out center"></view>
         <view class="circle-middle center"></view>
@@ -68,7 +71,15 @@
         </view>
       </view>
     </view> -->
-    <view class="move-current-btn" bindtap="moveToLocation"></view>
-    <view class="turn-mode-btn" bindtap="turnMode"></view>
+    <!-- <view class="move-current-btn" bindtap="moveToLocation">
+      <view class="location-block">
+        <image class="location-img" src="/img/map/定位.png" alt="" />
+      </view>
+    </view> -->
+    <!-- <view class="turn-mode-btn" bindtap="turnMode">
+      <view class="turn-mode-block">
+        <image class="turn-mode-img" src="/img/map/转换.png" alt="" />
+      </view>
+    </view> -->
   </map>
 </view>

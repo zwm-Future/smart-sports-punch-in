@@ -3,7 +3,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100px;
+  height: 14vh;
   padding: 0 68rpx 0 68rpx;
   background: #FFF;
   display: flex;
@@ -39,7 +39,7 @@
 .bulge .image{
   position: absolute;
   width: 220rpx;
-  top: -35px;
+  top: -27.5%;
 }
 
 .tab-bar-item .tab-bar-view {

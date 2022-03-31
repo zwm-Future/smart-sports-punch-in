@@ -1,6 +1,9 @@
 // custom-tar-bar/index.js
 Component({
   data: {
+    //是否隐藏
+    hide:false,
+    // 当前选中 index
     selected:null,
     color: "#9EA1A7",
     selectedColor: "#44CAAC",

@@ -1,0 +1,19 @@
+.notiece-img {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 1.38vh;
+}
+.notiece-img  swiper{
+  height: 21vh;
+  background-color: #44CAAC;
+  border-radius: 16rpx;
+  box-shadow: 2rpx 2rpx 2rpx 2rpx  #efeff1;
+}
+.notiece-img swiper-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bolder;
+  color:#fff;
+}

@@ -6,10 +6,6 @@ import {
 const showTip = require('../../public/showTip');
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     latitude: 0,
     longitude: 0,
@@ -26,27 +22,17 @@ Page({
         longitude: 115.29511
       }],
       strokeWidth: 2,
-      strokeColor: '#ccc000',
-      fillColor: '#ccc00015',
+      strokeColor: '#e9686b',
+      fillColor: '#e9686b15',
       level: 'abovebuildings'
     }],
-    //校区
-    typeCampusArray:['大学城校区','龙洞校区'],
-    //区域选择器选择值
-    selectCampusIndex: 0,
-    //区域选择器数组
-    typeArray: [],
-    //区域选择器选择值
-    selectIndex: 0,
     //标记点
-    markers: [],
+    // markers: [],
     //新增打卡区域名称
     typeName: '',
     //模式 打卡 / 踩点
-    mode: 1
+    mode: 2
   },
-  //所有区域
-  allArea: [],
   //当前经纬度
   currentLatitude: 0,
   currentLongitude: 0,
@@ -59,42 +45,50 @@ Page({
   isBegin: false,
   //定时器
   sendTimer: null,
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
-    getAllSportType()
-      .then(res => {
-        //初始化位置选择
-        let {
-          polygons
-        } = this.data;
-        let typeArray = []
-        let points = [];
-        this.allArea = res.data;
-        this.allArea.map((item, index) => {
-          //初始化范围
-          if (index == 0) {
-            item.point.forEach((item) => {
-              console.log(item);
-              points.push({
-                latitude: item.latitude,
-                longitude: item.longitude
-              });
-            })
-          }
-          typeArray[index] = item.name;
-        })
-        console.log(points);
-        polygons[0].points = [...points]
-        this.setData({
-          typeArray,
-          // polygons
-        })
-      })
-      .catch(res => {
-        console.log(res);
-      })
+    // this.getAllArea();
+    // getAllSportType()
+    //   .then(res => {
+    //     //初始化位置选择
+    //     let {
+    //       polygons
+    //     } = this.data;
+    //     let typeArray = []
+    //     let points = [];
+    //     this.allArea = res.data;
+    //     this.allArea.map((item, index) => {
+    //       //初始化范围
+    //       if (index == 0) {
+    //         item.point.forEach((item) => {
+    //           console.log(item);
+    //           points.push({
+    //             latitude: item.latitude,
+    //             longitude: item.longitude
+    //           });
+    //         })
+    //       }
+    //       typeArray[index] = item.name;
+    //     })
+    //     console.log(points);
+    //     polygons[0].points = [...points]
+    //     this.setData({
+    //       typeArray,
+    //       // polygons
+    //     })
+    //   })
+    //   .catch(res => {
+    //     console.log(res);
+    //   })
+  },
+
+  getAllArea: async function () {
+    try {
+      const res = await getAllSportType();
+      console.log(res);
+    } catch (msg) {
+      showTip.Alert(msg);
+    }
   },
 
   realTimeLocaton: function (res) {
@@ -103,11 +97,6 @@ Page({
     this.preLongitude = this.currentLongitude;
     this.currentLatitude = res.latitude;
     this.currentLongitude = res.longitude;
-  },
-  bindCampusChange: function (e) {
-    this.setData({
-      selectCampusIndex: e.detail.value,
-    })
   },
   bindPickerChange: function (e) {
     let {
@@ -130,9 +119,7 @@ Page({
       polygons
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+
   onReady: function () {
     this.mapCtx = wx.createMapContext('map');
     this.mapCtx.setLocMarkerIcon({
@@ -142,157 +129,243 @@ Page({
   moveToLocation: function () {
     this.mapCtx.moveToLocation()
   },
-  turnMode: function () {
-    let {
-      mode
-    } = this.data;
-    mode = mode == 1 ? 2 : 1;
-    this.setData({
-      mode
-    })
-  },
-  bindBegin: function () {
-    if (!this.inSide) {
-      showTip.Alert('请进入区域内再开始!');
-      return;
-    } else {
-      showTip.Alert('打卡成功!');
-    }
+  // turnMode: function () {
+  //   let {
+  //     mode
+  //   } = this.data;
+  //   mode = mode == 1 ? 2 : 1;
+  //   this.setData({
+  //     mode
+  //   })
+  // },
 
-  },
+  // bindInput: function (e) {
+  //   console.log(e);
+  //   this.setData({
+  //     typeName: e.detail.value
+  //   })
+  // },
+  // bindSetPoint: function () {
+  //   let {
+  //     markers
+  //   } = this.data;
+  //   const order = markers.length;
+  //   showTip.Loading(false,'踩点中，请稍后...');
+  //   wx.getLocation({
+  //     type: 'gcj02',
+  //     isHighAccuracy: true,
+  //     highAccuracyExpireTime: 5000,
+  //     success: (res) => {
+  //       console.log('踩点成功', res);
+  //       let isSame = false;
+  //       const {
+  //         latitude,
+  //         longitude
+  //       } = res;
+  //       isSame = markers.some(item => item.latitude == latitude && item.longitude == longitude);
+  //       if (!isSame) {
+  //         let marker = {
+  //           id,
+  //           latitude,
+  //           longitude,
+  //           order
+  //         }
+  //         let id = markers.length + 1;
+  //         markers = [...markers, marker];
+  //         this.setData({
+  //           markers
+  //         })
+  //       } else {
+  //         showTip.Alert('距离太近,请重新踩点!')
+  //       }
+  //       showTip.LoadingOff()
+  //     },
+  //     fail: (res) => {
+  //       showTip.Alert('操作太快，请稍后重试！')
+  //     }
+  //   })
+  // },
+  // bindSubmitPoint: function () {
+  //   const {
+  //     markers,
+  //     typeName
+  //   } = this.data;
+  //   const name = '篮球场';
+  //   if (markers.length < 3) {
+  //     showTip.Alert('标记点数应不少于3个!');
+  //     return;
+  //   }
+  //   if (typeName == '') {
+  //     showTip.Alert('请输入打卡名称!');
+  //     return;
+  //   }
+  //   addArea(typeName, markers)
+  //     .then(res => {
+  //       showTip.Alert('新增打卡区域成功');
+  //       console.log(res);
+  //     })
+  //     .catch(res => {
+  //       showTip.Alert('新增打卡区域失败');
+  //       console.log(res);
+  //     })
+  // },
 
-  bindInput: function (e) {
-    console.log(e);
-    this.setData({
-      typeName: e.detail.value
-    })
-  },
-  bindSetPoint: function () {
-    let {
-      markers
-    } = this.data;
-    const order = markers.length;
+  //出现设置当前定位
+  setLocation: function () {
+    showTip.Loading(false, '定位中...');
     wx.getLocation({
       type: 'gcj02',
       isHighAccuracy: true,
       highAccuracyExpireTime: 5000,
       success: (res) => {
-        console.log('踩点成功', res);
-        let isSame = false;
         const {
           latitude,
           longitude
         } = res;
-        isSame = markers.some(item => item.latitude == latitude && item.longitude == longitude);
-        if (!isSame) {
-          let marker = {
-            id,
-            latitude,
-            longitude,
-            order
-          }
-          let id = markers.length + 1;
-          markers = [...markers, marker];
-          this.setData({
-            markers
-          })
-        } else {
-          showTip.Alert('距离太近,请重新踩点!')
-        }
-
+        this.setData({
+          latitude,
+          longitude
+        })
+        showTip.LoadingOff();
       },
       fail: (res) => {
-        showTip.Alert('操作太快，请稍后重试！')
+        showTip.Alert('信号有点差，请稍后重试！')
       }
     })
   },
-  bindSubmitPoint: function () {
-    const {
-      markers,
-      typeName
-    } = this.data;
-    const name = '篮球场';
-    if (markers.length < 3) {
-      showTip.Alert('标记点数应不少于3个!');
-      return;
-    }
-    if (typeName == '') {
-      showTip.Alert('请输入打卡名称!');
-      return;
-    }
-    addArea(typeName, markers)
-      .then(res => {
-        showTip.Alert('新增打卡区域成功');
-        console.log(res);
-      })
-      .catch(res => {
-        showTip.Alert('新增打卡区域失败');
-        console.log(res);
-      })
+  handleToLocation: function () {
+    this.hideTabBar();
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
+  //开启定时器
+  setTimer: function () {
+    this.sendTimer = setInterval(async () => {
+      try {
+        //当前定位未改变 不请求
+        if (this.preLatitude == this.currentLatitude && this.preLongitude == this.currentLongitude) return;
+        console.log(111);
+        const res = stayArea(this.allArea[this.data.selectIndex].id, this.currentLatitude, this.currentLongitude);
+        if (res.code == 1) {
+          //修改区域颜色
+          if (!this.inSide) {
+            let {
+              polygons
+            } = this.data;
+            polygons[0].strokeColor = '#44CAAC';
+            polygons[0].fillColor = '#44CAAC15';
+            this.setData({
+              polygons
+            })
+          }
+          this.inSide = true;
+        } else {
+          //修改区域颜色
+          if (this.inSide) {
+            let {
+              polygons
+            } = this.data;
+            polygons[0].strokeColor = '#e9686b';
+            polygons[0].fillColor = '#e9686b15';
+            this.setData({
+              polygons
+            })
+          }
+          this.inSide = false;
+          console.log(res.message);
+        }
+        console.log(222);
+        this.preLatitude = this.currentLatitude;
+        this.preLongitude = this.currentLongitude;
+        // stayArea(this.allArea[this.data.selectIndex].id, this.currentLatitude, this.currentLongitude)
+        //   .then(res => {
+        //     if (res.code == 1) {
+        //       //修改区域颜色
+        //       if (!this.inSide) {
+        //         let {
+        //           polygons
+        //         } = this.data;
+        //         polygons[0].strokeColor = '#44CAAC';
+        //         polygons[0].fillColor = '#44CAAC15';
+        //         this.setData({
+        //           polygons
+        //         })
+        //       }
+        //       this.inSide = true;
+        //     } else {
+        //       //修改区域颜色
+        //       if (this.inSide) {
+        //         let {
+        //           polygons
+        //         } = this.data;
+        //         polygons[0].strokeColor = '#e9686b';
+        //         polygons[0].fillColor = '#e9686b15';
+        //         this.setData({
+        //           polygons
+        //         })
+        //       }
+        //       this.inSide = false;
+        //       console.log(res.message);
+        //     }
+        //     console.log(222);
+        //     this.preLatitude = this.currentLatitude;
+        //     this.preLongitude = this.currentLongitude;
+        //   })
+      } catch (msg) {
+        showTip.Alert(msg);
+      }
+    }, 1000)
+  },
+
+  //关闭定时器
+  closeTimer: function () {
+    clearInterval(this.sendTimer);
+  },
+
+  getTry: function () {
+    console.log(123);
+  },
+  //隐藏TarBar
+  hideTabBar:function() {
+    const tabbar = typeof this.getTabBar === 'function' ? this.getTabBar() : '' ;
+    tabbar ? tabbar.setData({hide:true}) : '未知错误'
+  },
+  //显示TarBar
+  showTabBar:function() {
+    const tabbar = typeof this.getTabBar === 'function' ? this.getTabBar() : '' ;
+    tabbar ? tabbar.setData({hide:false}) : '未知错误'
+  },
   onShow: function () {
+    const {
+      typeArray
+    } = this.data;
+    //tarbar切换
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         selected: 1
       })
     }
+    //是否有可选项
+    // if (typeArray.length < 1) {
+    //   console.log(typeArray.length);
+    //   this.getAllArea();
+    // }
+    //开启持续定位
     wx.startLocationUpdateBackground({
       type: "gcj02",
       success: (res) => {
         console.log('前后台位置开始接收', res);
-        this.sendTimer = setInterval(() => {
-          if (this.preLatitude == this.currentLatitude && this.preLongitude == this.currentLongitude) return;
-          console.log(111);
-          stayArea(this.allArea[this.data.selectIndex].id, this.currentLatitude, this.currentLongitude)
-            .then(res => {
-              if (res.code == 1) {
-                //修改区域颜色
-                if (!this.inSide) {
-                  let {
-                    polygons
-                  } = this.data;
-                  polygons[0].strokeColor = '#44CAAC';
-                  polygons[0].fillColor = '#44CAAC15';
-                  this.setData({
-                    polygons
-                  })
-                }
-                this.inSide = true;
-              } else {
-                //修改区域颜色
-                if (this.inSide) {
-                  let {
-                    polygons
-                  } = this.data;
-                  polygons[0].strokeColor = '#ccc000';
-                  polygons[0].fillColor = '#ccc00015';
-                  this.setData({
-                    polygons
-                  })
-                }
-                this.inSide = false;
-                console.log(res.message);
-              }
-              console.log(222);
-              this.preLatitude = this.currentLatitude;
-              this.preLongitude = this.currentLongitude;
-            })
-        }, 1000)
-        wx.onLocationChange(this.realTimeLocaton)
+        // this.setLocation();
+        // wx.onLocationChange(this.realTimeLocaton)
       },
-      fail: function (res) {
+      fail: (res) => {
+        console.log(123);
+        this.getTry();
         console.log('前后台位置启动失败', res);
       }
     })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
+    console.log('hide');
     wx.offLocationChange(this.realTimeLocaton)
     wx.stopLocationUpdate({
       success: (res) => {
@@ -302,37 +375,5 @@ Page({
     clearInterval(this.sendTimer);
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    wx.offLocationChange(this.realTimeLocaton)
-    wx.stopLocationUpdate({
-      success: (res) => {
-        console.log('关闭位置接收', res);
-      }
-    })
-    clearInterval(this.sendTimer);
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  onUnload: function () {},
 })

@@ -23,6 +23,31 @@
           "pathName": "pages/punch/punch",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "通知公告",
+          "pathName": "pages/notice/notice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "运动记录",
+          "pathName": "pages/record/record",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "消息中心",
+          "pathName": "pages/message/message",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "波形组件动画",
+          "pathName": "pages/task/task",
+          "query": "",
+          "scene": null,
+          "launchMode": "default"
         }
       ]
     }

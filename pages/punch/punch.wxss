@@ -4,63 +4,78 @@ map {
   height: 100vh;
 }
 
-.type-wrap {
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 130px;
-  left: 49rpx;
-  width: 652rpx;
-  height: 206px;
-  padding: 0 30rpx;
-  font-size: 16px;
-  color:#fff;
-  background: linear-gradient(to left,#44caac,#44c2ca);
-  border-radius: 10px;
-}
-.type-wrap .type-title {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 54px;
-}
-.type-wrap .type-title .title-icon{
-  width: 22px;
-    height: 22px;
-}
-.type-wrap .type-title .title-text{
-  font-weight: bolder;
-}
-.type-wrap .select-type-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-.select-type-container .type-name {
-  font-weight: bold;
-}
-.select-type-container .change-text {
-  text-decoration: underline;
-}
-.type-wrap .punch-btn {
-  width: 100%;
-  height: 47px;
-  /* line-height: 47px; */
-}
-.move-current-btn {
+.top-bar-wrap {
   position: absolute;
   top: 0;
   left: 0;
-  width: 40px;
-  height: 40px;
-  background-color: pink;
+  right: 0;
+  margin: 0 auto;
+  width: 652rpx;
+  height: 10vh;
+  overflow: hidden;
 }
+
+.punch-card-wrap {
+  position: absolute;
+  bottom: 130px;
+  left: 0;
+  right: 0;
+  width: 652rpx;
+  height: 206px;
+  margin: 0 auto;
+}
+.operation-tab-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 20.8vh;
+}
+.move-current-btn {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 80rpx;
+}
+
+.move-current-btn .location-block {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.move-current-btn .location-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
 .turn-mode-btn {
   position: absolute;
   top: 0;
   right: 0;
-  width: 40px;
-  height: 40px;
-  background-color: blue;
+  width: 80rpx;
+}
+
+.turn-mode-btn .turn-mode-block {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.turn-mode-btn .turn-mode-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
 }
 
 .count-down-mask {
@@ -71,23 +86,27 @@ map {
   background-color: #44caac;
   z-index: 99;
 }
+
 .count-down-mask .center {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 50%;
 }
+
 .count-down-mask .circle-out {
   width: 1314rpx;
   height: 1314rpx;
   background-color: #51ceb2
 }
+
 .count-down-mask .circle-middle {
   width: 894rpx;
   height: 894rpx;
   background-color: #5fd2b8;
 }
+
 .count-down-mask .circle-in {
   width: 422rpx;
   height: 422rpx;
@@ -96,7 +115,7 @@ map {
 
 .count-down-mask .count-num {
   font-size: 120px;
-  color:#fff;
+  color: #fff;
   text-shadow: 0 2px 4px #00000050;
 }
 
@@ -112,11 +131,12 @@ map {
   height: 78px;
   padding: 0 30rpx;
   font-size: 16px;
-  color:#000;
+  color: #000;
   background: #fff;
   border-radius: 10px;
 }
-.sport-stauts-container .status-item{
+
+.sport-stauts-container .status-item {
   display: flex;
 }
 
@@ -135,9 +155,10 @@ map {
   font-size: 16px;
   font-weight: bolder;
 }
+
 .num-box .unit {
   font-size: 14px;
-  color:#9EA1A7;
+  color: #9EA1A7;
   font-weight: 500;
 }
 
@@ -151,8 +172,8 @@ map {
   height: 156px;
   padding: 0 30rpx;
   font-size: 16px;
-  color:#fff;
-  background: linear-gradient(to left,#44caac,#44c2ca);
+  color: #fff;
+  background: linear-gradient(to left, #44caac, #44c2ca);
   border-radius: 10px;
 }
 
@@ -163,27 +184,30 @@ map {
   width: 100%;
   height: 54px;
 }
-.collect-header .header-icon{
+
+.collect-header .header-icon {
   width: 22px;
   height: 22px;
 }
 
 .collect-header .header-placeholder-text {
   font-size: 14px;
-  color:#abc5e8;
+  color: #abc5e8;
   font-weight: 400;
 }
-.collect-header .header-text{
+
+.collect-header .header-text {
   display: inline-block;
   height: 21px;
   font-size: 14px;
-  color:#f0fbf9;
+  color: #f0fbf9;
   font-weight: 400;
   padding: 0 20rpx;
   background-color: #7ff5db;
   border-radius: 5rpx;
   font-weight: bolder;
 }
+
 .collect-header .collect-confirm {
   box-sizing: border-box !important;
   padding: 0;
@@ -192,6 +216,7 @@ map {
   height: 22px;
   font-size: 16px;
 }
+
 .collect-wrap .collect-main {
   display: flex;
   justify-content: space-between;

@@ -1,0 +1,9 @@
+<view class="container" wx:if="{{show}}">
+  <view class="circle-item circle-inner">
+    <view class="count-num"
+    animation="{{animationData}}"
+    >{{count}}</view>
+  </view>
+  <view class="circle-item circle-middle"></view>
+  <view class="circle-item circle-out"></view>
+</view>

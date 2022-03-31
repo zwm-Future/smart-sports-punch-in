@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "pause-btn":"/components/pause-btn/pause-btn"
+  }
+}

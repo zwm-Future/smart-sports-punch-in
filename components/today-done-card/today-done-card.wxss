@@ -1,0 +1,57 @@
+today-done-wrap {
+  height: 11.37vh;
+  margin-top: 2.08vh;
+}
+ 
+.today-done-wrap .today-done {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding:5% 0;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px 5px #efeff1;
+}
+
+.today-done .done-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48%;
+  padding: 0 60rpx;
+}
+
+.done-title .tip-text {
+  font-size: 14px;
+  color: #9EA1A7;
+  font-weight: 500;
+}
+
+.done-title .detail-text {
+  font-size: 10px;
+  color: #9EA1A7;
+  font-weight: 500;
+}
+
+.today-done .done-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 52%;
+  padding: 0 160rpx;
+  font-weight: bolder;
+  color: #44CAAC;
+}
+
+.done-main .done-type {
+  font-size: 24px;
+  font-weight: 600;
+  color: #44CAAC;
+}
+
+.done-time .time-num {
+  font-size: 36px;
+}
+
+.done-time .time-unit {
+  font-size: 16px;
+}

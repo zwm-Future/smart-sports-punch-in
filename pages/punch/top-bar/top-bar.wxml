@@ -1,0 +1,5 @@
+<view class="top-bar">
+  <image bindtap="ToLoaction" class="top-bar-icon" mode="widthFix" src="/img/map/location.png"></image>
+  <text>请在有效区域内进行定位</text>
+  <image class="top-bar-icon" mode="widthFix" src="/img/map/GPS_high.png"></image>
+</view>

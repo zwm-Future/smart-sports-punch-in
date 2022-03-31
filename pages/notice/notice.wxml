@@ -1,2 +1,39 @@
 <!--pages/notice/notice.wxml-->
-<text>pages/notice/notice.wxml</text>
+<view class="notice-wrap">
+  <view class="notice-item">
+    <view class="notice-title">【重要通知】</view>
+    <view class="notice-foot">
+      <view class="notice-publisher">
+        <text>发布者 客服</text>
+      </view>
+      <view class="notice-time">2022.02.12</view>
+    </view>
+  </view>
+  <view class="notice-item">
+    <view class="notice-title">【重要通知】</view>
+    <view class="notice-foot">
+      <view class="notice-publisher">
+        <text>发布者 客服</text>
+      </view>
+      <view class="notice-time">2022.02.12</view>
+    </view>
+  </view>
+  <view class="notice-item">
+    <view class="notice-title">【重要通知】</view>
+    <view class="notice-foot">
+      <view class="notice-publisher">
+        <text>发布者 客服</text>
+      </view>
+      <view class="notice-time">2022.02.12</view>
+    </view>
+  </view>
+  <view class="notice-item">
+    <view class="notice-title">【重要通知】</view>
+    <view class="notice-foot">
+      <view class="notice-publisher">
+        <text>发布者 客服</text>
+      </view>
+      <view class="notice-time">2022.02.12</view>
+    </view>
+  </view>
+</view>

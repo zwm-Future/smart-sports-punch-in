@@ -1,2 +1,4 @@
-<!--pages/task/task.wxml-->
-<text>pages/task/task.wxml</text>
+<view>
+  <button bindtap="showWave">click</button>
+    <wave_bg id="wave_bg" bindcountEnd="{{handleCountEnd}}"></wave_bg>
+</view>
