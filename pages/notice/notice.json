@@ -1,5 +1,8 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "pause-btn":"/components/pause-btn/pause-btn",
+    "continue-btn":"/components/continue-btn/continue-btn"
+  },
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "通知公告",

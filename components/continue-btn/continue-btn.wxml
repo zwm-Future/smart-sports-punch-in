@@ -1,0 +1,10 @@
+<view class="continue-btn-wrap">
+  <button class="btn" hover-class="click-color">
+    <view class="main-rectangle-wrap">
+      <view class="main-rectangle">
+        <view class="rectangle-top"></view>
+        <view class="rectangle-buttom"></view>
+      </view>
+    </view>
+  </button>
+</view>
