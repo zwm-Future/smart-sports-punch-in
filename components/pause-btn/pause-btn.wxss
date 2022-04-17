@@ -23,6 +23,11 @@ button::after {
   background-color: #fa5151;
   border-radius: 50%;
 }
+
+.click-color {
+  background-color: #fa5151 !important;
+  opacity: .7;
+}
 .btn-wrap .white-strip {
   position: absolute;
   width: 8%;

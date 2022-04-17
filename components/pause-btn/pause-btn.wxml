@@ -1,5 +1,6 @@
 <view class="btn-wrap">
-  <button class="btn"></button>
-  <view class="white-strip left"></view>
-  <view class="white-strip right"></view>
+  <button class="btn" hover-class="click-color">
+    <view class="white-strip left"></view>
+    <view class="white-strip right"></view>
+  </button>
 </view>
