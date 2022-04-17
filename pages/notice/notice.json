@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "pause-btn":"/components/pause-btn/pause-btn",
-    "continue-btn":"/components/continue-btn/continue-btn"
+    "continue-btn":"/components/continue-btn/continue-btn",
+    "end-btn":"/components/end-btn/end-btn"
   },
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",

@@ -1,0 +1,20 @@
+<view class="btn-wrap" bindlongpress="handleLongpress" bindtouchend="handleTouchEnd">
+  <view class="btn-main">
+    <button class="btn"></button>
+    <view class="square-white"></view>
+  </view>
+  <view class="circle_process">
+    <view class="wrapper right">
+      <view class="circle rightcircle" class="{{className + ' ' + ' circle rightcircle'}}">
+        <view class="circle-inner"></view>
+        <view class="retangle-inner"></view>
+      </view>
+    </view>
+    <view class="wrapper left">
+      <view class="circle leftcircle"  class="{{className + ' ' + ' circle leftcircle'}}">
+        <view class="circle-inner"></view>
+        <view class="retangle-inner"></view>
+      </view>
+    </view>
+  </view>
+</view>
