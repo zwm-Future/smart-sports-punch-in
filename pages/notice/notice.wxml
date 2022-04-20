@@ -39,4 +39,5 @@
   <pause-btn></pause-btn>
   <continue-btn></continue-btn>
   <end-btn></end-btn>
+  <count-circle></count-circle>
 </view>
