@@ -1,6 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "pause-btn":"/components/pause-btn/pause-btn"
+    "pause-btn":"/components/pause-btn/pause-btn",
+    "continue-btn":"/components/continue-btn/continue-btn",
+    "end-btn":"/components/end-btn/end-btn"
   }
 }

@@ -1,6 +1,26 @@
 .operation-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   width: 100%;
   height: 100%;
   background-color: #fff;
   border-radius: 65rpx 65rpx 0 0 ;
+}
+.pause-btn-wrap {
+  width: 138rpx;
+  height: 138rpx;
+}
+
+.continue-btn-wrap {
+  position: relative;
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.end-btn-wrap {
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+  z-index: 99;
 }

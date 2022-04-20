@@ -8,12 +8,14 @@
       <view class="circle rightcircle" class="{{className + ' ' + ' circle rightcircle'}}">
         <view class="circle-inner"></view>
         <view class="retangle-inner"></view>
+        <view hidden="{{className != 'animation'}}" class="circle-precess-wrap"></view>
       </view>
     </view>
     <view class="wrapper left">
-      <view class="circle leftcircle"  class="{{className + ' ' + ' circle leftcircle'}}">
+      <view class="circle leftcircle" class="{{className + ' ' + ' circle leftcircle'}}">
         <view class="circle-inner"></view>
         <view class="retangle-inner"></view>
+        <view hidden="{{className != 'animation'}}" class="circle-precess-wrap"></view>
       </view>
     </view>
   </view>

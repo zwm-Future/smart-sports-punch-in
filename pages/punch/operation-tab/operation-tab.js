@@ -18,6 +18,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    hanlePause:function () {
+      console.log('press pause');
+    },
+    handleContinue:function () {
+      console.log('press continue');
+    }
   }
 })

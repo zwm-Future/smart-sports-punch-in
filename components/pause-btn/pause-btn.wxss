@@ -14,7 +14,8 @@ button::after {
 }
 .btn-wrap {
   position: relative;
-  width: 138rpx;
+  width: 100%;
+  height: 100%;
 }
 .btn-wrap .btn {
   width: 100% !important;

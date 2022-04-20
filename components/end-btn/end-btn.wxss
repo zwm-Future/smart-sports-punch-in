@@ -1,7 +1,6 @@
 @keyframes circle_right {
   0% {
       transform: rotate(-135deg);
-      width: 200%;
   }
 
   50%,
@@ -15,7 +14,6 @@
   0%,
   50% {
       transform: rotate(-135deg);
-      width: 200%;
   }
 
   100% {
@@ -28,9 +26,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 130rpx;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
+
 
 .btn-wrap .btn-main {
   width: 100% !important;
@@ -102,7 +102,7 @@
   border-radius: 50%;
   position: absolute;
   top: 0;
-  background-color: green;
+  background-color: #fa5151;
   transform: rotate(-135deg);
 }
 
@@ -113,10 +113,11 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   border-radius: 50%;
   background-color: #fff;
+  z-index: 2;
 }
 
 .circle .retangle-inner {
@@ -146,19 +147,20 @@
   transform-origin: left center;
 }
 
-/* .btn-wrap:hover .circle_process .rightcircle {
-  animation: circle_right 1s linear 1 forwards;
+.circle-precess-wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fdb9b9;
+  opacity: .4;
+  border-radius: 50%;
 }
-
-.btn-wrap:hover .circle_process .leftcircle {
-  animation: circle_left 1s linear 1 forwards;
-} */
 
 
 .circle_process .rightcircle.animation {
-animation: circle_right 1s linear 1 forwards;
+  animation: circle_right 1s linear 1 forwards;
 }
 
 .circle_process .leftcircle.animation {
-animation: circle_left 1s linear 1 forwards;
+  animation: circle_left 1s linear 1 forwards;
 }

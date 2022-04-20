@@ -1,8 +1,8 @@
-<view class="count-circle-wrap">
+<view class="count-circle-wrap" >
   <view class="count-circle-container">
     <view class="count-main">
       <view class="title">已运动时长</view>
-      <view class="count-time">03:00</view>
+      <view class="count-time">{{times}}</view>
     </view>
   </view>
 </view>

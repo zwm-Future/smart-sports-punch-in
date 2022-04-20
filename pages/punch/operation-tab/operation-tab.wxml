@@ -1,4 +1,6 @@
 <view class="operation-container">
   <!-- <view class="refresh">刷新</view> -->
-  <pause-btn></pause-btn>
+  <!-- <view class="pause-btn-wrap"><pause-btn bindhanlePause="hanlePause"></pause-btn></view> -->
+  <view class="continue-btn-wrap"><continue-btn bindhandleContinue="handleContinue"></continue-btn></view>
+  <view class="end-btn-wrap"><end-btn bindhandleContinue="handleContinue"></end-btn></view>
 </view>

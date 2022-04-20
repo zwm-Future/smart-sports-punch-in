@@ -38,6 +38,6 @@
   </view>
   <pause-btn></pause-btn>
   <continue-btn></continue-btn>
-  <end-btn></end-btn>
+  <view class="end-btn-wrap"><end-btn bindhandleContinue="handleContinue"></end-btn></view>
   <count-circle></count-circle>
 </view>

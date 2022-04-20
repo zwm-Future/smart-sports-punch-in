@@ -1,4 +1,4 @@
-<view class="continue-btn-wrap">
+<view class="continue-btn-wrap" bindtap="handleContinue">
   <button class="btn" hover-class="click-color">
     <view class="main-rectangle-wrap">
       <view class="main-rectangle">
