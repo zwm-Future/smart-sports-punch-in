@@ -19,35 +19,35 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    start:function () {
+    _start:function () {
       count = 0;
       clearInterval(timer);
       timer = setInterval(() => {
         count++;
-        const times = this.countToTimes(count);
+        const times = this._countToTimes(count);
         this.setData({
           times
         })
       },1000)
     },
-    stop:function () {
+    _pause:function () {
       clearInterval(timer);
     },
-    continue:function () {
+    _continue:function () {
       clearInterval(timer);
       timer = setInterval(() => {
         count++;
-        const times = this.countToTimes(count);
+        const times = this._countToTimes(count);
         this.setData({
           times
         })
       },1000)
     },
-    getTimes:function () {
+    _getTimes:function () {
       return this.data.times;
     }
     ,
-    countToTimes:function (count) {
+    _countToTimes:function (count) {
       let seconds = count % 60;
       let minutes = parseInt(count / 60);
       seconds = seconds < 10 ?  '0' + seconds : seconds;
