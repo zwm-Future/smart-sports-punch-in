@@ -15,6 +15,15 @@ map {
   overflow: hidden;
 }
 
+.count-circle-outer {
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  transform: translate(-50%);
+  width: 320rpx;
+  height: 320rpx;
+}
+
 .punch-card-wrap {
   position: absolute;
   bottom: 130px;

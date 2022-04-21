@@ -2,8 +2,11 @@
   <map id="map" name="punch-map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="true"
     show-scale="true" enable-rotate min-scale="8" max-scale="20" polygons="{{polygons}}" markers="{{markers}}">
     <top-bar bindtoLocation="handleToLocation" class="top-bar-wrap"></top-bar>
+    <view class="count-circle-outer">
+      <count-circle id="count-circle"></count-circle>
+    </view>
     <!-- <punch-card class="punch-card-wrap"></punch-card> -->
-    <operation-tab class="operation-tab-wrap"></operation-tab>
+    <operation-tab class="operation-tab-wrap" bindhandleContinue="continueCount" bindhandlePause="pauseCount"></operation-tab>
     <!-- <view class="type-wrap" hidden="{{mode == 1}}">
       <view class="type-title">
         <image class="title-icon" src="/img/map/Indicator@3x.png"></image>

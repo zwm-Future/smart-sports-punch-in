@@ -121,6 +121,7 @@ Page({
   },
 
   onReady: function () {
+    this.countCircle = this.selectComponent('#count-circle');
     this.mapCtx = wx.createMapContext('map');
     this.mapCtx.setLocMarkerIcon({
       iconPath: '/img/map/Indicator@3x.png',
@@ -332,6 +333,14 @@ Page({
   showTabBar:function() {
     const tabbar = typeof this.getTabBar === 'function' ? this.getTabBar() : '' ;
     tabbar ? tabbar.setData({hide:false}) : '未知错误'
+  },
+  continueCount:function () {
+    console.log('continueCount');
+    this.countCircle._continue();
+  },
+  pauseCount:function () {
+    console.log('pauseCount');
+    this.countCircle._pause();
   },
   onShow: function () {
     const {
