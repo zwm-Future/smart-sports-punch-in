@@ -19,7 +19,7 @@ Component({
    */
   methods: {
     handlePause:function () {
-      this.triggerEvent('hanlePause')
+      this.triggerEvent('handlePause')
     }
   }
 })
