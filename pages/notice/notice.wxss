@@ -20,7 +20,12 @@
   font-size: 14px;
 }
 
-.continue-btn-wrap,.end-btn-wrap {
-  width: 130rpx;
-  height: 130rpx;
+.punch-card-wrap {
+  position: absolute;
+  bottom: 130px;
+  left: 0;
+  right: 0;
+  max-width: 652rpx;
+  height: 412rpx;
+  margin: 0 auto;
 }
