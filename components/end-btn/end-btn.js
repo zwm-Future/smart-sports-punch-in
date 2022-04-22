@@ -22,12 +22,11 @@ Component({
     handleLongpress:function () {
       const className = 'animation'
       timer = setTimeout(() => {
-        console.log(111);
+        this.triggerEvent('handleEnd');
       },1000)
       this.setData({
         className
       })
-      
     },
     handleTouchEnd:function () {
       clearTimeout(timer);
