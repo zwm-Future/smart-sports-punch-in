@@ -7,6 +7,8 @@ const showTip = require('../../public/showTip');
 
 Page({
   data: {
+    // 0 不运动   1 运动中
+    status:0,
     latitude: 0,
     longitude: 0,
     //指定范围区域

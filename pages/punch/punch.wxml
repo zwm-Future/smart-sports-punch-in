@@ -2,32 +2,9 @@
   <map id="map" name="punch-map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="true"
     show-scale="true" enable-rotate min-scale="8" max-scale="20" polygons="{{polygons}}" markers="{{markers}}">
     <top-bar bindtoLocation="handleToLocation" class="top-bar-wrap"></top-bar>
-    <view class="count-circle-outer">
-      <count-circle id="count-circle"></count-circle>
-    </view>
-    <!-- <punch-card class="punch-card-wrap"></punch-card> -->
-    <operation-tab class="operation-tab-wrap" bindhandleContinue="continueCount" bindhandlePause="pauseCount"></operation-tab>
-    <!-- <view class="type-wrap" hidden="{{mode == 1}}">
-      <view class="type-title">
-        <image class="title-icon" src="/img/map/Indicator@3x.png"></image>
-        <text class="title-text">运动打卡区域</text>
-      </view>
-      <picker  range="{{typeCampusArray}}" bindchange="bindCampusChange" value="{{selectCampusIndex}}"
-        bindcolumnchange="bindPickerCampusChange">
-        <view class="select-type-container">
-          <text class="type-name">{{typeCampusArray[selectCampusIndex]}}</text>
-          <text class="change-text">切换校区</text>
-        </view>
-      </picker>
-      <picker  range="{{typeArray}}" bindchange="bindPickerChange" value="{{selectIndex}}"
-        bindcolumnchange="bindMultiPickerColumnChange">
-        <view class="select-type-container">
-          <text class="type-name">{{typeArray[selectIndex]}}</text>
-          <text class="change-text">切换场地</text>
-        </view>
-      </picker>
-      <button class="punch-btn" bindtap="bindBegin">开始运动打卡</button>
-    </view> -->
+    <view class="count-circle-outer" hidden="{{!(status == 1)}}"> <count-circle id="count-circle"></count-circle> </view>
+    <view class="punch-card-wrap" hidden="{{!(status == 0)}}"><punch-card></punch-card></view>
+    <view class="operation-tab-wrap" hidden="{{!(status == 1)}}"><operation-tab bindhandleContinue="continueCount" bindhandlePause="pauseCount"></operation-tab></view>
     <!-- <view class="collect-wrap" hidden="{{mode == 2}}">
       <view class="collect-header">
         <view>
@@ -44,45 +21,6 @@
         <text class="collect-go">前进</text>
       </view>
       <button class="cellect-btn" bindtap="bindSetPoint">踩点</button>
-    </view> -->
-    <!-- <view class="count-down-mask">
-        <view class="circle-out center"></view>
-        <view class="circle-middle center"></view>
-        <view class="circle-in center"></view>
-        <view class="count-num center">3</view>
-    </view> -->
-    <!-- <view class="sport-stauts-container">
-      <view class="status-item">
-        <image class="icon"  src="/img/map/Timer@3x.png"></image>
-        <view class="num-box">
-          <text class="num">15</text>
-          <text class="unit">min</text>
-        </view>
-      </view>
-      <view class="status-item">
-        <image class="icon" src="/img/map/Calories.png"></image>
-        <view class="num-box">
-          <text class="num">218</text>
-          <text class="unit">Cal</text>
-        </view>
-      </view>
-      <view class="status-item">
-        <image class="icon"  src="/img/map/Distance.png"></image>
-        <view class="num-box">
-          <text class="num">2.15</text>
-          <text class="unit">km</text>
-        </view>
-      </view>
-    </view> -->
-    <!-- <view class="move-current-btn" bindtap="moveToLocation">
-      <view class="location-block">
-        <image class="location-img" src="/img/map/定位.png" alt="" />
-      </view>
-    </view> -->
-    <!-- <view class="turn-mode-btn" bindtap="turnMode">
-      <view class="turn-mode-block">
-        <image class="turn-mode-img" src="/img/map/转换.png" alt="" />
-      </view>
     </view> -->
   </map>
 </view>
