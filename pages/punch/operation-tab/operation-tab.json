@@ -3,6 +3,7 @@
   "usingComponents": {
     "pause-btn":"/components/pause-btn/pause-btn",
     "continue-btn":"/components/continue-btn/continue-btn",
-    "end-btn":"/components/end-btn/end-btn"
+    "end-btn":"/components/end-btn/end-btn",
+    "bottom-selector":"/components/bottom-selector/bottom-selector"
   }
 }

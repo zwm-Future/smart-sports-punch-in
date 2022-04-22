@@ -7,7 +7,11 @@
     <continue-btn bindhandleContinue="handleContinue"></continue-btn>
   </view>
   <view class="end-btn-wrap" hidden="{{mode != 1}}">
-    <end-btn bindhandleContinue="handleContinue"></end-btn>
+    <end-btn bindhandleEnd="handleEnd"></end-btn>
   </view>
-  <picker range="{{}}"></picker>
 </view>
+<bottom-selector myVisible="{{bottomSelector}}" bindmyOnCancel="handleCancleSelector">
+  <view bindtap="handleSelector">
+    <button wx:for="{{selectorArr}}" data-index="{{index}}" wx:key="index" class="selector-item {{selectorArr[index].className}}">{{selectorArr[index].text}}</button>
+  </view>
+</bottom-selector>

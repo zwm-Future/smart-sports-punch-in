@@ -13,7 +13,8 @@ Component({
   data: {
     // 0 继续  1 停止
     mode:0,
-    pickerArr:['结束运动','继续运动']
+    bottomSelector:false,
+    selectorArr:[{text:'结束运动',className:'end-class'},{text:'取消运动',className:'continue-class'}]
   },
   /**
    * 组件的方法列表
@@ -33,6 +34,22 @@ Component({
     handleContinue:function () {
       this._turnMode();
       this.triggerEvent('handleContinue')
+    },
+    handleEnd:function () {
+      this.setData({
+        bottomSelector:true
+      })
+    },
+    handleCancleSelector:function () {
+        this.setData({
+          bottomSelector:false
+        })
+    }
+    ,
+    handleSelector:function (e) {
+      if(e.target.dataset.index !=0) return;
+      this.handleCancleSelector();
+      console.log('end');
     }
   }
 })
