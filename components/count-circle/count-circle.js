@@ -1,5 +1,3 @@
-let count = 0;
-let timer = null;
 Component({
   /**
    * 组件的属性列表
@@ -12,47 +10,45 @@ Component({
    * 组件的初始数据
    */
   data: {
-    times:'00:00',
+    times: '00:00',
   },
-
+  timer: null,
+  count: 0,
   /**
    * 组件的方法列表
    */
   methods: {
-    _start:function () {
-      count = 0;
-      clearInterval(timer);
-      timer = setInterval(() => {
-        count++;
-        const times = this._countToTimes(count);
-        this.setData({
-          times
-        })
-      },1000)
+    _start: function () {
+      this.count = 0;
+      this.setData({
+        times:'00:00'
+      })
+      clearInterval(this.timer);
+      this.timer = setInterval(this._timerFunc.bind(this), 1000)
     },
-    _pause:function () {
-      clearInterval(timer);
+    _pause: function () {
+      clearInterval(this.timer);
     },
-    _continue:function () {
-      clearInterval(timer);
-      timer = setInterval(() => {
-        count++;
-        const times = this._countToTimes(count);
-        this.setData({
-          times
-        })
-      },1000)
+    _continue: function () {
+      clearInterval(this.timer);
+      this.timer = setInterval(this._timerFunc.bind(this), 1000)
     },
-    _getTimes:function () {
+    _getTimes: function () {
       return this.data.times;
-    }
-    ,
-    _countToTimes:function (count) {
+    },
+    _countToTimes: function (count) {
       let seconds = count % 60;
       let minutes = parseInt(count / 60);
-      seconds = seconds < 10 ?  '0' + seconds : seconds;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
       minutes = minutes < 10 ? '0' + minutes : minutes;
       return minutes + ':' + seconds;
+    },
+    _timerFunc: function () {
+      this.count++;
+      const times = this._countToTimes(this.count);
+      this.setData({
+        times
+      });
     }
   }
 })
