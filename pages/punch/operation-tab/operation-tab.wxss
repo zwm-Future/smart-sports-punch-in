@@ -22,7 +22,7 @@
   position: relative;
   width: 160rpx;
   height: 160rpx;
-  z-index: 99;
+  z-index: 9;
 }
 
 bottom-selector>view {

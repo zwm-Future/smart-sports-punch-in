@@ -12,44 +12,58 @@ Component({
    */
   data: {
     // 0 继续  1 停止
-    mode:0,
-    bottomSelector:false,
-    selectorArr:[{text:'结束运动',className:'end-class'},{text:'取消运动',className:'continue-class'}]
+    mode: 0,
+    bottomSelector: false,
+    selectorArr: [{
+      text: '结束运动',
+      className: 'end-class'
+    }, {
+      text: '取消运动',
+      className: 'continue-class'
+    }]
   },
   /**
    * 组件的方法列表
    */
   methods: {
-    _turnMode:function () {
-        let {mode} = this.data;
-        mode = mode ? 0 : 1;
-        this.setData({
-          mode
-        })
+    _turnMode: function () {
+      let {
+        mode
+      } = this.data;
+      mode = mode ? 0 : 1;
+      this.setData({
+        mode
+      })
     },
-    handlePause:function () {
+    handlePause: function () {
       this._turnMode();
       this.triggerEvent('handlePause')
     },
-    handleContinue:function () {
+    handleContinue: function () {
       this._turnMode();
       this.triggerEvent('handleContinue')
     },
-    handleEnd:function () {
+    //长按2s 弹底部窗口
+    handleEnd: function () {
       this.setData({
-        bottomSelector:true
+        bottomSelector: true
       })
     },
-    handleCancleSelector:function () {
+    handleCancleSelector: function () {
+      this.setData({
+        bottomSelector: false
+      })
+    },
+    //结束
+    handleSelector: function (e) {
+      if (e.target.dataset.index == 0) {
         this.setData({
-          bottomSelector:false
+          mode:0
         })
-    }
-    ,
-    handleSelector:function (e) {
-      if(e.target.dataset.index !=0) return;
+        //处理结束
+        this.triggerEvent('handleEnd');
+      }
       this.handleCancleSelector();
-      console.log('end');
     }
   }
 })
