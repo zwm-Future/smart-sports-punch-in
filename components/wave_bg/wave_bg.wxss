@@ -41,6 +41,7 @@
   height: 100vh;
   background-color: #44caac;
   overflow: hidden;
+  z-index: 999;
 }
 
 .circle-item {

@@ -20,7 +20,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    _handleCount: function () {
+    _handleCount: function (callBack) {
       this.setData({
         show:true,
         count:3
@@ -35,6 +35,7 @@ Component({
           this.setData({
             show:false
           })
+          callBack && callBack();
           return
         }
         count = count == 1 ? 'Go!' : count - 1;
