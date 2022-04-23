@@ -3,8 +3,9 @@
     show-scale="true" enable-rotate min-scale="8" max-scale="20" polygons="{{polygons}}" markers="{{markers}}">
     <top-bar bindtoLocation="handleToLocation" class="top-bar-wrap"></top-bar>
     <view class="count-circle-outer" hidden="{{!(status == 1)}}"> <count-circle id="count-circle"></count-circle> </view>
-    <view class="punch-card-wrap" hidden="{{!(status == 0)}}"><punch-card></punch-card></view>
-    <view class="operation-tab-wrap" hidden="{{!(status == 1)}}"><operation-tab bindhandleContinue="continueCount" bindhandlePause="pauseCount"></operation-tab></view>
+    <view class="punch-card-wrap" hidden="{{!(status == 0)}}"><punch-card bindhandlePunch="onPunch"></punch-card></view>
+    <view class="operation-tab-wrap" hidden="{{!(status == 1)}}"><operation-tab bindhandleContinue="continueCount" bindhandlePause="pauseCount" bindhandleEnd="end"></operation-tab></view>
+    <wave_bg id="wave_bg"></wave_bg>
     <!-- <view class="collect-wrap" hidden="{{mode == 2}}">
       <view class="collect-header">
         <view>

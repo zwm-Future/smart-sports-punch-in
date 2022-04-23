@@ -8,7 +8,7 @@ const showTip = require('../../public/showTip');
 Page({
   data: {
     // 0 不运动   1 运动中
-    status:0,
+    status: 0,
     latitude: 0,
     longitude: 0,
     //指定范围区域
@@ -84,6 +84,20 @@ Page({
     //   })
   },
 
+  onPunch:async function () {
+    // if (!this.inSide) {
+    //     showTip.Alert('请进入区域内再开始!');
+    //     return;
+    //   }
+    //隐藏tarbar
+    this.hideTabBar();
+    //倒计时
+    await this.wave_bg._handleCount(this.countCircle._start.bind(this.countCircle));
+    this.setData({
+      status: 1
+    })
+  },
+
   getAllArea: async function () {
     try {
       const res = await getAllSportType();
@@ -124,6 +138,7 @@ Page({
 
   onReady: function () {
     this.countCircle = this.selectComponent('#count-circle');
+    this.wave_bg = this.selectComponent("#wave_bg");
     this.mapCtx = wx.createMapContext('map');
     this.mapCtx.setLocMarkerIcon({
       iconPath: '/img/map/Indicator@3x.png',
@@ -327,22 +342,31 @@ Page({
     console.log(123);
   },
   //隐藏TarBar
-  hideTabBar:function() {
-    const tabbar = typeof this.getTabBar === 'function' ? this.getTabBar() : '' ;
-    tabbar ? tabbar.setData({hide:true}) : '未知错误'
+  hideTabBar: function () {
+    const tabbar = typeof this.getTabBar === 'function' ? this.getTabBar() : '';
+    tabbar ? tabbar.setData({
+      hide: true
+    }) : '未知错误'
   },
   //显示TarBar
-  showTabBar:function() {
-    const tabbar = typeof this.getTabBar === 'function' ? this.getTabBar() : '' ;
-    tabbar ? tabbar.setData({hide:false}) : '未知错误'
+  showTabBar: function () {
+    const tabbar = typeof this.getTabBar === 'function' ? this.getTabBar() : '';
+    tabbar ? tabbar.setData({
+      hide: false
+    }) : '未知错误'
   },
-  continueCount:function () {
+  continueCount: function () {
     console.log('continueCount');
     this.countCircle._continue();
   },
-  pauseCount:function () {
+  pauseCount: function () {
     console.log('pauseCount');
     this.countCircle._pause();
+  },
+  end:function () {
+    this.setData({
+      status:0,
+    })
   },
   onShow: function () {
     const {

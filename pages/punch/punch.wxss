@@ -29,8 +29,8 @@ map {
   bottom: 130px;
   left: 0;
   right: 0;
-  width: 652rpx;
-  height: 206px;
+  max-width: 652rpx;
+  height: 412rpx;
   margin: 0 auto;
 }
 .operation-tab-wrap {
