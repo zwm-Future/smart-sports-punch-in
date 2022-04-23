@@ -27,12 +27,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    _bindCampusChange: function (e) {
+    bindCampusChange: function (e) {
       this.setData({
         selectCampusIndex: e.detail.value,
       })
     },
-    _bindPickerChange: function (e) {
+    bindPickerChange: function (e) {
       // let {
       //   polygons
       // } = this.data;
@@ -53,8 +53,9 @@ Component({
       //   polygons
       // })
     },
-    _bindBegin: function () {
-      console.log('begin');
+    bindBegin: function () {
+      //触发父 function
+      this.triggerEvent('handlePunch');
       // if (!this.inSide) {
       //   showTip.Alert('请进入区域内再开始!');
       //   return;
