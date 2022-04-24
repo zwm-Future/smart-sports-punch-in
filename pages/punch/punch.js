@@ -49,42 +49,24 @@ Page({
   sendTimer: null,
 
   onLoad: function (options) {
-    // this.getAllArea();
-    // getAllSportType()
-    //   .then(res => {
-    //     //初始化位置选择
-    //     let {
-    //       polygons
-    //     } = this.data;
-    //     let typeArray = []
-    //     let points = [];
-    //     this.allArea = res.data;
-    //     this.allArea.map((item, index) => {
-    //       //初始化范围
-    //       if (index == 0) {
-    //         item.point.forEach((item) => {
-    //           console.log(item);
-    //           points.push({
-    //             latitude: item.latitude,
-    //             longitude: item.longitude
-    //           });
-    //         })
-    //       }
-    //       typeArray[index] = item.name;
-    //     })
-    //     console.log(points);
-    //     polygons[0].points = [...points]
-    //     this.setData({
-    //       typeArray,
-    //       // polygons
-    //     })
-    //   })
-    //   .catch(res => {
-    //     console.log(res);
-    //   })
+
   },
 
-  onPunch:async function () {
+  setRange: function (e) {
+    const {
+      points,
+      callBack
+    } = e.detail;
+    let {
+      polygons
+    } = this.data;
+    polygons[0].points = [...points];
+    this.setData({
+      polygons
+    })
+    callBack && callBack();
+  },
+  onPunch: async function () {
     // if (!this.inSide) {
     //     showTip.Alert('请进入区域内再开始!');
     //     return;
@@ -97,16 +79,6 @@ Page({
       status: 1
     })
   },
-
-  getAllArea: async function () {
-    try {
-      const res = await getAllSportType();
-      console.log(res);
-    } catch (msg) {
-      showTip.Alert(msg);
-    }
-  },
-
   realTimeLocaton: function (res) {
     console.log(res);
     this.preLatitude = this.currentLatitude;
@@ -114,28 +86,6 @@ Page({
     this.currentLatitude = res.latitude;
     this.currentLongitude = res.longitude;
   },
-  bindPickerChange: function (e) {
-    let {
-      polygons
-    } = this.data;
-    const {
-      allArea
-    } = this;
-    const selectIndex = e.detail.value;
-    let points = [];
-    allArea[selectIndex].point.forEach((item) => {
-      points.push({
-        latitude: item.latitude,
-        longitude: item.longitude
-      });
-    })
-    polygons[0].points = [...points]
-    this.setData({
-      selectIndex: e.detail.value,
-      polygons
-    })
-  },
-
   onReady: function () {
     this.countCircle = this.selectComponent('#count-circle');
     this.wave_bg = this.selectComponent("#wave_bg");
@@ -251,9 +201,6 @@ Page({
       }
     })
   },
-  handleToLocation: function () {
-    this.hideTabBar();
-  },
   //开启定时器
   setTimer: function () {
     this.sendTimer = setInterval(async () => {
@@ -261,13 +208,13 @@ Page({
         //当前定位未改变 不请求
         if (this.preLatitude == this.currentLatitude && this.preLongitude == this.currentLongitude) return;
         console.log(111);
-        const res = stayArea(this.allArea[this.data.selectIndex].id, this.currentLatitude, this.currentLongitude);
+        let {
+          polygons
+        } = this.data;
+        const res = await stayArea(this.allArea[this.data.selectIndex].id, this.currentLatitude, this.currentLongitude);
         if (res.code == 1) {
           //修改区域颜色
           if (!this.inSide) {
-            let {
-              polygons
-            } = this.data;
             polygons[0].strokeColor = '#44CAAC';
             polygons[0].fillColor = '#44CAAC15';
             this.setData({
@@ -278,9 +225,6 @@ Page({
         } else {
           //修改区域颜色
           if (this.inSide) {
-            let {
-              polygons
-            } = this.data;
             polygons[0].strokeColor = '#e9686b';
             polygons[0].fillColor = '#e9686b15';
             this.setData({
@@ -293,40 +237,6 @@ Page({
         console.log(222);
         this.preLatitude = this.currentLatitude;
         this.preLongitude = this.currentLongitude;
-        // stayArea(this.allArea[this.data.selectIndex].id, this.currentLatitude, this.currentLongitude)
-        //   .then(res => {
-        //     if (res.code == 1) {
-        //       //修改区域颜色
-        //       if (!this.inSide) {
-        //         let {
-        //           polygons
-        //         } = this.data;
-        //         polygons[0].strokeColor = '#44CAAC';
-        //         polygons[0].fillColor = '#44CAAC15';
-        //         this.setData({
-        //           polygons
-        //         })
-        //       }
-        //       this.inSide = true;
-        //     } else {
-        //       //修改区域颜色
-        //       if (this.inSide) {
-        //         let {
-        //           polygons
-        //         } = this.data;
-        //         polygons[0].strokeColor = '#e9686b';
-        //         polygons[0].fillColor = '#e9686b15';
-        //         this.setData({
-        //           polygons
-        //         })
-        //       }
-        //       this.inSide = false;
-        //       console.log(res.message);
-        //     }
-        //     console.log(222);
-        //     this.preLatitude = this.currentLatitude;
-        //     this.preLongitude = this.currentLongitude;
-        //   })
       } catch (msg) {
         showTip.Alert(msg);
       }
@@ -341,20 +251,7 @@ Page({
   getTry: function () {
     console.log(123);
   },
-  //隐藏TarBar
-  hideTabBar: function () {
-    const tabbar = typeof this.getTabBar === 'function' ? this.getTabBar() : '';
-    tabbar ? tabbar.setData({
-      hide: true
-    }) : '未知错误'
-  },
-  //显示TarBar
-  showTabBar: function () {
-    const tabbar = typeof this.getTabBar === 'function' ? this.getTabBar() : '';
-    tabbar ? tabbar.setData({
-      hide: false
-    }) : '未知错误'
-  },
+
   continueCount: function () {
     console.log('continueCount');
     this.countCircle._continue();
@@ -363,10 +260,11 @@ Page({
     console.log('pauseCount');
     this.countCircle._pause();
   },
-  end:function () {
+  end: function () {
     this.setData({
-      status:0,
+      status: 0,
     })
+    this.showTabBar();
   },
   onShow: function () {
     const {
@@ -378,17 +276,13 @@ Page({
         selected: 1
       })
     }
-    //是否有可选项
-    // if (typeArray.length < 1) {
-    //   console.log(typeArray.length);
-    //   this.getAllArea();
-    // }
+    
     //开启持续定位
     wx.startLocationUpdateBackground({
       type: "gcj02",
       success: (res) => {
         console.log('前后台位置开始接收', res);
-        // this.setLocation();
+        this.setLocation();
         // wx.onLocationChange(this.realTimeLocaton)
       },
       fail: (res) => {
@@ -411,4 +305,18 @@ Page({
   },
 
   onUnload: function () {},
+  //隐藏TarBar
+  hideTabBar: function () {
+    const tabbar = typeof this.getTabBar === 'function' ? this.getTabBar() : '';
+    tabbar ? tabbar.setData({
+      hide: true
+    }) : '未知错误'
+  },
+  //显示TarBar
+  showTabBar: function () {
+    const tabbar = typeof this.getTabBar === 'function' ? this.getTabBar() : '';
+    tabbar ? tabbar.setData({
+      hide: false
+    }) : '未知错误'
+  },
 })
