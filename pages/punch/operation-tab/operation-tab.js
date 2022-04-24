@@ -18,7 +18,7 @@ Component({
       text: '结束运动',
       className: 'end-class'
     }, {
-      text: '取消运动',
+      text: '继续运动',
       className: 'continue-class'
     }]
   },
