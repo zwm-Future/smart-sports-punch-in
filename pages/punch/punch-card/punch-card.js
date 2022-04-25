@@ -1,6 +1,7 @@
 import {
   getAllSportType,
 } from '../../../api/map.js'
+import pnpoly from '../../../utils/pnp.js'
 const showTip = require('../../../public/showTip');
 // 所有区域
 let allArea = [];
@@ -50,6 +51,7 @@ Component({
   allArea: [],
   lifetimes: {
     attached: function () {
+      console.log(pnpoly(getData[0].point,'23.03826632017969','113.39101043342588'));
       this._getAllArea();
     }
   },
