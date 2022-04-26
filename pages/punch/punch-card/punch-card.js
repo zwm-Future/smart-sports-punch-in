@@ -25,6 +25,26 @@ const getData = [
       "longitude": "113.39052227138517",
     },
   ]
+  },
+  {
+    name:'篮球场_A',
+    point:[{
+      "latitude": "23.039431346094673",
+      "longitude": "113.39045253395078",
+    },
+    {
+      "latitude": "23.03959918798158",
+      "longitude": "113.39174535869596",
+    },
+    {
+      "latitude": "23.037841774331422",
+      "longitude": "113.39171317218778",
+    },
+    {
+      "latitude": "23.037866457266134",
+      "longitude": "113.39048472045896",
+    },
+  ]
   }
 ]
 Component({
@@ -76,7 +96,8 @@ Component({
           longitude: item.longitude
         });
       })
-      this.triggerEvent('handleSetRange', points);
+      console.log(selectIndex);
+      this.triggerEvent('handleSetRange', {points});
       this.setData({
         selectIndex
       })
