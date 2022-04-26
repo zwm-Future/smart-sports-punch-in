@@ -11,8 +11,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    // 0 继续  1 停止
-    mode: 0,
+    // 0 停止中  1 继续中
+    mode: 1,
     bottomSelector: false,
     selectorArr: [{
       text: '结束运动',
@@ -30,9 +30,8 @@ Component({
       let {
         mode
       } = this.data;
-      mode = mode ? 0 : 1;
       this.setData({
-        mode
+        mode:!mode
       })
     },
     handlePause: function () {
@@ -58,7 +57,7 @@ Component({
     handleSelector: function (e) {
       if (e.target.dataset.index == 0) {
         this.setData({
-          mode:0
+          mode:1
         })
         //处理结束
         this.triggerEvent('handleEnd');

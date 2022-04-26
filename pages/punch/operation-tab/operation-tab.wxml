@@ -1,12 +1,12 @@
 <view class="operation-container">
   <!-- <view class="refresh">刷新</view> -->
-  <view class="pause-btn-wrap" hidden="{{mode != 0}}">
+  <view class="pause-btn-wrap" hidden="{{mode != 1}}">
     <pause-btn bindhandlePause="handlePause"></pause-btn>
   </view>
-  <view class="continue-btn-wrap" hidden="{{mode != 1}}">
+  <view class="continue-btn-wrap" hidden="{{mode != 0}}">
     <continue-btn bindhandleContinue="handleContinue"></continue-btn>
   </view>
-  <view class="end-btn-wrap" hidden="{{mode != 1}}">
+  <view class="end-btn-wrap" hidden="{{mode != 0}}">
     <end-btn bindhandleEnd="handleEnd"></end-btn>
   </view>
 </view>
