@@ -3,6 +3,7 @@ import {
   addArea,
   stayArea
 } from '../../api/map'
+import pnpoly from '../../utils/pnp.js'
 const showTip = require('../../public/showTip');
 
 Page({
@@ -67,10 +68,10 @@ Page({
     callBack && callBack();
   },
   onPunch: async function () {
-    // if (!this.inSide) {
-    //     showTip.Alert('请进入区域内再开始!');
-    //     return;
-    //   }
+    if (!this.inSide) {
+      showTip.Alert('请进入区域内再开始!');
+      return;
+    }
     //隐藏tarbar
     this.hideTabBar();
     //倒计时
@@ -80,15 +81,37 @@ Page({
     })
   },
   realTimeLocaton: function (res) {
-    console.log(res);
     this.preLatitude = this.currentLatitude;
     this.preLongitude = this.currentLongitude;
     this.currentLatitude = res.latitude;
     this.currentLongitude = res.longitude;
   },
+  judgeInSide: function () {
+    let {
+      polygons,
+      status
+    } = this.data;
+
+    const currentInSize = pnpoly(polygons[0].points, this.currentLatitude, this.currentLongitude);
+    if (currentInSize && !this.inSide) {
+      polygons[0].strokeColor = '#44CAAC';
+      polygons[0].fillColor = '#44CAAC15';
+      this.inSide = true;
+      if (status == 1) this.continueCount();
+    } else if (!currentInSize && this.inSide) {
+      polygons[0].strokeColor = '#e9686b';
+      polygons[0].fillColor = '#e9686b15';
+      this.inSide = false;
+      if (status == 1) this.pauseCount();
+    }
+    this.setData({
+      polygons
+    })
+  },
   onReady: function () {
     this.countCircle = this.selectComponent('#count-circle');
     this.wave_bg = this.selectComponent("#wave_bg");
+    this.operation_tab = this.selectComponent("#operation-tab");
     this.mapCtx = wx.createMapContext('map');
     this.mapCtx.setLocMarkerIcon({
       iconPath: '/img/map/Indicator@3x.png',
@@ -203,40 +226,9 @@ Page({
   },
   //开启定时器
   setTimer: function () {
-    this.sendTimer = setInterval(async () => {
+    this.sendTimer = setInterval(() => {
       try {
-        //当前定位未改变 不请求
-        if (this.preLatitude == this.currentLatitude && this.preLongitude == this.currentLongitude) return;
-        console.log(111);
-        let {
-          polygons
-        } = this.data;
-        const res = await stayArea(this.allArea[this.data.selectIndex].id, this.currentLatitude, this.currentLongitude);
-        if (res.code == 1) {
-          //修改区域颜色
-          if (!this.inSide) {
-            polygons[0].strokeColor = '#44CAAC';
-            polygons[0].fillColor = '#44CAAC15';
-            this.setData({
-              polygons
-            })
-          }
-          this.inSide = true;
-        } else {
-          //修改区域颜色
-          if (this.inSide) {
-            polygons[0].strokeColor = '#e9686b';
-            polygons[0].fillColor = '#e9686b15';
-            this.setData({
-              polygons
-            })
-          }
-          this.inSide = false;
-          console.log(res.message);
-        }
-        console.log(222);
-        this.preLatitude = this.currentLatitude;
-        this.preLongitude = this.currentLongitude;
+        this.judgeInSide();
       } catch (msg) {
         showTip.Alert(msg);
       }
@@ -249,52 +241,54 @@ Page({
   },
 
   getTry: function () {
+    //引导用户开启定位
     console.log(123);
   },
 
   continueCount: function () {
-    console.log('continueCount');
+    // mode 0 手动暂时中  1 手动继续中
+    const {
+      mode
+    } = this.operation_tab.data;
+    if (!this.inSide || mode == 0) return;
     this.countCircle._continue();
   },
   pauseCount: function () {
-    console.log('pauseCount');
     this.countCircle._pause();
   },
   end: function () {
     this.setData({
-      status: 0,
+      status: 0
     })
     this.showTabBar();
   },
   onShow: function () {
-    const {
-      typeArray
-    } = this.data;
     //tarbar切换
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         selected: 1
       })
     }
-    
-    //开启持续定位
-    wx.startLocationUpdateBackground({
-      type: "gcj02",
-      success: (res) => {
-        console.log('前后台位置开始接收', res);
-        this.setLocation();
-        // wx.onLocationChange(this.realTimeLocaton)
-      },
-      fail: (res) => {
-        console.log(123);
-        this.getTry();
-        console.log('前后台位置启动失败', res);
-      }
-    })
+
+    if (this.data.status == 0)
+      //开启持续定位
+      wx.startLocationUpdateBackground({
+        type: "gcj02",
+        success: (res) => {
+          console.log('前后台位置开始接收', res);
+          this.setLocation();
+          this.setTimer();
+          wx.onLocationChange(this.realTimeLocaton)
+        },
+        fail: (res) => {
+          this.getTry();
+          console.log('前后台位置启动失败', res);
+        }
+      })
   },
 
   onHide: function () {
-    console.log('hide');
+    if (this.data.status == 1) return;
     wx.offLocationChange(this.realTimeLocaton)
     wx.stopLocationUpdate({
       success: (res) => {
