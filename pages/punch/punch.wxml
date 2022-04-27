@@ -6,6 +6,10 @@
     <view class="punch-card-wrap" hidden="{{!(status <= 0)}}"><punch-card bindhandlePunch="onPunch" bindhandleSetRange="setRange"></punch-card></view>
     <view class="operation-tab-wrap" hidden="{{!(status >= 1)}}"><operation-tab id="operation-tab" bindhandleContinue="continueCount" bindhandlePause="pauseCount" bindhandleEnd="end"></operation-tab></view>
     <wave_bg id="wave_bg"></wave_bg>
+    <show-modal modalVisible="{{modalVisible}}" bindmodalCancel="handleCancleModal">
+      <view class="modal-text">未开启定位授权</view>
+      <button class="modal-btn" open-type="openSetting" bindtap="handleCancleModal">去设置</button> 
+    </show-modal>
     <!-- <view class="collect-wrap" hidden="{{mode == 2}}">
       <view class="collect-header">
         <view>

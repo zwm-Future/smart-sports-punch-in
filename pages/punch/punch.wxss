@@ -146,3 +146,20 @@ map {
   justify-content: space-between;
   margin: 10px 0;
 }
+
+.modal-text {
+  height: 150rpx;
+  text-align: center;
+  line-height: 150rpx;
+  font-weight: bold;
+}
+.modal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100% !important;
+  height: 100rpx;
+  margin:0 !important;
+  padding: 0;
+  color:#687ba0;
+}

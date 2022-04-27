@@ -34,7 +34,8 @@ Page({
     //新增打卡区域名称
     typeName: '',
     //模式 打卡 / 踩点
-    mode: 2
+    mode: 2,
+    modalVisible: false,
   },
   //当前经纬度
   currentLatitude: 0,
@@ -52,7 +53,15 @@ Page({
   onLoad: function (options) {
 
   },
-
+  onReady: function () {
+    this.countCircle = this.selectComponent('#count-circle');
+    this.wave_bg = this.selectComponent("#wave_bg");
+    this.operation_tab = this.selectComponent("#operation-tab");
+    this.mapCtx = wx.createMapContext('map');
+    this.mapCtx.setLocMarkerIcon({
+      iconPath: '/img/map/Indicator@3x.png',
+    })
+  },
   setRange: function (e) {
     const {
       points,
@@ -106,15 +115,6 @@ Page({
     }
     this.setData({
       polygons
-    })
-  },
-  onReady: function () {
-    this.countCircle = this.selectComponent('#count-circle');
-    this.wave_bg = this.selectComponent("#wave_bg");
-    this.operation_tab = this.selectComponent("#operation-tab");
-    this.mapCtx = wx.createMapContext('map');
-    this.mapCtx.setLocMarkerIcon({
-      iconPath: '/img/map/Indicator@3x.png',
     })
   },
   moveToLocation: function () {
@@ -242,7 +242,9 @@ Page({
 
   getTry: function () {
     //引导用户开启定位
-    console.log(123);
+    this.setData({
+      modalVisible: true,
+    })
   },
 
   continueCount: function () {
@@ -261,6 +263,11 @@ Page({
       status: 0
     })
     this.showTabBar();
+  },
+  handleCancleModal: function () {
+    this.setData({
+      modalVisible: false
+    })
   },
   onShow: function () {
     //tarbar切换
