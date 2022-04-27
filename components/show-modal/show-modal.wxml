@@ -1,0 +1,6 @@
+<view class="show-modal-wrap" hidden="{{!modalVisible}}">
+  <view class="mask {{visible ? 'mask-show' : ''}}"></view>
+  <view class="main">
+    <slot></slot>
+  </view>
+</view>
