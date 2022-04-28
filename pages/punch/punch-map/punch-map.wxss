@@ -1,0 +1,165 @@
+map {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.top-bar-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 652rpx;
+  height: 10vh;
+  overflow: hidden;
+}
+
+.count-circle-outer {
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  transform: translate(-50%);
+  width: 320rpx;
+  height: 320rpx;
+}
+
+.punch-card-wrap {
+  position: absolute;
+  bottom: 130px;
+  left: 0;
+  right: 0;
+  max-width: 652rpx;
+  height: 412rpx;
+  margin: 0 auto;
+}
+.operation-tab-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 20.8vh;
+}
+.move-current-btn {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 80rpx;
+}
+
+.move-current-btn .location-block {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.move-current-btn .location-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+.turn-mode-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80rpx;
+}
+
+.turn-mode-btn .turn-mode-block {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.turn-mode-btn .turn-mode-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+.collect-wrap {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 130px;
+  left: 49rpx;
+  width: 652rpx;
+  height: 156px;
+  padding: 0 30rpx;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(to left, #44caac, #44c2ca);
+  border-radius: 10px;
+}
+
+.collect-wrap .collect-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 54px;
+}
+
+.collect-header .header-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.collect-header .header-placeholder-text {
+  font-size: 14px;
+  color: #abc5e8;
+  font-weight: 400;
+}
+
+.collect-header .header-text {
+  display: inline-block;
+  height: 21px;
+  font-size: 14px;
+  color: #f0fbf9;
+  font-weight: 400;
+  padding: 0 20rpx;
+  background-color: #7ff5db;
+  border-radius: 5rpx;
+  font-weight: bolder;
+}
+
+.collect-header .collect-confirm {
+  box-sizing: border-box !important;
+  padding: 0;
+  width: 100rpx;
+  line-height: 22px;
+  height: 22px;
+  font-size: 16px;
+}
+
+.collect-wrap .collect-main {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.modal-text {
+  height: 150rpx;
+  text-align: center;
+  line-height: 150rpx;
+  font-weight: bold;
+}
+.modal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100% !important;
+  height: 100rpx;
+  margin:0 !important;
+  padding: 0;
+  color:#687ba0;
+}

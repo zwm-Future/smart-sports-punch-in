@@ -1,31 +1,5 @@
-<view class="punch-wrap">
-  <map id="map" name="punch-map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="true"
-    show-scale="true" enable-rotate min-scale="8" max-scale="20" polygons="{{polygons}}" markers="{{markers}}">
-    <top-bar bindtoLocation="moveToLocation" class="top-bar-wrap"></top-bar>
-    <view class="count-circle-outer" hidden="{{!(status >= 1)}}"> <count-circle id="count-circle"></count-circle> </view>
-    <view class="punch-card-wrap" hidden="{{!(status <= 0)}}"><punch-card bindhandlePunch="onPunch" bindhandleSetRange="setRange"></punch-card></view>
-    <view class="operation-tab-wrap" hidden="{{!(status >= 1)}}"><operation-tab id="operation-tab" bindhandleContinue="continueCount" bindhandlePause="pauseCount" bindhandleEnd="end"></operation-tab></view>
-    <wave_bg id="wave_bg"></wave_bg>
-    <show-modal modalVisible="{{modalVisible}}" bindmodalCancel="handleCancleModal">
-      <view class="modal-text">未开启定位授权</view>
-      <button class="modal-btn" open-type="openSetting" bindtap="handleCancleModal">去设置</button> 
-    </show-modal>
-    <!-- <view class="collect-wrap" hidden="{{mode == 2}}">
-      <view class="collect-header">
-        <view>
-         <view>
-          <image class="header-icon" src="/img/map/Indicator@3x.png"></image>
-          <text class="header-text">运动打卡区域</text>
-          <input class="header-text" type="text" value="{{typeName}}" bindinput="bindInput" name="typeName" maxlength="20" placeholder="请输入打卡名称" placeholder-class="header-placeholder-text"/>
-         </view>
-        </view>
-        <button class="collect-confirm" bindtap="bindSubmitPoint">确定</button>
-      </view>
-      <view class="collect-main">
-        <text class="collect-back">撤回</text>
-        <text class="collect-go">前进</text>
-      </view>
-      <button class="cellect-btn" bindtap="bindSetPoint">踩点</button>
-    </view> -->
-  </map>
-</view>
+<punch-map></punch-map>
+<show-modal modalVisible="{{modalVisible}}" bindmodalCancel="handleCancleModal">
+  <view class="modal-text">未开启定位授权</view>
+  <button class="modal-btn" open-type="openSetting" bindtap="handleCancleModal">去设置</button>
+</show-modal>

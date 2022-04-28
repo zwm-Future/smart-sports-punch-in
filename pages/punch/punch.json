@@ -1,10 +1,5 @@
 {
   "usingComponents": {
-    "top-bar":"./top-bar/top-bar",
-    "punch-card":"./punch-card/punch-card",
-    "operation-tab":"./operation-tab/operation-tab",
-    "count-circle":"/components/count-circle/count-circle",
-    "wave_bg":"/components/wave_bg/wave_bg",
-    "show-modal":"/components/show-modal/show-modal"
+    "punch-map":"./punch-map/punch-map"
   }
 }

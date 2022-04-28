@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "punch-card":"/pages/punch/punch-card/punch-card"
+    "punch-card":"/pages/punch/punch-map/punch-card/punch-card"
   },
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",

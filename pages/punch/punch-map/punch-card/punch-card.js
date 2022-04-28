@@ -1,8 +1,8 @@
 import {
   getAllSportType,
-} from '../../../api/map.js'
-import pnpoly from '../../../utils/pnp.js'
-const showTip = require('../../../public/showTip');
+} from '../../../../api/map.js'
+import pnpoly from '../../../../utils/pnp.js'
+const showTip = require('../../../../public/showTip');
 // 所有区域
 let allArea = [];
 const getData = [
