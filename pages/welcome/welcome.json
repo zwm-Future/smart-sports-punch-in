@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "auth-dialog":"/components/auth-dialog/auth-dialog",
+    "mp-icon": "weui-miniprogram/icon/icon"
+  }
 }

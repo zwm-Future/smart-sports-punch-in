@@ -1,2 +1,5 @@
-<!--pages/welcome/welcome.wxml-->
-<text>pages/welcome/welcome.wxml</text>
+<image src="/img/index/welcom.png" mode="aspectFit"></image>
+<view class="box">
+<mp-icon icon="sending" color="#3999f2" extClass="icon" size="50"></mp-icon>
+</view>
+<auth-dialog show="{{showAuth}}"></auth-dialog>
