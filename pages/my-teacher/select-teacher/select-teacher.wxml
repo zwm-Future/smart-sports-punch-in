@@ -1,0 +1,10 @@
+<view class="select-teacher-wrap">
+  <view class="header">
+    <mp-searchbar ext-class="search-bar" placeholder="请输入教师名字"></mp-searchbar>
+  </view>
+  <view class="main">
+    <navigator url="../select-course/select-course">
+      <teacher-item></teacher-item>
+    </navigator>
+  </view>
+</view>

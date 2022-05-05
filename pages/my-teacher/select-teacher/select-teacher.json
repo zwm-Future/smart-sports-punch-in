@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mp-searchbar": "weui-miniprogram/searchbar/searchbar",
+    "teacher-item":"/components/teacher-item/teacher-item"
+  },
+  "navigationBarTitleText":"选择授课老师"
+}

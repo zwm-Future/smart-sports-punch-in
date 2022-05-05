@@ -1,0 +1,52 @@
+.my-teacher-wrap {
+  width: 100%;
+  background-color: #fbfbfb;
+  font-family: 'HarmonyOS Sans SC';
+}
+.grey {
+  color:#7e7e7e;
+}
+.header {
+  width: 100%;
+  padding: 30rpx 0;
+  padding-left: 30rpx;
+  font-size: 14px;
+}
+
+.main {
+  box-sizing: border-box;
+  display: flex;  
+  align-items: center;
+  width: 100%;
+  padding: 30rpx;
+  font-size: 12px;
+  border-bottom: 2rpx solid #e5e5e5;
+  background-color: #fff;
+}
+.main-left {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.main-header {
+  display: flex;
+  justify-content:space-between;
+  align-items: flex-end;
+}
+.tip-title {
+  font-size: 20px;
+  color:rgba(0, 0, 0, 1);
+}
+.course-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.info-mes {
+  font-size: 14px;
+}
+.main-right {
+  box-sizing: border-box;
+  margin-left: 10rpx;
+  padding-top: 3.9%;
+}

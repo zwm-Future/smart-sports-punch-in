@@ -1,0 +1,20 @@
+<view class="my-teacher-wrap">
+  <view class="header grey">
+    2021-2022学年 第2学期
+  </view>
+  <navigator url="./select-teacher/select-teacher" class="main grey">
+    <view class="main-left">
+      <view class="main-header">
+        <view class="tip-title">课程信息</view>
+        <view class="teacher-name">老师姓名</view>
+      </view>
+      <view class="course-info">
+        <view class="info-mes">授课老师及班级</view>
+        <view class="sport-info">20级大学城校区周四34节篮球</view>
+      </view>
+    </view>
+    <view class="main-right">
+      <mp-icon extClass="icon" icon="arrow" color="#1a1a1a"></mp-icon>
+    </view>
+  </navigator>
+</view>
