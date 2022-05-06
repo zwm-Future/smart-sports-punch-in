@@ -34,7 +34,7 @@ Component({
     },
     number: {
       type: Number,
-      value: 9999
+      value: 0
     },
   },
   /**

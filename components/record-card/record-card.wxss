@@ -1,3 +1,8 @@
+.record-card-wrap {
+  width: 100%;
+  height: 100%;
+}
+
 .record-card {
   box-sizing: border-box;
   display: flex;
@@ -6,7 +11,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 3% 9% 5%;
+  padding: 3% 9% 0%;
   border-radius: 20rpx;
   box-shadow: 0 0 10px 5px #efeff1;
 }
@@ -15,58 +20,83 @@
   display: flex;
   flex-direction: column;
 }
+
 .record-card .type-name {
   font-size: 24px;
   font-weight: bolder;
   margin-bottom: 5px;
 }
+
 .record-card .type-date {
   font-size: 12px;
   font-weight: 500;
 }
+
 .record-card .record-time {
   width: 100%;
+  margin-top: 55%;
   overflow-x: scroll;
 }
+
 .record-card .time-num {
-  font-size: 48px;
+  font-size: 96rpx;
   font-weight: bolder;
 }
+
 .record-card .time-unit {
   font-size: 16px;
   font-weight: bolder;
 }
+
 .record-card .img-wrap {
+  width: 60%;
   position: absolute;
   top: 50%;
   right: 2%;
   transform: translateY(-50%);
   z-index: -1;
 }
+
 .record-card image {
   width: 100%;
 }
+
+@media screen and (min-height:800px) {
+  .record-card  .img-wrap {
+    top: 44.2%;
+  }
+}
+
 .basketball-color {
-  color:#9a83c9;
+  color: #9a83c9;
 }
+
 .volley-color {
-  color:#3ba8e0;
+  color: #3ba8e0;
 }
-.basketball-img, .volley-img {
+
+.basketball-img,
+.volley-img {
   width: 232rpx;
 }
+
 .football-color {
-  color:#3ba8e0;
+  color: #3ba8e0;
 }
+
 .football-img {
   width: 232rpx;
 }
+
 .tennis-color {
-  color:#44caac;
+  color: #44caac;
 }
+
 .badminton-color {
-  color:#ffc445;
+  color: #ffc445;
 }
-.tennis-img, .badminton-img {
+
+.tennis-img,
+.badminton-img {
   width: 228rpx;
 }
