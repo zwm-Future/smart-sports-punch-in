@@ -1,9 +1,10 @@
 // app.js
 App({
   onLaunch() {
-   
+
   },
   globalData: {
-    baseUrl: 'https://www.bingcoke.com'
+    baseUrl: 'https://www.bingcoke.com/sport',
+    user:{}
   },
 })
