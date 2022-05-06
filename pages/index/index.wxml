@@ -26,6 +26,8 @@
       </navigator>
     </view>
   </view>
-  <accumulate-card></accumulate-card>
+  <view class="accumulate-card-wrap">
+    <accumulate-card></accumulate-card>
+  </view>
   <today-done-card></today-done-card>
 </view>
