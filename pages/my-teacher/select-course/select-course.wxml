@@ -1,5 +1,5 @@
-<view class="wrap">
-  <button class="course-item">
-    20级大学城校区周二34节篮球
+<view class="wrap" bindtap="handleTap">
+  <button wx:for="{{courses}}" wx:key="courseId" data-index="{{index}}" class="course-item" >
+    {{item.name}}
   </button>
 </view>

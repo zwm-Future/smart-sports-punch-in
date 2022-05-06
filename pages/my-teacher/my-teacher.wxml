@@ -6,11 +6,11 @@
     <view class="main-left">
       <view class="main-header">
         <view class="tip-title">课程信息</view>
-        <view class="teacher-name">老师姓名</view>
+        <view class="teacher-name">{{teacherName}}</view>
       </view>
       <view class="course-info">
         <view class="info-mes">授课老师及班级</view>
-        <view class="sport-info">20级大学城校区周四34节篮球</view>
+        <view class="sport-info">{{courseInfo}}</view>
       </view>
     </view>
     <view class="main-right">
