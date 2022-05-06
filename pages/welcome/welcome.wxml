@@ -1,5 +1,3 @@
-<image src="/img/index/welcom.png" mode="aspectFit"></image>
-<view class="box">
-<mp-icon icon="sending" color="#3999f2" extClass="icon" size="50"></mp-icon>
-</view>
-<auth-dialog show="{{showAuth}}"></auth-dialog>
+<image src="/img/index/welcom.png" mode="aspectFit" class="bg-img"></image>
+<image src="/img/index/mark.png" mode="aspectFit" class="mark" bindtap="handleShowAuth"></image>
+<auth-dialog show="{{showAuth}}"></auth-dialog> 
