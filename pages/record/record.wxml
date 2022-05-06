@@ -17,7 +17,7 @@
           <text class="time-unit">min</text>
         </view>
       </view>
-      <view class="record-item" wx:for="{{recordsLeft}}">
+      <view class="record-item" wx:for="{{recordsLeft}}" wx:key="id">
         <record-card name="{{item.name}}" number="{{item.number}}"></record-card>
       </view>
       <view class="back-top-wrap">
@@ -25,7 +25,7 @@
       </view>
     </view>
     <view class="main-right">
-      <view class="record-item" wx:for="{{recordsRight}}">
+      <view class="record-item" wx:for="{{recordsRight}}" wx:key="id">
         <record-card name="{{item.name}}" number="{{item.number}}"></record-card>
       </view>
     </view>

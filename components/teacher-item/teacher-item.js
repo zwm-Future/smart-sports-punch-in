@@ -5,11 +5,11 @@ Component({
    */
   properties: {
     name:{
-      type:"String",
+      type:String,
       value:"老师姓名"
     },
     number:{
-      type:"String",
+      type:String,
       value:"xxxxxxxxx"
     }
   },
