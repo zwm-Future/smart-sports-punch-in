@@ -14,17 +14,23 @@ Component({
    * 组件的初始数据
    */
   data: {
+    logoutModalVisible:false
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    handdleTap:function(e) {
-      const {type} = e.target.dataset;
-      if(type == 'logout') {
-        console.log('弹窗');
-      }else {
+    handdleTap: function (e) {
+      const {
+        type
+      } = e.target.dataset;
+      if (type == 'logout') {
+        console.log('logout');
+        this.setData({
+          logoutModalVisible:true
+        })
+      } else {
         console.log(11);
         wx.getSetting({
           success(res) {
@@ -32,7 +38,7 @@ Component({
             if (!res.authSetting['scope.userInfo']) {
               wx.authorize({
                 scope: 'scope.userInfo',
-                success (res) {
+                success(res) {
                   console.log(res);
                 }
               })
@@ -40,6 +46,11 @@ Component({
           }
         })
       }
-    }
-  }
+    },
+    handleCancleModal: function () {
+      this.setData({
+        logoutModalVisible: false
+      })
+    },
+  },
 })
