@@ -1,20 +1,22 @@
 import Request from '../request';
 
-export const getMyTeacher = () => {
+export const getMyTeacher = (data) => {
   /**
-  * @param {String} semesterId - 学期id
+  * @param {String} stuId - 学期id
   */
     return Request({
       url:'/stu/teacher',
+      data
     })
 }
 
-export const getTeacherCourse = () => {
+export const getTeacherCourse = (data) => {
   /**
   * @param {String} semesterId - 学期id
   */
     return Request({
       url:'/teacher/course',
+      data
     })
 }
 
