@@ -3,10 +3,10 @@
   height: 6vh;
 }
 
-.notiece-text swiper {
+.notiece-text .swiper {
   height: 100%;
 }
-.notiece-text swiper-item {
+.notiece-text .swiper-item {
   display: flex;
   justify-content: center;
   align-items: center;
