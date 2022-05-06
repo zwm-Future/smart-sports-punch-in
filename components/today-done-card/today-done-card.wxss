@@ -1,5 +1,5 @@
 .today-done-wrap {
-  height: 11.37vh;
+  min-height: 11.37vh;
   margin-top: 2.08vh;
 }
  
@@ -9,7 +9,7 @@
   height: 100%;
   padding:5% 0;
   border-radius: 5px;
-  box-shadow: 0 5px 10px 5px #efeff1;
+  box-shadow: 0 10rpx 20rpx 10rpx #efeff1;
 }
 
 .today-done .done-title {
@@ -21,13 +21,13 @@
 }
 
 .done-title .tip-text {
-  font-size: 14px;
+  font-size: 28rpx;
   color: #9EA1A7;
   font-weight: 500;
 }
 
 .done-title .detail-text {
-  font-size: 10px;
+  font-size: 20rpx;
   color: #9EA1A7;
   font-weight: 500;
 }
@@ -44,9 +44,9 @@
 
 
 .num {
-  font-size: 36px;
+  font-size: 72rpx;
 }
 
 .unit {
-  font-size: 16px;
+  font-size: 32rpx;
 }

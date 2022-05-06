@@ -11,6 +11,6 @@
   justify-content: center;
   align-items: center;
   color:#00B386;
-  font-size: 16px;
+  font-size: 32rpx;
   font-weight: 600;
 }

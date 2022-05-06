@@ -1,9 +1,9 @@
 .card {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 20rpx;
   background: linear-gradient(to left,#44caac,#44c2ca);
-  box-shadow: 0 0 10px 5px  #efeff1;
+  box-shadow: 0 0 20rpx 10rpx  #efeff1;
 }
 
 .card .card-main{
@@ -20,27 +20,27 @@
   color:#fff;
 }
 .main-item .text {
-  font-size: 14px;
+  font-size: 28rpx;
   font-weight: 600;
 }
 .main-item .num {
-  font-size: 36px;
+  font-size: 72rpx;
   font-weight: bolder;
 }
 .card .card-foot {
   box-sizing: border-box;
   width: 100%;
   height: 37%;
-  padding: 20px 50rpx; 
+  padding: 40rpx 50rpx; 
   background-color: #fff;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 20rpx 20rpx;
 }
 .card-foot .text {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 28rpx;
   font-weight:600;
-  margin-bottom: 6px;
+  margin-bottom: 12rpx;
 }
 .text .progress-text {
   color:#9EA1A7;

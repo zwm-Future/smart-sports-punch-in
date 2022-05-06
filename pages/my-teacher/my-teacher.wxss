@@ -10,7 +10,7 @@
   width: 100%;
   padding: 30rpx 0;
   padding-left: 30rpx;
-  font-size: 14px;
+  font-size: 28rpx;
 }
 
 .main {
@@ -19,7 +19,7 @@
   align-items: center;
   width: 100%;
   padding: 30rpx;
-  font-size: 12px;
+  font-size: 24rpx;
   border-bottom: 2rpx solid #e5e5e5;
   background-color: #fff;
 }
@@ -34,7 +34,7 @@
   align-items: flex-end;
 }
 .tip-title {
-  font-size: 20px;
+  font-size: 40rpx;
   color:rgba(0, 0, 0, 1);
 }
 .course-info {
@@ -43,7 +43,7 @@
   align-items: flex-end;
 }
 .info-mes {
-  font-size: 14px;
+  font-size: 28rpx;
 }
 .main-right {
   box-sizing: border-box;
