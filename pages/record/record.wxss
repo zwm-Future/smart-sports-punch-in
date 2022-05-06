@@ -15,18 +15,22 @@
   width: 100%;
   padding: 0 38rpx;
 }
-
+.record-main .main-left,
+.record-main .main-right {
+  display: flex;
+  flex-direction: column;
+}
 .record-main .record-all {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  width: 322rpx;
-  height: 21.49vh;
+  width: 318rpx;
+  min-height: 21.49vh;
   margin-bottom: 2vh;
-  padding: 3% 9% 5%;
-  color:#fff;
+  padding: 3% 9% 3%;
+  color: #fff;
   background-color: #44caac;
   border-radius: 20rpx;
   box-shadow: 0 0 10px 5px #efeff1;
@@ -50,7 +54,7 @@
 
 .record-all .record-time {
   width: 100%;
-  overflow-x: scroll;
+  height: 50%;
 }
 
 .record-all .time-num {
@@ -64,7 +68,13 @@
 }
 
 .record-main .record-item {
-  width: 322rpx;
-  height: 28.84vh;
+  width: 318rpx;
+  min-height: 28.84vh;
+  margin-bottom: 2vh;
+}
+
+.back-top-wrap {
+  width: 100%;
+  flex: 1;
   margin-bottom: 2vh;
 }

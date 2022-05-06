@@ -5,7 +5,52 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    records:[
+      {
+        name:'篮球',
+        number:50
+      },
+      {
+        name:'足球',
+        number:60
+      },
+      {
+        name:'网球',
+        number:50
+      },
+      {
+        name:'羽毛球',
+        number:50
+      },
+      {
+        name:'排球',
+        number:50
+      },
+    ],
+    recordsLeft:[
+      {
+        name:'网球',
+        number:50
+      },
+      {
+        name:'羽毛球',
+        number:50
+      },
+    ],
+    recordsRight:[
+      {
+        name:'篮球',
+        number:50
+      },
+      {
+        name:'足球',
+        number:60
+      },
+      {
+        name:'排球',
+        number:50
+      },
+    ],
   },
 
 

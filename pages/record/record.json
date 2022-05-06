@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "record-card":"/components/record-card/record-card"
+    "record-card":"/components/record-card/record-card",
+    "back-to-top":"/components/back-ro-top/back-ro-top"
   },
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",
