@@ -1,0 +1,3 @@
+<view class="back-top-container" bindtap="handleToTOp">
+    返回顶部
+</view>
