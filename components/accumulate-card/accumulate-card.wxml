@@ -1,21 +1,19 @@
-<view class="card-wrap">
   <view class="card">
     <view class="card-main">
       <view class="punch-time main-item">
         <text class="text">已打卡（分钟）</text>
-        <text class="num">35</text>
+        <text class="num">{{minutes}}</text>
       </view>
       <view class="target-time main-item">
         <text class="text">累计积分（分）</text>
-        <text class="num">100</text>
+        <text class="num">{{score}}</text>
       </view>
     </view>
-    <view class="card-foot">
+    <!-- <view class="card-foot">
       <view class="text">
         <view class="progress-text">打卡进度</view>
         <view class="progress-nun">35%</view>
       </view>
       <progress percent="35" color="#44caac" active="" stroke-width="5" class="line"></progress>
-    </view>
+    </view> -->
   </view>
-</view>

@@ -1,10 +1,5 @@
-
-.card-wrap {
-  height: 26vh;
-  margin-top: 1.38vh;
-}
-
-.card-wrap .card {
+.card {
+  width: 100%;
   height: 100%;
   border-radius: 10px;
   background: linear-gradient(to left,#44caac,#44c2ca);
@@ -15,7 +10,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 63%;
+  /* height: 63%; */
+  height: 100%;
 }
 .card-main .main-item {
   display: flex;
