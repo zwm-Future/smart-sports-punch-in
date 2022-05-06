@@ -1,13 +1,16 @@
 {
   "pages": [
+    "pages/welcome/welcome",
     "pages/index/index",
     "pages/punch/punch",
     "pages/my/my",
-    "pages/welcome/welcome",
     "pages/notice/notice",
     "pages/message/message",
     "pages/task/task",
-    "pages/record/record"
+    "pages/record/record",
+    "pages/my-teacher/my-teacher",
+    "pages/my-teacher/select-teacher/select-teacher",
+    "pages/my-teacher/select-course/select-course"
   ],
   "tabBar": {
     "custom": true,
@@ -42,12 +45,17 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
-  "requiredBackgroundModes": ["location"],
+  "requiredBackgroundModes": [
+    "location"
+  ],
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的定位"
     }
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  }
 }
