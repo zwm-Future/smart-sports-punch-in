@@ -1,6 +1,6 @@
 <view class="select-teacher-wrap">
   <view class="header">
-    <mp-searchbar ext-class="search-bar" placeholder="请输入教师名字"></mp-searchbar>
+    <mp-searchbar ext-class="search-bar" placeholder="请输入教师名字" search="{{search}}"></mp-searchbar>
   </view>
   <view class="main">
     <navigator url="../select-course/select-course">

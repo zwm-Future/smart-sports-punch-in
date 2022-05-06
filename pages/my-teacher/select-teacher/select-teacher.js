@@ -12,7 +12,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      search: this.search.bind(this)
+    })
   },
 
   /**
@@ -21,7 +23,7 @@ Page({
   onReady: function () {
     wx.login({
       timeout: 1000,
-      success:(res) => {
+      success: (res) => {
         console.log(res);
         // wx.request({
         //   url: `https://www.bingcoke.com/sport/user/reAndLogin?name=${'猪小明'}&number=3120004860&identityId=1&password=123456&code=${res.code}`,
@@ -40,39 +42,9 @@ Page({
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  search: function (e) {
+    console.log(e);
+    //官方自定义组件返回值 require
+    return new Promise((resolve, reject) => {})
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
