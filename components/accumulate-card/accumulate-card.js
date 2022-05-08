@@ -27,10 +27,7 @@ Component({
   methods: {
     getTotalRecord: async function () {
       try {
-        const app = getApp();
-        const {
-          user
-        } = app.globalData;
+        const user = wx.getStorageSync('user')
         const res = await getsportRecordTotal({
           semesterId: 1,
           stuId: user.id
