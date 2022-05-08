@@ -1,11 +1,11 @@
 import Request from '../request';
 
-export const studentLogin = (code) => {
+export const loginProduct = () => {
   /**
   * @param {String} code - 登录凭证
   */
     return Request({
-      url:'/user/lgoin',
-      params:{code}
+      url:'/user/loginPsw',
+      data:{number:"123"}
     })
 }

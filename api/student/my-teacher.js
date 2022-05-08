@@ -1,8 +1,17 @@
 import Request from '../request';
 
+export const getAllTeachers = () => {
+  /**
+  * 
+  */
+    return Request({
+      url:'/stu/allTeacher',
+    })
+}
+
 export const getMyTeacher = (data) => {
   /**
-  * @param {String} stuId - 学期id
+  * @param {String} semesterId - 学期id
   */
     return Request({
       url:'/stu/teacher',
@@ -20,12 +29,13 @@ export const getTeacherCourse = (data) => {
     })
 }
 
-export const bindCourse = () => {
+export const bindCourse = (data) => {
   /**
   * 
   * @param {String} courseId - 课程id
   */
     return Request({
       url:'/stu/bind',
+      data
     })
 }

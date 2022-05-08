@@ -10,12 +10,19 @@ export default function Request(options) {
       method: options.method || 'GET',
       header: {
         "Access-Control-Allow-Origin": "*",
+        'Cookie': wx.getStorageSync("cookie") //读取本地保存好的上一次cookie
       },
       responseType: options.responseType || "",
       timeout: 15000,
       success(res) {
         showTip.LoadingOff();
         if (res.statusCode === 200) {
+          if (options.url == '/user/loginPsw') {
+            const cookie = res.header["Set-Cookie"].split(';')[0];
+            if (cookie != null) {
+              wx.setStorageSync("cookie", cookie); //服务器返回的Set-Cookie，保存到本地
+            }
+          }
           resolve(res.data);
         } else {
           const {
