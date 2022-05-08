@@ -6,8 +6,8 @@
     <view class="intro-tow text-index">2.小程序需要根据用户的Token判断用户类型，用于教师绑定，推送公告等</view>
   </view>
   <view slot="footer" class="footer" bindtap="handdleTap">
-    <button data-type="logout" class="logout-btn btn">退出小程序</button>
-    <button data-type="auth" class="auth-btn btn">去授权</button>
+    <button  data-type="logout" class="logout-btn btn">退出小程序</button>
+    <button disabled="{{disable}}" loading="{{disable}}" data-type="auth" class="auth-btn btn">去授权</button>
   </view>
 </mp-half-screen-dialog>
 <logout-mask logoutModalVisible="{{logoutModalVisible}}" bindmodalCancel="handleCancleModal"></logout-mask>
