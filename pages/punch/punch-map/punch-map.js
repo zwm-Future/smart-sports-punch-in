@@ -27,34 +27,46 @@ Component({
   //当前经纬度
   currentLatitude: 0,
   currentLongitude: 0,
-  //先前经纬度
-  preLatitude: 0,
-  preLongitude: 0,
   //是否在区域内
   inSide: false,
   //定时器
   sendTimer: null,
+  initPoints: [],
   lifetimes: {
     ready: function () {
+      this.initPoints = [{
+        latitude: 23.03321,
+        longitude: 116.29511
+      }, {
+        latitude: 24,
+        longitude: 116.29511
+      }, {
+        latitude: 25.03321,
+        longitude: 115.29511
+      }];
+      this.currentLatitude = 0;
+      this.currentLongitude = 0;
+      this.inSide = false;
       this.countCircle = this.selectComponent('#count-circle');
       this.wave_bg = this.selectComponent("#wave_bg");
       this.operation_tab = this.selectComponent("#operation-tab");
-      this.mapCtx = wx.createMapContext('map');
+      this.mapCtx = wx.createMapContext('myMap', this);
       this.mapCtx.setLocMarkerIcon({
         iconPath: '/img/map/Indicator@3x.png',
-      })
+      });
     },
     detached: function () {
-     this.handleOnUnload()
+      this.handleOnUnload()
     }
   },
   pageLifetimes: {
     show: function () {
       try {
-        if (this.data.status == 1) reutrn;
         this.setLocation();
+        if (this.data.status == 1) reutrn;
         this.setTimer();
-        wx.onLocationChange(this.realTimeLocaton)
+        wx.onLocationChangeError(res => console.log(res))
+        wx.onLocationChange(this.realTimeLocaton.bind(this))
       } catch (error) {
         console.log(error);
       }
@@ -73,7 +85,7 @@ Component({
       let {
         polygons
       } = this.data;
-      polygons[0].points = [...points];
+      polygons[0].points = points.length < 3 ? this.initPoints : [...points];
       this.setData({
         polygons
       })
@@ -93,32 +105,33 @@ Component({
       })
     },
     realTimeLocaton: function (res) {
-      this.preLatitude = this.currentLatitude;
-      this.preLongitude = this.currentLongitude;
       this.currentLatitude = res.latitude;
       this.currentLongitude = res.longitude;
     },
     judgeInSide: function () {
-      let {
-        polygons,
-        status
-      } = this.data;
-
-      const currentInSize = pnpoly(polygons[0].points, this.currentLatitude, this.currentLongitude);
-      if (currentInSize && !this.inSide) {
-        polygons[0].strokeColor = '#44CAAC';
-        polygons[0].fillColor = '#44CAAC15';
-        this.inSide = true;
-        if (status == 1) this.continueCount();
-      } else if (!currentInSize && this.inSide) {
-        polygons[0].strokeColor = '#e9686b';
-        polygons[0].fillColor = '#e9686b15';
-        this.inSide = false;
-        if (status == 1) this.pauseCount();
+      try {
+        let {
+          polygons,
+          status
+        } = this.data;
+        const currentInSide = pnpoly(polygons[0].points, this.currentLatitude, this.currentLongitude);
+        if (currentInSide && !this.inSide) {
+          polygons[0].strokeColor = '#44CAAC';
+          polygons[0].fillColor = '#44CAAC15';
+          this.inSide = true;
+          if (status == 1) this.continueCount();
+        } else if (!currentInSide && this.inSide) {
+          polygons[0].strokeColor = '#e9686b';
+          polygons[0].fillColor = '#e9686b15';
+          this.inSide = false;
+          if (status == 1) this.pauseCount();
+        }
+        this.setData({
+          polygons
+        })
+      } catch (error) {
+        console.log(error);
       }
-      this.setData({
-        polygons
-      })
     },
     moveToLocation: function () {
       this.mapCtx.moveToLocation()
@@ -142,18 +155,14 @@ Component({
           showTip.LoadingOff();
         },
         fail: (res) => {
-          showTip.Alert('信号有点差，请稍后重试！')
+          // showTip.Alert('信号有点差，请稍后重试！')
         }
       })
     },
     //开启定时器
     setTimer: function () {
       this.sendTimer = setInterval(() => {
-        try {
-          this.judgeInSide();
-        } catch (msg) {
-          showTip.Alert(msg);
-        }
+        this.judgeInSide();
       }, 1000)
     },
     //关闭定时器

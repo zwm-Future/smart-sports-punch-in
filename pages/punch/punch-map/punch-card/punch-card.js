@@ -1,50 +1,50 @@
 import {
   getAllSportType,
+  getCampus
 } from '../../../../api/map.js'
 import pnpoly from '../../../../utils/pnp.js'
 const showTip = require('../../../../public/showTip');
 // 所有区域
 let allArea = [];
-const getData = [
-  {
-    name:'篮球场',
-    point:[{
-      "latitude": "23.038710610911647",
-      "longitude": "113.39053300022123",
-    },
-    {
-      "latitude": "23.038695801244263",
-      "longitude": "113.39165952800748",
-    },
-    {
-      "latitude": "23.037901013367755",
-      "longitude": "113.39165416358945",
-    },
-    {
-      "latitude": "23.037920759707493",
-      "longitude": "113.39052227138517",
-    },
-  ]
+const getData = [{
+    name: '篮球场',
+    point: [{
+        "latitude": "23.038710610911647",
+        "longitude": "113.39053300022123",
+      },
+      {
+        "latitude": "23.038695801244263",
+        "longitude": "113.39165952800748",
+      },
+      {
+        "latitude": "23.037901013367755",
+        "longitude": "113.39165416358945",
+      },
+      {
+        "latitude": "23.037920759707493",
+        "longitude": "113.39052227138517",
+      },
+    ]
   },
   {
-    name:'篮球场_A',
-    point:[{
-      "latitude": "23.039431346094673",
-      "longitude": "113.39045253395078",
-    },
-    {
-      "latitude": "23.03959918798158",
-      "longitude": "113.39174535869596",
-    },
-    {
-      "latitude": "23.037841774331422",
-      "longitude": "113.39171317218778",
-    },
-    {
-      "latitude": "23.037866457266134",
-      "longitude": "113.39048472045896",
-    },
-  ]
+    name: '篮球场_A',
+    point: [{
+        "latitude": "23.039431346094673",
+        "longitude": "113.39045253395078",
+      },
+      {
+        "latitude": "23.03959918798158",
+        "longitude": "113.39174535869596",
+      },
+      {
+        "latitude": "23.037841774331422",
+        "longitude": "113.39171317218778",
+      },
+      {
+        "latitude": "23.037866457266134",
+        "longitude": "113.39048472045896",
+      },
+    ]
   }
 ]
 Component({
@@ -60,20 +60,20 @@ Component({
    */
   data: {
     //校区
-    typeCampusArray: ['大学城校区', '龙洞校区'],
-    //区域选择器选择值
+    campusName: [],
+    //校区选择器选择值
     selectCampusIndex: 0,
     //区域选择器数组
-    typeArray: [],
+    areaArray: [],
     //区域选择器选择值
-    selectIndex: 0,
+    selectAreaIndex: 0,
   },
+  allCampus: [],
   allArea: [],
   lifetimes: {
     attached: function () {
-      console.log(pnpoly(getData[0].point,'23.03826632017969','113.39101043342588'));
-      this._getAllArea();
-    }
+      this.initData();
+    },
   },
   /**
    * 组件的方法列表
@@ -84,22 +84,23 @@ Component({
         selectCampusIndex: e.detail.value,
       })
     },
-    bindPickerChange: function (e) {
+    bindPickerChange: function (e, index) {
       const {
         allArea
       } = this;
-      const selectIndex = e.detail.value;
+      const selectAreaIndex = index != undefined ? index : e.detail.value;
       let points = [];
-      allArea[selectIndex].point.forEach((item) => {
+      allArea[selectAreaIndex].point.forEach((item) => {
         points.push({
           latitude: item.latitude,
           longitude: item.longitude
         });
       })
-      console.log(selectIndex);
-      this.triggerEvent('handleSetRange', {points});
+      this.triggerEvent('handleSetRange', {
+        points
+      });
       this.setData({
-        selectIndex
+        selectAreaIndex
       })
     },
     bindBegin: function () {
@@ -112,36 +113,44 @@ Component({
       //   showTip.Alert('打卡成功!');
       // }
     },
+    initData: function () {
+      this._getAllCampus()
+      this._getAllArea()
+    },
     _getAllArea: async function () {
       try {
-        // const res = await getAllSportType();
-        // const {
-        //   data
-        // } = res;
-        let typeArray = [],
-          points = [];
-        // this.allArea = data;
-        this.allArea = getData;
-        console.log(this.allArea);
-        this.allArea.map((item, index) => {
-          if (index == 0) {
-            item.point.forEach(item => {
-              points.push({
-                latitude: item.latitude,
-                longitude: item.longitude
-              })
-            })
-          }
-          typeArray[index] = item.name;
-        })
-        this.triggerEvent('handleSetRange', {points});
-        this.setData({
-          typeArray
-        })
-        console.log(typeArray);
+        const {
+          code,
+          data
+        } = await getAllSportType();
+        if (code) {
+          this.allArea = data;
+          const areaArray = data.map(item => item.name);
+          this.bindPickerChange(0, 0);
+          this.setData({
+            areaArray
+          })
+        }
       } catch (msg) {
         showTip.Alert(msg);
       }
     },
+    _getAllCampus: async function () {
+      try {
+        const {
+          code,
+          data
+        } = await getCampus();
+        if (code) {
+          this.allCampus = data;
+          const campusName = data.map(item => item.name);
+          this.setData({
+            campusName
+          });
+        }
+      } catch (error) {
+
+      }
+    }
   }
 })

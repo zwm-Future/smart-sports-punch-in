@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "punch-map":"./punch-map/punch-map"
+    "punch-map":"./punch-map/punch-map",
+    "show-modal":"/components/show-modal/show-modal"
   }
 }
