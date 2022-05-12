@@ -3,7 +3,8 @@
   display: flex;
   align-items: center;
   position: relative;
-  height: 15.5vh;
+  min-height: 15.5vh;
+  padding: 5% 0;
 }
 .my-bg .bg-img {
   position: absolute;
@@ -15,25 +16,23 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  height: 71px;
   margin-left: 60rpx;
 }
 .person-container .person-avatar {
   width: 128rpx;
   height: 128rpx;
-  background-color: #ccc;
   border-radius: 50%;
 }
 .person-container .person-msg {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-left: 5px;
-  font-size: 14px;
+  margin-left: 10rpx;
+  font-size: 28rpx;
   color:#FFFFFF;
 }
 .person-msg .name {
-  font-size: 20px;
+  font-size: 40rpx;
   font-weight: bold;
 }
 
@@ -46,5 +45,7 @@
   justify-content: space-between;
   align-items: center;
   height: 5.54vh;
+  padding: .4vh 0;
+  font-size: 34rpx;
   color: #9EA1A7;
 }

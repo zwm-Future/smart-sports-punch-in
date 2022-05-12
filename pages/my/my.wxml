@@ -3,11 +3,11 @@
   <view class="my-bg">
     <image  src="/img/my/personalbackground@3x.png" class="bg-img"></image>
     <view class="person-container">
-      <view class="person-avatar"></view>
+      <image class="person-avatar" src="{{userInfo.avatarUrl}}"></image>
       <view class="person-msg">
-        <text class="name">猪小明</text>
+        <text class="name">{{userInfo.nickName}}</text>
         <text class="username">学号:3120004860</text>
-        <text class="teacher">绑定的教师：彭于晏</text>
+        <text class="teacher">绑定的教师：{{teacherName}}</text>
       </view>
     </view>
   </view>
