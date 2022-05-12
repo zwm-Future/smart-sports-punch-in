@@ -21,6 +21,15 @@ export const getsportRecordTotal = (params) => {
   })
 }
 
+export const getTodaysportRecord = (params) => {
+  /** 获取今天的运动时间 + 积分
+   * @param {String} userId - 学生id
+   */
+  return Request({
+    url: '/sportTime/now',
+    data:params
+  })
+}
 export const addSportRecord = () => {
   /**
    * @param {String} semesterId - 学期id
