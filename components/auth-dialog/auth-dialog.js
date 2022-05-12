@@ -34,13 +34,13 @@ Component({
             logoutModalVisible: true
           })
         } else { //登录授权
-          // const {
-          //   userInfo
-          // } = await wx.getUserProfile({
-          //   desc: '展示用户信息',
-          // })
-          // //成功授权
-          // userInfo && wx.setStorageSync('userInfo', userInfo);
+          const {
+            userInfo
+          } = await wx.getUserProfile({
+            desc: '展示用户信息',
+          })
+          //成功授权
+          userInfo && wx.setStorageSync('userInfo', userInfo);
           //登录验证
           this.handleLogin();
         }
