@@ -29,6 +29,9 @@ Component({
   currentLongitude: 0,
   //是否在区域内
   inSide: false,
+  //上一次是否在区域内
+  preInSide:false,
+  lock: false,
   //定时器
   sendTimer: null,
   initPoints: [],
@@ -78,6 +81,10 @@ Component({
   },
   methods: {
     setRange: function (e) {
+      //切换场地时 上锁
+      this.lock = true;
+      this.preInSide = this.inSide;
+      this.inSide = false;
       const {
         points,
         callBack
@@ -115,12 +122,17 @@ Component({
           status
         } = this.data;
         const currentInSide = pnpoly(polygons[0].points, this.currentLatitude, this.currentLongitude);
+        if(this.lock) {
+          this.inSide =  this.preInSide;
+          this.lock = false;
+        }
         if (currentInSide && !this.inSide) {
           polygons[0].strokeColor = '#44CAAC';
           polygons[0].fillColor = '#44CAAC15';
           this.inSide = true;
           if (status == 1) this.continueCount();
         } else if (!currentInSide && this.inSide) {
+          console.log('false');
           polygons[0].strokeColor = '#e9686b';
           polygons[0].fillColor = '#e9686b15';
           this.inSide = false;
@@ -178,6 +190,7 @@ Component({
       this.countCircle._continue();
     },
     pauseCount: function () {
+      console.log('pause');
       this.countCircle._pause();
     },
     end: function () {
