@@ -6,11 +6,11 @@
     </view>
     <view class="done-main">
       <view class="done-time">
-        <text class="num">35</text>
+        <text class="num">{{sportTime}}</text>
         <text class="unit">min</text>
       </view>
       <view class="done-points">
-        <text class="num">35</text>
+        <text class="num">{{score}}</text>
         <text class="unit">积分</text>
       </view>
     </view>
