@@ -10,7 +10,7 @@ export default function Request(options) {
       method: options.method || 'GET',
       header: {
         "Access-Control-Allow-Origin": "*",
-        'Cookie': wx.getStorageSync("cookie") //读取本地保存好的上一次cookie
+        'Cookie': wx.getStorageSync("Cookie") //读取本地保存好的上一次cookie
       },
       responseType: options.responseType || "",
       timeout: 15000,
@@ -18,9 +18,12 @@ export default function Request(options) {
         showTip.LoadingOff();
         if (res.statusCode === 200) {
           if (options.url == '/user/loginPsw') {
+            console.log(res);
             const cookie = res.header["Set-Cookie"].split(';')[0];
+            console.log(res.header["Set-Cookie"]);
+            console.log(res.header["Set-Cookie"].split(';'))
             if (cookie != null) {
-              wx.setStorageSync("cookie", cookie); //服务器返回的Set-Cookie，保存到本地
+              wx.setStorageSync("Cookie", cookie); //服务器返回的Set-Cookie，保存到本地
             }
           }
           resolve(res.data);
