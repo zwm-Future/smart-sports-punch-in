@@ -12,10 +12,10 @@
         <image mode="widthFix" src="/img/index/essagecenter@3x.png" alt="消息中心"></image>
         <text>消息中心</text>
       </navigator>
-      <navigator url="/pages/task/task" class="function-item">
+      <!-- <navigator url="/pages/task/task" class="function-item">
         <image mode="widthFix" src="/img/index/clocktask@3x.png" alt="打卡任务"></image>
         <text>打卡任务</text>
-      </navigator>
+      </navigator> -->
       <navigator url="/pages/my-teacher/my-teacher" class="function-item">
         <image mode="widthFix" src="/img/index/bindingteacher@3x.png" alt="绑定教师"></image>
         <text>绑定教师</text>

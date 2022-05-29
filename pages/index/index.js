@@ -4,12 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    
   },
-  onLoad() {
-    const app = getApp();
-    console.log(app.globalData);
-  },
+  onLoad() {},
   onShow: function () {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
