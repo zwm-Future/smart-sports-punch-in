@@ -13,7 +13,7 @@
   height: 100%;
   padding: 3% 9% 0%;
   border-radius: 20rpx;
-  box-shadow: 0 0 10px 5px #efeff1;
+  box-shadow: 0 0 20rpx 10rpx #efeff1;
 }
 
 .record-card .record-type {
@@ -22,13 +22,13 @@
 }
 
 .record-card .type-name {
-  font-size: 24px;
+  font-size: 48rpx;
   font-weight: bolder;
-  margin-bottom: 5px;
+  margin-bottom: 10rpx;
 }
 
 .record-card .type-date {
-  font-size: 12px;
+  font-size: 24rpx;
   font-weight: 500;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .record-card .time-unit {
-  font-size: 16px;
+  font-size: 32rpx;
   font-weight: bolder;
 }
 

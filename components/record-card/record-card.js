@@ -54,9 +54,11 @@ Component({
     //匹配当前类型
     setClass:function(name) {
       let result = {};
-      result.color = 'record-card '  + colorClass[name]
-      result.imgClass = 'img-wrap '  + imgClass[name];
-      result.img = imgSrc[name];
+      if(colorClass[name]) console.log(222);
+      else console.log(111);
+      result.color = 'record-card '  + (colorClass[name] ?  colorClass[name] : 'basketball-color');
+      result.imgClass = 'img-wrap '  + (imgClass[name] ? imgClass[name] : 'basketball-img');
+      result.img = imgSrc[name] ? imgSrc[name] : '/img/record/baseketball@3x.png'
       return result;
     }
   },
@@ -64,7 +66,6 @@ Component({
     ready: function () {
       const {name} = this.data;
       const item = this.setClass(name);
-      console.log(item);
       this.setData({
         item
       })
