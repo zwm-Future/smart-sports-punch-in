@@ -25,22 +25,49 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.initData();
+    this._setTeacher();
   },
-  initData: async function () {
+  _setTeacher: async function () {
     try {
-      const app =getApp();
-      const res = await getMyTeacher({stuId:app.globalData.user.id})
-      console.log(res);
+      let result = wx.getStorageSync('myTeacher');
+      if (!result) result = await this._getTeaher();
+      const {
+        myTeacher,
+        myCourse
+      } = result;
+      this.setData({
+        teacherName: myTeacher.name,
+        courseInfo: myCourse.name
+      })
     } catch (error) {
-      error.mes && Toast(error.mes,'none');
+      console.log(error);
+    }
+  },
+  _getTeaher: async function () {
+    try {
+      const {
+        code,
+        data,
+        other
+      } = await getMyTeacher({
+        semesterId: '1'
+      })
+      const result = {
+        myTeacher: data,
+        myCourse: other
+      }
+      code && wx.setStorageSync('myTeacher', result)
+      return result;
+    } catch (error) {
+      console.log(error);
+      error.mes && Toast(error.mes, 'none');
     }
   }
 })

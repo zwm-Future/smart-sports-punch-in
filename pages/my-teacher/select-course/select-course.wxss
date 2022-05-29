@@ -3,11 +3,12 @@
 }
 .wrap button {
   display: flex;
+  justify-content: space-between;
   width: 100%;
   margin: 0;
   padding: 30rpx;
   background: transparent;
-  font-size: 17px;
+  font-size: 34rpx;
   font-weight: normal;
   border-bottom: 2rpx solid #f2f2f2;
 }

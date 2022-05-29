@@ -50,3 +50,6 @@
   margin-left: 10rpx;
   padding-top: 3.9%;
 }
+.teacher-name,.sport-info {
+  font-size: 24rpx;
+}

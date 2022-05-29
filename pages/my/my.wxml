@@ -12,14 +12,14 @@
     </view>
   </view>
   <view class="my-list">
-    <view class="list-item">
+    <!-- <view class="list-item">
       <text class="item-text">我的成绩单（暂定）</text>
       <text class="arrow">></text>
-    </view> 
-    <view class="list-item">
+    </view>  -->
+    <navigator url="/pages/my-teacher/my-teacher" class="list-item">
       <text class="item-text">我绑定的教师</text>
       <text class="arrow">></text>
-    </view> 
+    </navigator > 
     <view class="list-item">
       <text class="item-text">帮助中心</text>
       <text class="arrow">></text>
@@ -28,9 +28,9 @@
       <text class="item-text">联系我们</text>
       <text class="arrow">></text>
     </view> 
-    <view class="list-item">
+    <!-- <view class="list-item">
       <text class="item-text">修改密码</text>
       <text class="arrow">></text>
-    </view> 
+    </view>  -->
   </view>
 </view>

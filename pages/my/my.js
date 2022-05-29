@@ -39,12 +39,15 @@ Page({
     }
     this._setTeacher();
   },
-  _setTeacher: function () {
+  _setTeacher: async function () {
     try {
-      let myTeacher = wx.getStorageSync('myTeacher');
-      if (!myTeacher) myTeacher = this._getTeaher();
+      let result = wx.getStorageSync('myTeacher');
+      if (!result) result = await this._getTeaher();
+      const {
+        myTeacher,
+      } = result;
       this.setData({
-        teacherName: myTeacher.teacherName
+        teacherName: myTeacher.name,
       })
     } catch (error) {
       console.log(error);
@@ -59,16 +62,12 @@ Page({
       } = await getMyTeacher({
         semesterId: '1'
       })
-      const teacherName = data.name ? data.name : '';
-      const courseInfo = other && other.name ? other.name : '';
-      code && wx.setStorageSync('myTeacher', {
-        teacherName,
-        courseInfo
-      })
-      return {
-        teacherName,
-        courseInfo
-      };
+      const result = {
+        myTeacher: data,
+        myCourse: other
+      }
+      code && wx.setStorageSync('myTeacher', result)
+      return result;
     } catch (error) {
       console.log(error);
       error.mes && Toast(error.mes, 'none');
