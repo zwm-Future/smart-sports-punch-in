@@ -25,7 +25,7 @@ const showTip = {
   * @param {number} time - 提示存在时长
   */
   Toast (msg, icon, time){
-    let Icon = icon === 1 ? "success" : "none";
+    let Icon = icon === 1 ? "success" : icon;
     wx.showToast({
       title: msg,
       icon: Icon,
