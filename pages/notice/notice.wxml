@@ -36,5 +36,4 @@
       <view class="notice-time">2022.02.12</view>
     </view>
   </view>
-    <view class="punch-card-wrap"><punch-card></punch-card></view>
 </view>
