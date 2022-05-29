@@ -1,4 +1,4 @@
-<view class="puzzle-vf-wrap">
+<view class="puzzle-vf-wrap" wx:if="{{show}}">
   <view class="mask"></view>
   <view class="vf-container transition {{statusClass}}">
     <view class="vf-header">请拖动滑块完成拼图</view>
