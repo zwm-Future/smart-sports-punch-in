@@ -1,8 +1,8 @@
 <view class="punch-wrap">
   <map id="myMap" latitude="{{latitude}}" longitude="{{longitude}}" show-location="true" show-scale="true" enable-rotate min-scale="8" max-scale="20" polygons="{{polygons}}" markers="{{markers}}">
     <top-bar bindtoLocation="moveToLocation" class="top-bar-wrap"></top-bar>
-    <view class="count-circle-outer" hidden="{{!(status >= 1)}}">
-      <count-circle id="count-circle"></count-circle>
+    <view class="count-circle-outer" hidden="{{!(status >= 1 )}}">
+      <count-circle id="count-circle" size="{{320}}" strokeWidth="{{20}}" target="{{target}}"></count-circle>
     </view>
     <view class="punch-card-wrap" hidden="{{!(status <= 0)}}">
       <punch-card bindhandlePunch="onPunch" bindhandleSetRange="setRange"></punch-card>

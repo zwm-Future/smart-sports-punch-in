@@ -23,6 +23,7 @@ Component({
       fillColor: '#e9686b15',
       level: 'abovebuildings'
     }],
+    target:120
   },
   //当前经纬度
   currentLatitude: 0,
@@ -107,6 +108,7 @@ Component({
       this.hideTabBar();
       //倒计时
       await this.wave_bg._handleCount(this.countCircle._start.bind(this.countCircle));
+      console.log(111);
       this.setData({
         status: 1
       })
@@ -194,6 +196,7 @@ Component({
       this.countCircle._pause();
     },
     end: function () {
+      
       this.setData({
         status: 0
       })

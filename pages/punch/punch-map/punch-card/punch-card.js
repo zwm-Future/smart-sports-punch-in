@@ -103,6 +103,7 @@ Component({
         selectAreaIndex
       })
     },
+    //开始打卡
     bindBegin: function () {
       //触发父 function
       this.triggerEvent('handlePunch');
@@ -113,10 +114,12 @@ Component({
       //   showTip.Alert('打卡成功!');
       // }
     },
+    //初始化
     initData: function () {
       this._getAllCampus()
       this._getAllArea()
     },
+    //获取场地
     _getAllArea: async function () {
       try {
         const {
@@ -135,6 +138,7 @@ Component({
         showTip.Alert(msg);
       }
     },
+    //获取校区
     _getAllCampus: async function () {
       try {
         const {
