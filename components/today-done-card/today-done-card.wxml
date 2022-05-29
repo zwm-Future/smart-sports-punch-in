@@ -2,7 +2,7 @@
   <view class="today-done">
     <view class="done-title">
       <text class="tip-text">今日已打卡</text>
-      <text class="detail-text">详细信息＞</text>
+      <navigator url="/pages/record/record" class="detail-text">详细信息＞</navigator>
     </view>
     <view class="done-main">
       <view class="done-time">
