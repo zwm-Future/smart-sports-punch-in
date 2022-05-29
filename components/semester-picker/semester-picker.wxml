@@ -1,0 +1,6 @@
+<picker range="{{semesterRange}}" range-key="name" bindchange="semesterChange" value="{{rangeIndex}}">
+    <view class="header">
+      <text>{{semesterRange[rangeIndex].name}}</text>
+      <text>切换 ></text>
+    </view>
+  </picker>
