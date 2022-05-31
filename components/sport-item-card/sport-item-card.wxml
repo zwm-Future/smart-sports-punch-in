@@ -1,0 +1,19 @@
+<view class="sport-item-container">
+  <view class="header">
+    <view class="status-text {{sport.score >  0 ? 'success' : 'error'}}">{{sport.score > 0 ? '运动达标' : '运动未达标'}}</view>
+  </view>
+  <view class="main">
+    <view class="main-top">
+      <view class="name">{{sport.sportName}}</view>
+      <view class="date">{{sport.start}}</view>
+    </view>
+    <view class="main-bottom">
+      <view class="time-container">
+        <text class="time-text">有效运动</text>
+        <text class="num {{sport.score >  0 ? 'success' : 'error'}}">{{sport.sportTime}}</text>
+        <text class="unit {{sport.score >  0 ? 'success' : 'error'}}">min</text>
+      </view>
+      <view class="area">{{sport.sceneName}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+.sport-item-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20rpx;
+  box-shadow: 0 0 20rpx 10rpx #efeff1;
+}
+
+.header {
+  padding: 10rpx 20rpx 10rpx;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+
+.status-text {
+  font-size: 28rpx;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 10rpx 20rpx 10rpx;
+}
+
+.main-top,
+.main-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 36rpx;
+}
+
+.name,
+.date {
+  display: flex;
+  color: #9a83c9;
+  align-items: center;
+}
+
+.area {
+  display: flex;
+  align-items: center;
+}
+
+.num {
+  font-size: 48rpx;
+  font-weight: 500;
+  margin-left: 10rpx;
+}
+
+.date,
+.time-text,
+.unit,
+.area {
+  font-size: 24rpx;
+}
+
+.time-text,
+.area {
+  color: #9EA1A7;
+}
+
+.success {
+  color: #44caac;
+}
+
+.error {
+  color: #9ea1a7;
+}
