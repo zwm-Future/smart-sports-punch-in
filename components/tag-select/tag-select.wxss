@@ -1,0 +1,20 @@
+.tag-select-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-self: start;
+}
+.tag-item {
+  padding: 8rpx 27rpx;
+  font-size: 32rpx;
+  color:#707070;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+  box-shadow: 0 0 20rpx 10rpx #efeff1;
+}
+
+.select {
+  color:#fff;
+  background-color: #44caac;
+}

@@ -1,0 +1,3 @@
+<view class="tag-select-container" bindtap="bindChange">
+  <view class="tag-item {{tagsData[index].className}}" wx:for="{{tagsData}}" wx:key="index" data-select="{{index}}">{{tags[index].name}} </view>
+</view>
