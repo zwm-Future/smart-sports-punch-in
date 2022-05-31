@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "semester-picker":"/components/semester-picker/semester-picker",
+    "all-accumualte-card":"./all-accumualte-card/all-accumualte-card",
+    "all-sport-detail-list":"./all-sport-detail-list/all-sport-detail-list"
+  },
+  "navigationBarTitleText": "运动列表"
+}

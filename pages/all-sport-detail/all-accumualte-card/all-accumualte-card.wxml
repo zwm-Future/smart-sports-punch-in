@@ -1,0 +1,3 @@
+<view class="wrap">
+  <sport-accmulate-card record="{{record}}"></sport-accmulate-card>
+</view>

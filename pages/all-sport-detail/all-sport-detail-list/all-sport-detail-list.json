@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "sport-item-card":"/components/sport-item-card/sport-item-card",
+    "tag-select":"/components/tag-select/tag-select"
+  }
+}
