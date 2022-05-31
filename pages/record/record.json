@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "record-card":"/components/record-card/record-card",
-    "back-to-top":"/components/back-ro-top/back-ro-top"
+    "back-to-top":"/components/back-ro-top/back-ro-top",
+    "semester-picker":"/components/semester-picker/semester-picker"
   },
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",

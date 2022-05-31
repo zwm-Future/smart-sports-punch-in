@@ -1,13 +1,3 @@
-.header {
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 5.54vh;
-  padding: 40rpx;
-}
-
 .record-main {
   box-sizing: border-box;
   display: flex;
@@ -42,28 +32,29 @@
 }
 
 .record-all .type-name {
-  font-size: 24px;
+  font-size: 48rpx;
   font-weight: bolder;
-  margin-bottom: 5px;
+  margin-bottom: 10rpx;
 }
 
 .record-all .type-date {
-  font-size: 12px;
+  font-size: 24rpx;
   font-weight: 500;
 }
 
 .record-all .record-time {
   width: 100%;
   height: 50%;
+  overflow-x: scroll;
 }
 
 .record-all .time-num {
-  font-size: 38px;
+  font-size: 76rpx;
   font-weight: bolder;
 }
 
 .record-all .time-unit {
-  font-size: 16px;
+  font-size: 32rpx;
   font-weight: bolder;
 }
 

@@ -1,33 +1,28 @@
 <view class="record-wrap">
-  <picker>
-    <view class="header">
-      <text>2021-2022学年 第2学期</text>
-      <text>切换 ></text>
-    </view>
-  </picker>
+  <semester-picker bindsemesterPickChange="turnSemester"></semester-picker>
   <view class="record-main">
     <view class="main-left">
-      <view class="record-all">
+      <navigator url="/pages/all-sport-detail/all-sport-detail?title=所有运动" class="record-all">
         <view class="record-type">
           <text class="type-name">所有运动</text>
           <text class="type-date">2021/02/11</text>
         </view>
         <view class="record-time">
-          <text class="time-num">{{35}}</text>
+          <text class="time-num">{{allSport.sportTime}}</text>
           <text class="time-unit">min</text>
         </view>
-      </view>
-      <view class="record-item" wx:for="{{recordsLeft}}" wx:key="id">
-        <record-card name="{{item.name}}" number="{{item.number}}"></record-card>
-      </view>
+      </navigator>
+      <navigator url="/pages/all-sport-detail/all-sport-detail?title={{item.sportName}}&sportId={{item.sportId}}&sportName={{item.sportName}}" class="record-item" wx:for="{{recordsLeft}}" wx:key="sportId">
+        <record-card name="{{item.sportName}}" number="{{item.sportTime}}"></record-card>
+      </navigator>
       <view class="back-top-wrap">
         <back-to-top></back-to-top>
       </view>
     </view>
     <view class="main-right">
-      <view class="record-item" wx:for="{{recordsRight}}" wx:key="id">
-        <record-card name="{{item.name}}" number="{{item.number}}"></record-card>
-      </view>
+      <navigator url="/pages/all-sport-detail/all-sport-detail?title={{item.sportName}}&sportId={{item.sportId}}&sportName={{item.sportName}}" class="record-item" wx:for="{{recordsRight}}" wx:key="sportId">
+        <record-card name="{{item.sportName}}" number="{{item.sportTime}}"></record-card>
+      </navigator>
     </view>
   </view>
 </view>

@@ -1,65 +1,22 @@
-// pages/record/record.js
+import {
+  getsportRecordTotal,
+  getAllsportRecord
+} from '../../api/student/sports'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    records:[
-      {
-        name:'篮球',
-        number:50
-      },
-      {
-        name:'足球',
-        number:60
-      },
-      {
-        name:'网球',
-        number:50
-      },
-      {
-        name:'羽毛球',
-        number:50
-      },
-      {
-        name:'排球',
-        number:50
-      },
-    ],
-    recordsLeft:[
-      {
-        name:'网球',
-        number:50
-      },
-      {
-        name:'羽毛球',
-        number:50
-      },
-    ],
-    recordsRight:[
-      {
-        name:'篮球',
-        number:50
-      },
-      {
-        name:'足球',
-        number:60
-      },
-      {
-        name:'排球',
-        number:50
-      },
-    ],
+    recordsLeft: [],
+    recordsRight: [],
+    allSport: {},
   },
 
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onLoad: function () {
+    this.stuId = wx.getStorageSync('user').id;
   },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -68,7 +25,60 @@ Page({
 
   },
 
-  turnSemester:function() {
-    console.log(123);
+  turnSemester: function ({
+    detail: semester
+  }) {
+    this._getTotal(semester.id);
+    this._getSportItems(semester.id);
+  },
+  _getTotal: async function (semesterId) {
+    try {
+      const {
+        stuId
+      } = this;
+      const {
+        code,
+        data
+      } = await getsportRecordTotal({
+        stuId,
+        semesterId
+      });
+      if (code) {
+        console.log(data);
+        data.sportTime = data.sportTime ? parseInt(data.sportTime / 60) : 0;
+        this.setData({
+          allSport: data
+        })
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  _getSportItems: async function (semesterId) {
+    try {
+      const {
+        stuId
+      } = this;
+      const {
+        code,
+        data
+      } = await getAllsportRecord({
+        stuId,
+        semesterId
+      });
+      if (code) {
+        let recordsLeft = [];
+        let recordsRight = [];
+        data.forEach((item, index) => {
+          index % 2 == 0 ? recordsLeft.unshift(item) : recordsRight.unshift(item)
+        })
+        this.setData({
+          recordsLeft,
+          recordsRight
+        })
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 })
