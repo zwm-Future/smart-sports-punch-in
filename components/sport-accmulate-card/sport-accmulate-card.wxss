@@ -1,0 +1,47 @@
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  padding: 30rpx 20rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 0 20rpx 10rpx #efeff1;
+}
+
+.item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.time {
+  max-width: 40%;
+  padding-right: 10rpx;
+  flex: 1.2;
+}
+.time-value {
+  text-align: center;
+  width: 100%;
+  overflow-x: scroll;  
+}
+.punch-times {
+  border-left: 3rpx solid #a6a6a6;
+  border-right: 3rpx solid #a6a6a6;
+}
+
+.num {
+  font-size: 76rpx;
+  font-weight: bolder;
+  color: #44caac;
+}
+
+.unit {
+  font-size: 32rpx;
+  color: #44caac;
+  font-weight: bolder;
+}
+.tip {
+  font-size: 28rpx;
+  color:#9EA1A7;
+}
