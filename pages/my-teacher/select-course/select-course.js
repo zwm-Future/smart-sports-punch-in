@@ -12,14 +12,16 @@ Page({
   data: {
     courseList: []
   },
-  teacherId: '',
+  teacher: {},
   onLoad: function (options) {
     this.teacherId = options.teacherId;
+    this.teacherName = options.name;
   },
   onShow: function (options) {
     this.initData();
   },
   initData: async function () {
+    console.log(11);
     await this._getTeacherCourses();
     this._getMyCourse()
   },
@@ -93,7 +95,9 @@ Page({
       });
       if (code) {
         const result = wx.getStorageSync('myTeacher');
+        let myTeacher = {id:this.teacherId,name:this.teacherName}
         result.myCourse = slectCourse;
+        result.myTeacher = myTeacher;
         wx.setStorageSync('myTeacher', result);
         showTip.Toast(message,'1');
         this.matchCourse(slectCourse.id)
