@@ -3,7 +3,7 @@
     <mp-searchbar ext-class="search-bar" placeholder="请输入教师名字" search="{{search}}"></mp-searchbar>
   </view>
   <view class="main">
-    <navigator url="../select-course/select-course?teacherId={{item.id}}" wx:for="{{teacherList}}" wx:key="id">
+    <navigator url="../select-course/select-course?teacherId={{item.id}}&name={{item.name}}" wx:for="{{teacherList}}" wx:key="id">
       <teacher-item name="{{item.name}}" number="{{item.number}}"></teacher-item>
     </navigator>
   </view>
