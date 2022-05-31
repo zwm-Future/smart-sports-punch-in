@@ -1,6 +1,6 @@
 import Request from '../request';
 export const getAllsportRecord = (params) => {
-  /** 获取某学期的各项运动的时间 + 积分
+  /** 获取某学期的各项运动的最近时间 + 积分
    * @param {String} semesterId - 学期id
    * @param {String} stuId - 学生id
    */
@@ -17,6 +17,29 @@ export const getsportRecordTotal = (params) => {
    */
   return Request({
     url: '/sportTime/total',
+    data:params
+  })
+}
+
+export const getAllsportRecordDetail = (params) => {
+  /** 获取某学期的各项运动的详情
+   * @param {String} semesterId - 学期id
+   * @param {String} stuId - 学生id
+   */
+  return Request({
+    url: '/sportTime/semester',
+    data:params
+  })
+}
+
+export const getOneSportRecordDetail = (params) => {
+  /** 获取某学期的某种运动的详情
+   * @param {String} semesterId - 学期id
+   * @param {String} sportId - 运动id
+   * @param {String} stuId - 学生id
+   */
+  return Request({
+    url: '/sportTime/sportExact',
     data:params
   })
 }
