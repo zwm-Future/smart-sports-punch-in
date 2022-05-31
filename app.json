@@ -10,7 +10,10 @@
     "pages/record/record",
     "pages/my-teacher/my-teacher",
     "pages/my-teacher/select-teacher/select-teacher",
-    "pages/my-teacher/select-course/select-course"
+    "pages/my-teacher/select-course/select-course",
+    "pages/all-sport-detail/all-sport-detail",
+    "pages/message-view/message-view",
+    "pages/message-list/message-list"
   ],
   "tabBar": {
     "custom": true,
@@ -53,7 +56,6 @@
       "desc": "你的位置信息将用于小程序位置接口的定位"
     }
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "useExtendedLib": {
     "weui": true
