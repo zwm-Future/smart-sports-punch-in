@@ -23,19 +23,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.login({
-      timeout: 1000,
-      success: (res) => {
-        console.log(res);
-        // wx.request({
-        //   url: `https://www.bingcoke.com/sport/user/reAndLogin?name=${'猪小明'}&number=3120004860&identityId=1&password=123456&code=${res.code}`,
-        //   method:'POST',
-        //   success:(r) => {
-        //     console.log(r);
-        //   }
-        // })
-      }
-    })
   },
 
   /**
