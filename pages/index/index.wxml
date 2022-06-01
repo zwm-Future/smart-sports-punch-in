@@ -27,7 +27,7 @@
     </view>
   </view>
   <view class="accumulate-card-wrap">
-    <accumulate-card></accumulate-card>
+    <accumulate-card minutes="{{allMinutes}}" score="{{allScore}}"></accumulate-card>
   </view>
-  <today-done-card></today-done-card>
+  <today-done-card sportTime="{{todaySportTime}}" score="{{todayScore}}"></today-done-card>
 </view>

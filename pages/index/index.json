@@ -8,5 +8,6 @@
     "today-done-card":"/components/today-done-card/today-done-card",
     "notice-img-rotation":"/components/notice-img-rotation/notice-img-rotation",
     "notice-text-rotation":"/components/notice-text-rotation/notice-text-rotation"
-  }
+  },
+  "enablePullDownRefresh": true
 }
