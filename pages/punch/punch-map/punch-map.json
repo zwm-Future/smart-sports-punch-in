@@ -6,7 +6,6 @@
     "operation-tab":"./operation-tab/operation-tab",
     "count-circle":"/components/count-circle/count-circle",
     "wave_bg":"/components/wave_bg/wave_bg",
-    "show-modal":"/components/show-modal/show-modal",
-    "puzzle-verify":"/components/puzzle-verify/puzzle-verify"
+    "show-modal":"/components/show-modal/show-modal"
   }
 }

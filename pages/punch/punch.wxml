@@ -1,5 +1,5 @@
-<punch-map></punch-map>
+<punch-map isOpenLocation="{{isOpenLocation}}"></punch-map>
 <show-modal modalVisible="{{modalVisible}}" bindmodalCancel="handleCancleModal">
-  <view class="modal-text">未开启定位授权</view>
+  <view class="modal-text">未开启后台定位授权</view>
   <button class="modal-btn" open-type="openSetting" bindtap="handleCancleModal">去设置</button>
 </show-modal>

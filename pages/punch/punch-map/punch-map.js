@@ -1,6 +1,17 @@
 import pnpoly from '../../../utils/pnp.js'
 const showTip = require('../../../public/showTip.js');
 Component({
+  properties:{
+    isOpenLocation:{
+      type:Boolean,
+      value:false,
+      observer:function(value) {
+        if(value) {
+          this.setLocation()
+        }
+      }
+    }
+  },
   data: {
     // 0 不运动   1 运动中
     status: 0,
@@ -23,7 +34,7 @@ Component({
       fillColor: '#e9686b15',
       level: 'abovebuildings'
     }],
-    target:120
+    target: 120
   },
   //当前经纬度
   currentLatitude: 0,
@@ -31,7 +42,7 @@ Component({
   //是否在区域内
   inSide: false,
   //上一次是否在区域内
-  preInSide:false,
+  preInSide: false,
   lock: false,
   //定时器
   sendTimer: null,
@@ -66,7 +77,8 @@ Component({
   pageLifetimes: {
     show: function () {
       try {
-        this.setLocation();
+        //已开启后台定位？ -> 定位
+       if(this.properties.isOpenLocation) this.setLocation();
         if (this.data.status == 1) reutrn;
         this.setTimer();
         wx.onLocationChangeError(res => console.log(res))
@@ -81,6 +93,7 @@ Component({
     }
   },
   methods: {
+    //设置范围
     setRange: function (e) {
       //切换场地时 上锁
       this.lock = true;
@@ -99,6 +112,7 @@ Component({
       })
       callBack && callBack();
     },
+    //点击打卡
     onPunch: async function () {
       if (!this.inSide) {
         showTip.Alert('请进入区域内再开始!');
@@ -113,10 +127,12 @@ Component({
         status: 1
       })
     },
+    //位置监听
     realTimeLocaton: function (res) {
       this.currentLatitude = res.latitude;
       this.currentLongitude = res.longitude;
     },
+    //判断位置
     judgeInSide: function () {
       try {
         let {
@@ -124,8 +140,8 @@ Component({
           status
         } = this.data;
         const currentInSide = pnpoly(polygons[0].points, this.currentLatitude, this.currentLongitude);
-        if(this.lock) {
-          this.inSide =  this.preInSide;
+        if (this.lock) {
+          this.inSide = this.preInSide;
           this.lock = false;
         }
         if (currentInSide && !this.inSide) {
@@ -147,6 +163,7 @@ Component({
         console.log(error);
       }
     },
+    //屏幕移动到位置
     moveToLocation: function () {
       this.mapCtx.moveToLocation()
     },
@@ -183,6 +200,7 @@ Component({
     closeTimer: function () {
       clearInterval(this.sendTimer);
     },
+    //继续计时
     continueCount: function () {
       // mode 0 手动暂时中  1 手动继续中
       const {
@@ -191,12 +209,14 @@ Component({
       if (!this.inSide || mode == 0) return;
       this.countCircle._continue();
     },
+    //停止计时
     pauseCount: function () {
       console.log('pause');
       this.countCircle._pause();
     },
+    //结束
     end: function () {
-      
+
       this.setData({
         status: 0
       })
@@ -216,6 +236,7 @@ Component({
         hide: false
       }) : '未知错误'
     },
+    //处理页面隐藏
     handleOnUnload: function () {
       wx.offLocationChange(this.realTimeLocaton);
       clearInterval(this.sendTimer);

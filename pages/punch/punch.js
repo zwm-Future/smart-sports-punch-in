@@ -1,21 +1,13 @@
 Page({
   data: {
     modalVisible: false,
+    isOpenLocation:false,
   },
   onLoad: function (options) {
 
   },
   onReady: function () {
-    //开启持续定位
-    wx.startLocationUpdateBackground({
-      type: "gcj02",
-      success: (res) => {
-        console.log('前后台位置开始接收', res);
-      },
-      fail: (res) => {
-        this.getTry();
-      }
-    })
+
   },
   onShow: function () {
     //tarbar切换
@@ -24,7 +16,19 @@ Page({
         selected: 1
       })
     }
-    this.getTry()
+    //开启持续定位
+    wx.startLocationUpdateBackground({
+      type: "gcj02",
+      success: (res) => {
+        console.log('前后台位置开始接收', res);
+        this.setData({
+          isOpenLocation:true
+        })
+      },
+      fail: (res) => {
+        this.getTry();
+      }
+    })
   },
   onHide: function () {
     // if (this.data.status == 1) return;
@@ -36,11 +40,10 @@ Page({
     })
     // clearInterval(this.sendTimer);
   },
-  onUnload: function () {
-  },
+  onUnload: function () {},
   getTry: function () {
     wx.getSetting({
-      withSubscriptions: true,
+      withSubscriptions: false,
       success: (res) => {
         const {
           authSetting
