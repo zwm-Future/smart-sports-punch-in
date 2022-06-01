@@ -5,6 +5,7 @@
  * @param {*判断点纬度longitude} targetY 
  */
 export default function pnpoly(verArr, targetX, targetY) {
+  if(!verArr) return;
   const nvert = verArr.length;
   let i = 0, j = 0, result = false;
   for (i = 0, j = nvert - 1; i < nvert; j = i++) {
