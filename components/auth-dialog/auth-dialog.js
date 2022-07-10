@@ -60,11 +60,23 @@ Component({
     },
     handleLogin: async function () {
       try {
-        const {
-          code
-        } = await wx.login({});
-        console.log(code);
-        // const res = await login(code)
+        // const {
+        //   code
+        // } = await wx.login({});
+        // console.log(code);
+        // const {
+        //   code:isExist,
+        //   data
+        // } = await login(code)
+        // if (isExist) {
+        //   wx.setStorageSync("user", data);
+        //   wx.switchTab({
+        //     url: '/pages/index/index',
+        //   })
+        // }else {
+        //   console.log('用户未注册---auth-dialog:Component');
+        // }
+
         //Product
         const {
           code: loginCode,
@@ -77,7 +89,7 @@ Component({
           })
         }
       } catch (error) {
-        console.log('login', error);
+        console.log('auth-dialog:Component', error);
       }
     }
   },
