@@ -11,10 +11,17 @@ Page({
     recordsLeft: [],
     recordsRight: [],
     allSport: {},
+    stuId:'',
   },
 
-  onLoad: function () {
-    this.stuId = wx.getStorageSync('user').id;
+  onLoad: function (options) {
+    if(options.stuId) {//老师端跳转传参
+      this.stuId = options.stuId;
+      this.setData({
+        stuId:this.stuId
+      })
+    }
+    else this.stuId = wx.getStorageSync('user').id;//学生端
   },
   onReady: function () {},
 

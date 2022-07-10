@@ -1,0 +1,9 @@
+<view class="student-index-wrap">
+  <notice-text-rotation></notice-text-rotation>
+  <notice-img-rotation></notice-img-rotation>
+  <student-function-list></student-function-list>
+  <view class="accumulate-card-wrap">
+    <accumulate-card minutes="{{allMinutes}}" score="{{allScore}}"></accumulate-card>
+  </view>
+  <today-done-card sportTime="{{todaySportTime}}" score="{{todayScore}}"></today-done-card>
+</view>

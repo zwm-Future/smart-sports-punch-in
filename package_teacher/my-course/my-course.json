@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "semester-picker":"/components/semester-picker/semester-picker"
+  }
+}

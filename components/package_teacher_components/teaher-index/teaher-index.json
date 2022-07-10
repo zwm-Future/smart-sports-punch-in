@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "notice-img-rotation":"/components/notice-img-rotation/notice-img-rotation",
+    "notice-text-rotation":"/components/notice-text-rotation/notice-text-rotation",
+    "teacher-function-list":"../teacher-function-list/teacher-function-list"
+  }
+}

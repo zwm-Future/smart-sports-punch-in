@@ -14,7 +14,7 @@
       <view class="message-date"><text>12:21</text></view>
     </view>
   </view>
-  <navigator url="/pages/message-list/message-list" class="message-item">
+  <navigator url="../message-list/message-list" class="message-item">
     <view class="item-left">
       <view class="portrait-wrap">
         <view style="display: {{courseMes.unReadSize < 1 ? 'none' : 'flex'}};" class="red-num">{{courseMes.unReadSize}}</view>

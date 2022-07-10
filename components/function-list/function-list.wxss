@@ -1,0 +1,32 @@
+.function-list-wrap {
+  min-height: 11vh;
+  margin-top: 1.38vh;
+}
+
+.function-list {
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  padding: 18rpx 19rpx;
+  background-color: #fff;
+  box-shadow: 0 0 20rpx 10rpx #efeff1;
+  border-radius: 10rpx;
+}
+
+.function-list .function-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+}
+
+.function-item image {
+  width: 46%;
+  /* height: 45%; */
+}
+
+.function-item text {
+  font-size: 28rpx;
+  color: #9EA1A7;
+}

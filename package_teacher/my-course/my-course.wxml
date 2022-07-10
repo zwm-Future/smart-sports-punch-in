@@ -1,0 +1,8 @@
+<view class="my-course-wrap">
+  <semester-picker bindsemesterPickChange="turnSemester"></semester-picker>
+  <view class="my-course-main">
+  <navigator url="../my-student/my-student?courseId={{item.id}}&name={{item.name}}" wx:for="{{courseList}}" wx:key="id" class="course-item" >
+    {{item.name}}
+  </navigator>
+</view>
+</view>

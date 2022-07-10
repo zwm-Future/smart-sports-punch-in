@@ -1,0 +1,14 @@
+.my-course-wrap {
+  width: 100%;
+}
+
+.my-course-wrap .course-item {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 30rpx;
+  font-size: 34rpx;
+  font-weight: normal;
+  border-bottom: 2rpx solid #f2f2f2;
+}

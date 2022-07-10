@@ -13,11 +13,12 @@ Page({
   },
   onLoad: function (e) {
     const {
-      title = '运动列表', sportId,sportName
+      title = '运动列表', sportId,sportName,stuId
     } = e;
     if (sportId) this.sportId = sportId;
     if (sportName) this.sportName = sportName;
     this.user = wx.getStorageSync('user');
+    if(stuId) this.user.id = stuId;//老师端跳转传参带有学生id
     wx.setNavigationBarTitle({
       title
     })
@@ -26,7 +27,6 @@ Page({
   _getList: async function (semesterId = 1) {
     try {
       let res;
-      console.log(this.userId);
       if (this.sportId) {
         res = await getOneSportRecordDetail({
           stuId: this.user.id,
@@ -48,7 +48,6 @@ Page({
         punchTimes: 0,
         score: 0
       }
-      console.log(data);
       const sportList = data.map(item => {
         item.sportTime = parseInt(item.sportTime / 60);
         if(this.sportName) item.sportName = this.sportName;

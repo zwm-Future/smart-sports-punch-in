@@ -28,36 +28,9 @@
           "scene": null
         },
         {
-          "name": "消息中心",
-          "pathName": "pages/message/message",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "波形组件动画",
           "pathName": "pages/task/task",
           "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "绑定教师",
-          "pathName": "pages/my-teacher/my-teacher",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "选择授课老师",
-          "pathName": "pages/my-teacher/select-teacher/select-teacher",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "选择我的课程",
-          "pathName": "pages/my-teacher/select-course/select-course",
-          "query": "teacherId=1",
           "launchMode": "default",
           "scene": null
         },
@@ -71,6 +44,13 @@
         {
           "name": "首页",
           "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/login/login",
           "query": "",
           "launchMode": "default",
           "scene": null

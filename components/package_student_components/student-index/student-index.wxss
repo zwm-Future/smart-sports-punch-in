@@ -1,0 +1,8 @@
+.student-index-wrap {
+  padding: 0 44rpx;
+}
+
+.accumulate-card-wrap {
+  height: 20vh;
+  margin: 1.38vh 0;
+}

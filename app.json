@@ -5,15 +5,32 @@
     "pages/punch/punch",
     "pages/my/my",
     "pages/notice/notice",
-    "pages/message/message",
-    "pages/task/task",
     "pages/record/record",
-    "pages/my-teacher/my-teacher",
-    "pages/my-teacher/select-teacher/select-teacher",
-    "pages/my-teacher/select-course/select-course",
+    "pages/task/task",
     "pages/all-sport-detail/all-sport-detail",
-    "pages/message-view/message-view",
-    "pages/message-list/message-list"
+    "pages/login/login"
+  ],
+  "subPackages": [
+    {
+      "root": "package_student",
+      "name": "package_student",
+      "pages": [
+        "my-teacher/my-teacher",
+        "my-teacher/select-teacher/select-teacher",
+        "my-teacher/select-course/select-course",
+        "message/message",
+        "message-list/message-list",
+        "message-view/message-view"
+      ]
+    },
+    {
+      "root": "package_teacher",
+      "name": "package_teacher",
+      "pages": [
+        "my-course/my-course",
+        "my-student/my-student"
+      ]
+    }
   ],
   "tabBar": {
     "custom": true,
@@ -43,10 +60,10 @@
     ]
   },
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#44CAAC",
+    "navigationBarTitleText": "打卡小程序",
+    "navigationBarTextStyle": "white"
   },
   "requiredBackgroundModes": [
     "location"

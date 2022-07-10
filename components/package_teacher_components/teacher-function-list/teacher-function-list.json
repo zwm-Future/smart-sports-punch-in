@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "function-list":"/components/function-list/function-list"
+  }
+}

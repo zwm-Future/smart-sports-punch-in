@@ -22,18 +22,22 @@ Page({
       } = await getMessage();
       if (code) {
         let earlistIndex = 0;
-        //处获取最新消息时间
-        let t = new Date(data[0].createStamp);
-        data.forEach((item, index) => {
-          const date = new Date(item.createStamp)
-          if (data > t) {
-            t = data, earlistIndex = index
-          }
-        })
+        let date = '';
+        if (data.length > 0) {
+          //获取最新消息时间
+          let t = new Date(data[0].createStamp);
+          data.forEach((item, index) => {
+            const date = new Date(item.createStamp)
+            if (data > t) {
+              t = data, earlistIndex = index
+            }
+          })
+          date = data[earlistIndex].createStamp;
+        }
         this.setData({
           courseMes: {
             unReadSize,
-            date: data[earlistIndex].createStamp
+            date
           }
         })
       }
