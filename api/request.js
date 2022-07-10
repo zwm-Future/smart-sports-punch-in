@@ -17,11 +17,14 @@ export default function Request(options) {
       success(res) {
         showTip.LoadingOff();
         if (res.statusCode === 200) {
-          if (options.url == '/user/loginPsw') {
+          if (options.url == '/user/login' || options.url == '/test/login') {
             console.log(res);
-            const cookie = res.header["Set-Cookie"].split(';')[0];
-            console.log(res.header["Set-Cookie"]);
-            console.log(res.header["Set-Cookie"].split(';'))
+            let cookie = '';
+            if(res.cookies) cookie = res.cookies[0].split(';')[0];
+            else cookie = res.header["Set-Cookie"].split(';')[0];
+            console.log(cookie);
+            // console.log(res.header["Set-Cookie"]);
+            // console.log(res.header["Set-Cookie"].split(';'))
             if (cookie != null) {
               wx.setStorageSync("Cookie", cookie); //服务器返回的Set-Cookie，保存到本地
             }
