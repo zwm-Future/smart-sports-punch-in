@@ -3,5 +3,13 @@
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "我的",
   "navigationBarTextStyle": "black",
-  "usingComponents": {}
+  "usingComponents": {
+    "student-item":"/package_teacher/components/student-item/student-item",
+    "teacher-item":"/package_student/components/teacher-item/teacher-item"
+  },
+  "componentPlaceholder": {
+    "student-item":"view",
+    "teacher-item":"view"
+  },
+  "lazyCodeLoading": "requiredComponents"
 }

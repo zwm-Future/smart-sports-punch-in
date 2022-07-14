@@ -1,5 +1,5 @@
 <view class="message-wrap">
-  <view class="message-item">
+  <!-- <view class="message-item">
     <view class="item-left">
       <view class="portrait-wrap">
         <view class="red-num">1</view>
@@ -13,12 +13,13 @@
       </view>
       <view class="message-date"><text>12:21</text></view>
     </view>
-  </view>
+  </view> -->
   <navigator url="../message-list/message-list" class="message-item">
     <view class="item-left">
-      <view class="portrait-wrap">
+      <view class="mes-icon-wrap">
         <view style="display: {{courseMes.unReadSize < 1 ? 'none' : 'flex'}};" class="red-num">{{courseMes.unReadSize}}</view>
-        <image class="portrait"></image>
+        <!-- <image class="mes-icon"></image> -->
+        <van-icon name="chat-o" class="mes-icon" />
       </view>
     </view>
     <view class="item-right">
@@ -29,7 +30,7 @@
       <view class="message-date"><text>{{courseMes.date}}</text></view>
     </view>
   </navigator>
-  <view class="message-item">
+  <!-- <view class="message-item">
     <view class="item-left">
       <view class="portrait-wrap">
         <view class="red-num">1</view>
@@ -43,5 +44,5 @@
       </view>
       <view class="message-date"><text>12:21</text></view>
     </view>
-  </view>
+  </view> -->
 </view>

@@ -9,4 +9,14 @@ Component({
       value:"xxxxxxxxx"
     }
   },
+  pageLifetimes:{
+    show() {
+      console.log(111);
+    }
+  },
+  lifetimes:{
+    created() {
+      console.log(222);
+    }
+  }
 })

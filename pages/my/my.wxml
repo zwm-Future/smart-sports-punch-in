@@ -1,7 +1,6 @@
-
 <view class="my-wrap">
   <view class="my-bg">
-    <image  src="/img/my/personalbackground@3x.png" class="bg-img"></image>
+    <image src="/img/my/personalbackground@3x.png" class="bg-img"></image>
     <view class="person-container">
       <image class="person-avatar" src="{{userInfo.avatarUrl}}"></image>
       <view class="person-msg">
@@ -19,18 +18,24 @@
     <navigator url="/package_student/my-teacher/my-teacher" class="list-item">
       <text class="item-text">我绑定的教师</text>
       <text class="arrow">></text>
-    </navigator > 
+    </navigator>
     <view class="list-item">
       <text class="item-text">帮助中心</text>
       <text class="arrow">></text>
-    </view> 
+    </view>
     <view class="list-item">
       <text class="item-text">联系我们</text>
       <text class="arrow">></text>
-    </view> 
+    </view>
     <!-- <view class="list-item">
       <text class="item-text">修改密码</text>
       <text class="arrow">></text>
     </view>  -->
   </view>
+</view>
+<view wx:if="{{identityId == 2}}">
+  <student-item></student-item>
+</view>
+<view wx:if="{{identityId == 1}}">
+  <teacher-item></teacher-item>
 </view>

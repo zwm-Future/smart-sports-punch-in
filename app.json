@@ -8,7 +8,8 @@
     "pages/record/record",
     "pages/task/task",
     "pages/all-sport-detail/all-sport-detail",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/main-func/main-func"
   ],
   "subPackages": [
     {
@@ -28,7 +29,8 @@
       "name": "package_teacher",
       "pages": [
         "my-course/my-course",
-        "my-student/my-student"
+        "my-student/my-student",
+        "publish/publish"
       ]
     }
   ],

@@ -1,6 +1,8 @@
-<view class="message-list" bindtap="handleTapMes">
+<view class="message-list" catchtap="handleTapMes" >
   <view class="item" wx:for="{{messageArr}}" wx:key="id" data-index="{{index}}">
-    <view class="num">{{index + 1}}</view>
-    <view class="date">{{messageArr[index].createStamp}}</view>
+    <view class="content" data-index="{{index}}">
+      {{item.msgContent}}
+    </view>
+    <view class="date" data-index="{{index}}">{{item.createStamp}}</view>
   </view>
 </view>

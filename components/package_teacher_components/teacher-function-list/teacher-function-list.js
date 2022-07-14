@@ -16,7 +16,7 @@ Component({
       name:'我的课程',
     },
     {
-      url:'/package_teacher/my-student/my-student',
+      url:'/package_teacher/my-course/my-course',
       imgSrc: '/img/index/motionrecording@3x.png',
       name:'我的学生',
     }

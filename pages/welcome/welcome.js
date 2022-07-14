@@ -4,10 +4,10 @@ Page({
   },
   onLoad: async function () {
     try {
-      await wx.checkSession();
-      wx.switchTab({
-        url: '/pages/index/index',
-      })
+      // await wx.checkSession();
+      // wx.switchTab({
+      //   url: '/pages/index/index',
+      // })
     } catch (error) {
       console.log(error);
     }

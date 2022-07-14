@@ -1,6 +1,5 @@
 .message-list {
   box-sizing: border-box;
-  padding: 40rpx;
 }
 
 .item {
@@ -9,8 +8,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40rpx 20rpx;
-  margin-bottom: 5rpx;
-  box-shadow: 0 0 20rpx 10rpx #efeff1;
-  border-radius: 20rpx;
+  padding: 30rpx 20rpx;
+  border-bottom: 2rpx solid #efefef;
+}
+
+.content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.date {
+  white-space: nowrap;
+  font-size: 24rpx;
+  color: #c6c6c6;
 }

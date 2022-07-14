@@ -10,6 +10,7 @@ Page({
     this._getMes()
   },
   handleTapMes:function(e) {
+    console.log(e);
     const {index} = e.target.dataset;
     const {messageArr} = this.data;
     if(index > -1) {

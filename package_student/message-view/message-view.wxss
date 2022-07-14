@@ -1,1 +1,3 @@
-/* pages/message-view/message-view.wxss */
+.rich-container {
+  text-indent: 2em;
+}

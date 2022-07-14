@@ -8,3 +8,12 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+button {
+  margin: 0;
+  padding: 0 !important;
+}
+
+button::after {
+  border: none;
+}

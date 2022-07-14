@@ -1,6 +1,8 @@
 import {
   getMyTeacher
 } from '../../api/student/my-teacher'
+const identityId = getApp().identityId;
+console.log(identityId);
 Page({
 
   /**
@@ -8,14 +10,19 @@ Page({
    */
   data: {
     userInfo: {},
-    teacherName: ''
+    teacherName: '',
+    identityId:identityId,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   let identityId;
+   const user = wx.getStorageSync('user')
+   if(user.identityId == 1) identityId = 1;
+   else identityId = 2;
+   this.setData({identityId});
   },
 
   /**

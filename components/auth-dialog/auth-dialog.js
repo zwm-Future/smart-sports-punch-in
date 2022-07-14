@@ -4,6 +4,7 @@ import {
 import {
   loginProduct
 } from '../../api/student/login'
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -84,6 +85,7 @@ Component({
         } = await loginProduct();
         if (loginCode) {
           wx.setStorageSync("user", data);
+          app.globalData.identityId = data.identityId;
           wx.switchTab({
             url: '/pages/index/index',
           })

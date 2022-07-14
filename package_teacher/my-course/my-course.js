@@ -1,5 +1,6 @@
 import {
   getTeacherCourse,
+  addTeacherCourse
 } from '../../api/teacher/course.js'
 Page({
 
@@ -7,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    courseList: []
+    courseList: [],
+    addModal:false
   },
 
   /**
@@ -52,4 +54,36 @@ Page({
       console.log(error);
     }
   },
+  handleLongPress:function(e) {
+    console.log(e);
+  },
+  showAddModal:function(e) {
+    this.setData({
+      addModal:true
+    })
+  },
+  addTurnSemester:function({detail:semester}) {
+    this.addSemester = semester;
+  },
+  handleCancle:function() {
+    this.setData({
+      addModal:false
+    })
+  },
+  handleAdd:async function(e) {
+   try {
+    const {name}  = e.detail.value;
+    if(this.addSemester.id && name) {
+      const {code} = await addTeacherCourse({semesterId:this.addSemester.id,name});
+      if(code) {
+        this.handleCancle();
+      }else {
+        console.log('error');
+      }
+    }
+   } catch (error) {
+     console.log(error);
+   }
+
+  }
 })
