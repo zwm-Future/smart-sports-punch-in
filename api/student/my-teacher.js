@@ -1,7 +1,7 @@
 import Request from '../request';
 
 export const getAllTeachers = () => {
-  /**
+  /** 获取所有教师
   * 
   */
     return Request({
@@ -10,7 +10,7 @@ export const getAllTeachers = () => {
 }
 
 export const getMyTeacher = (data) => {
-  /**
+  /** 获取我的老师
   * @param {String} semesterId - 学期id
   */
     return Request({
@@ -20,7 +20,7 @@ export const getMyTeacher = (data) => {
 }
 
 export const getTeacherCourse = (data) => {
-  /**
+  /** 获取老师的课程
   * @param {String} semesterId - 学期id
   */
     return Request({
@@ -30,7 +30,7 @@ export const getTeacherCourse = (data) => {
 }
 
 export const bindCourse = (data) => {
-  /**
+  /** 绑定课程
   * 
   * @param {String} courseId - 课程id
   */

@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "my-editor":"../my-editor/my-editor",
+    "show-modal":"/components/show-modal/show-modal"
+  },
+  "navigationBarTitleText": "发布",
+  "styleIsolation": "apply-shared"
+}

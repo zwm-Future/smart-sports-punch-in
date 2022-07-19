@@ -6,7 +6,7 @@ export const getAllsportRecord = (params) => {
    */
   return Request({
     url: '/sportTime/sport',
-    data:params
+    data: params
   })
 }
 
@@ -17,7 +17,7 @@ export const getsportRecordTotal = (params) => {
    */
   return Request({
     url: '/sportTime/total',
-    data:params
+    data: params
   })
 }
 
@@ -28,7 +28,7 @@ export const getAllsportRecordDetail = (params) => {
    */
   return Request({
     url: '/sportTime/semester',
-    data:params
+    data: params
   })
 }
 
@@ -40,7 +40,7 @@ export const getOneSportRecordDetail = (params) => {
    */
   return Request({
     url: '/sportTime/sportExact',
-    data:params
+    data: params
   })
 }
 
@@ -50,13 +50,16 @@ export const getTodaysportRecord = (params) => {
    */
   return Request({
     url: '/sportTime/now',
-    data:params
+    data: params
   })
 }
-export const addSportRecord = () => {
+export const addSportRecord = ({
+  sceneId,
+  sportTime,
+  start,
+  end
+}) => {
   /**
-   * @param {String} semesterId - 学期id
-   * @param {String} stuId - 学生id
    * @param {String} sceneId	 - 场地id
    * @param {String} sportTime - 长整形 有多少秒
    * @param {String} start - 开始时间
@@ -64,6 +67,21 @@ export const addSportRecord = () => {
    */
   return Request({
     url: '/stu/sport',
-    method: 'POST'
+    method: 'POST',
+    data: {
+      "sceneId":sceneId,
+      "sportTime":sportTime,
+      "start":start,
+      "end":end
+    }
+  })
+}
+
+export const getAllSports = () => {
+  /** 获取所有的运动项目
+   */
+  return Request({
+    url: '/sport',
+    method: 'GET'
   })
 }

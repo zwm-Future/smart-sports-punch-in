@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "publish":"/package_teacher/components/publish/publish",
+    "punch":"/package_student/components/punch/punch"
+  },
+  "componentPlaceholder": {
+    "publish":"view",
+    "punch":"view"
+  }
 }

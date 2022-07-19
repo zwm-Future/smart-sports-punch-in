@@ -1,0 +1,51 @@
+.my-bg {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 15.5vh;
+  padding: 5% 0;
+}
+.my-bg .bg-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.my-bg .person-container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-left: 60rpx;
+}
+.person-container .person-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+.person-container .person-msg {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  color:#FFFFFF;
+}
+.person-msg .name {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.my-list {
+  padding: .5vh 0 0 0;
+}
+
+.my-list .list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.54vh;
+  padding: 0 40rpx;
+  font-size: 34rpx;
+  color: #9EA1A7;
+}

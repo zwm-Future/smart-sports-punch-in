@@ -1,9 +1,12 @@
 import {
   getAllSportType,
   getCampus
-} from '../../../../api/map.js'
-import pnpoly from '../../../../utils/pnp.js'
-const showTip = require('../../../../public/showTip');
+} from '../../../../../api/map.js';
+import {
+  getAllSports
+} from '../../../../../api/student/sports'
+import pnpoly from '../../../../../utils/pnp';
+const showTip = require('../../../../../public/showTip');
 // 所有区域
 let allArea = [];
 const getData = [{
@@ -105,14 +108,13 @@ Component({
     },
     //开始打卡
     bindBegin: function () {
+      const {
+        selectAreaIndex
+      } = this.data;
       //触发父 function
-      this.triggerEvent('handlePunch');
-      // if (!this.inSide) {
-      //   showTip.Alert('请进入区域内再开始!');
-      //   return;
-      // } else {
-      //   showTip.Alert('打卡成功!');
-      // }
+      this.triggerEvent('handlePunch', {
+        scene: this.allArea[selectAreaIndex]
+      });
     },
     //初始化
     initData: function () {
@@ -123,19 +125,28 @@ Component({
     _getAllArea: async function () {
       try {
         const {
-          code,
-          data
+          code: codeArea,
+          data: areaData
         } = await getAllSportType();
-        if (code) {
-          this.allArea = data;
-          const areaArray = data.map(item => item.name);
-          this.bindPickerChange(0, 0);
-          this.setData({
-            areaArray
-          })
-        }
+        const {
+          code: codeSport,
+          data: sportData
+        } = await getAllSports();
+        if (!codeArea || !codeSport) return;
+        const allAreaArray = areaData.map(item => {
+          const tItem = sportData.find(cItem => cItem.id == item.sportId)
+          item.minTime = tItem.minTime;
+          return item;
+        });
+        const areaArray = allAreaArray.map(item => item.name);
+        this.allArea = allAreaArray;
+        console.log(allAreaArray,areaArray);
+        this.bindPickerChange(0, 0);
+        this.setData({
+          areaArray
+        })
       } catch (msg) {
-        showTip.Alert(msg);
+        console.log(msg);
       }
     },
     //获取校区
@@ -155,6 +166,6 @@ Component({
       } catch (error) {
 
       }
-    }
+    },
   }
 })

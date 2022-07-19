@@ -21,6 +21,7 @@
 }
 .tab-bar-item .image {
   width: 36rpx;
+  height: 36rpx;
   margin-bottom: 9px;
 }
 .bulge {
@@ -39,6 +40,7 @@
 .bulge .image{
   position: absolute;
   width: 220rpx;
+  height: 220rpx;
   top: -27.5%;
 }
 

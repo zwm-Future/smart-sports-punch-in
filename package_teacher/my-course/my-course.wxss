@@ -35,10 +35,6 @@
   background-color: #44CAAC;
   border-radius: 50%;
 }
-
-.add-main {
-}
-
 .add-form {
   padding-top: 20rpx;
 }

@@ -1,2 +1,6 @@
-<!--pages/main-func/main-func.wxml-->
-<text>pages/main-func/main-func.wxml</text>
+<view wx:if="{{identityId == 1}}">
+  <punch></punch>
+</view>
+<view wx:if="{{identityId == 2}}">
+  <publish></publish>
+</view>

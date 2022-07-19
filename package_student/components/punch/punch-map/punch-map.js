@@ -1,12 +1,18 @@
-import pnpoly from '../../../utils/pnp.js'
-const showTip = require('../../../public/showTip.js');
+import pnpoly from '../../../../utils/pnp.js';
+import {
+  formatTime
+} from "../../../../utils/util"
+import {
+  addSportRecord
+} from '../../../../api/student/sports'
+const showTip = require('../../../../public/showTip.js');
 Component({
-  properties:{
-    isOpenLocation:{
-      type:Boolean,
-      value:false,
-      observer:function(value) {
-        if(value) {
+  properties: {
+    isOpenLocation: {
+      type: Boolean,
+      value: false,
+      observer: function (value) {
+        if (value) {
           this.setLocation()
         }
       }
@@ -48,7 +54,7 @@ Component({
   sendTimer: null,
   initPoints: [],
   lifetimes: {
-    ready: function () {
+    attached: function () {
       this.initPoints = [{
         latitude: 23.03321,
         longitude: 116.29511
@@ -78,7 +84,7 @@ Component({
     show: function () {
       try {
         //已开启后台定位？ -> 定位
-       if(this.properties.isOpenLocation) this.setLocation();
+        if (this.properties.isOpenLocation) this.setLocation();
         if (this.data.status == 1) reutrn;
         this.setTimer();
         wx.onLocationChangeError(res => console.log(res))
@@ -113,18 +119,23 @@ Component({
       callBack && callBack();
     },
     //点击打卡
-    onPunch: async function () {
+    onPunch: async function ({
+      detail
+    }) {
       if (!this.inSide) {
         showTip.Alert('请进入区域内再开始!');
         return;
       }
+      this.scene = detail.scene;
       //隐藏tarbar
       this.hideTabBar();
       //倒计时
-      await this.wave_bg._handleCount(this.countCircle._start.bind(this.countCircle));
-      console.log(111);
+      //这里start带参数target
+      await this.wave_bg._handleCount(this.countCircle._start.call(this.countCircle));
+      this.startTime = formatTime(new Date());
       this.setData({
-        status: 1
+        status: 1,
+        target: this.scene.minTime
       })
     },
     //位置监听
@@ -215,12 +226,39 @@ Component({
       this.countCircle._pause();
     },
     //结束
-    end: function () {
-
-      this.setData({
-        status: 0
-      })
-      this.showTabBar();
+    end: async function () {
+      try {
+        //写个函数保存本地
+        this.endTime = formatTime(new Date());
+        const {
+          startTime: start,
+          endTime: end
+        } = this;
+        const {
+          id: sceneId
+        } = this.scene;
+        const minAndSecond = this.countCircle._getTimes.call(this.countCircle).split(":");
+        const sportTime = minAndSecond[0] * 60 + minAndSecond[1] * 1;
+        const {code,} = await addSportRecord({
+          sceneId,
+          sportTime,
+          start,
+          end
+        })
+        if(code) {
+          sportTime >= this.scene.minTime && showTip.Toast('运动达标！','success');
+          sportTime < this.scene.minTime && showTip.Toast('运动未达标','error');
+        }else {
+          showTip.Toast('提交失败','error');
+          //重试
+        }
+        this.setData({
+          status: 0
+        })
+        this.showTabBar();
+      } catch (error) {
+        console.log(error);
+      }
     },
     //隐藏TarBar
     hideTabBar: function () {

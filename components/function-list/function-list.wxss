@@ -20,9 +20,20 @@
   align-items: center;
   flex: 1;
 }
-
-.function-item image {
+.function-item .image-wrap {
+  position: relative;
   width: 46%;
+  padding-bottom: 46%;
+}
+.function-item .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* width: 46%;
+  padding-bottom: 46%;
+  height: 46%; */
   /* height: 45%; */
 }
 

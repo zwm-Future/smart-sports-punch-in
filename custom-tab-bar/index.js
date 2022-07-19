@@ -15,7 +15,7 @@ Component({
         selectedIconPath: "/img/tarbar/home-selected@3x.png"
       },
       {
-        pagePath: "/pages/punch/punch",
+        pagePath: "/pages/main-func/main-func",
         bulge: true,
         iconPath: "/img/tarbar/clock@3x.png",
         selectedIconPath: "/img/tarbar/clock@3x.png"
@@ -39,56 +39,20 @@ Component({
   },
   lifetimes: {
     ready: function () {
-      if (!app.globalData.identifyConfirm) {
-        let list;
+      if (app.globalData.identifyConfirm < 3) {
+        let {
+          list
+        } = this.data;
         const user = wx.getStorageSync('user');
-        console.log(user);
-        if (user.identityId == 1) {
-          list = [{
-              pagePath: "/pages/index/index",
-              text: "首页",
-              iconPath: "/img/tarbar/home@3x.png",
-              selectedIconPath: "/img/tarbar/home-selected@3x.png"
-            },
-            {
-              pagePath: "/pages/punch/punch",
-              bulge: true,
-              iconPath: "/img/tarbar/clock@3x.png",
-              selectedIconPath: "/img/tarbar/clock@3x.png"
-            },
-            {
-              pagePath: "/pages/my/my",
-              text: "我的",
-              iconPath: "/img/tarbar/my@3x.png",
-              selectedIconPath: "/img/tarbar/my-selected@3x.png"
-            }
-          ]
-        } else {
-          list = [{
-              pagePath: "/pages/index/index",
-              text: "首页",
-              iconPath: "/img/tarbar/home@3x.png",
-              selectedIconPath: "/img/tarbar/home-selected@3x.png"
-            },
-            {
-              pagePath: "/package_teacher/publish/publish",
-              bulge: true,
-              iconPath: "/img/tarbar/publish@3x.png",
-              selectedIconPath: "/img/tarbar/publish@3x.png"
-            },
-            {
-              pagePath: "/pages/my/my",
-              text: "我的",
-              iconPath: "/img/tarbar/my@3x.png",
-              selectedIconPath: "/img/tarbar/my-selected@3x.png"
-            }
-          ]
+        if (user.identityId == 2) {
+          list[1].iconPath = '/img/tarbar/publish@3x.png';
+          list[1].selectedIconPath = '/img/tarbar/publish@3x.png';
         }
-        if (user.identityId && list) {
+        if (user.identityId && list.length > 0) {
           this.setData({
             list
           }, () => {
-            app.globalData.identifyConfirm = true
+            app.globalData.identifyConfirm++;
           });
         }
       }

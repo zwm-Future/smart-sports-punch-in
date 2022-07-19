@@ -4,12 +4,11 @@
   "navigationBarTitleText": "我的",
   "navigationBarTextStyle": "black",
   "usingComponents": {
-    "student-item":"/package_teacher/components/student-item/student-item",
-    "teacher-item":"/package_student/components/teacher-item/teacher-item"
+    "student-my":"/package_student/components/student-my/student-my",
+    "teacher-my":"/package_teacher/components/teacher-my/teacher-my"
   },
   "componentPlaceholder": {
-    "student-item":"view",
-    "teacher-item":"view"
-  },
-  "lazyCodeLoading": "requiredComponents"
+    "student-my":"view",
+    "teacher-my":"view"
+  }
 }

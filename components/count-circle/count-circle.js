@@ -67,6 +67,7 @@ Component({
     _start: function () {
       this.count = 0;
       this.stepNum = 12;
+      console.log(this.properties.target);
       this.step = parseInt(this.properties.target / this.stepNum);
       console.log(this.step);
       this.currentStep = 0;

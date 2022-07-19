@@ -6,6 +6,6 @@ App({
   globalData: {
     baseUrl: 'https://www.bingcoke.com/sport',
     user:{},
-    identifyConfirm:false,
+    identifyConfirm:0,
   },
 })

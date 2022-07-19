@@ -2,7 +2,6 @@
   "pages": [
     "pages/welcome/welcome",
     "pages/index/index",
-    "pages/punch/punch",
     "pages/my/my",
     "pages/notice/notice",
     "pages/record/record",
@@ -18,7 +17,7 @@
       "pages": [
         "my-teacher/my-teacher",
         "my-teacher/select-teacher/select-teacher",
-        "my-teacher/select-course/select-course",
+        "my-teacher/select-course/select-course", 
         "message/message",
         "message-list/message-list",
         "message-view/message-view"
@@ -28,9 +27,8 @@
       "root": "package_teacher",
       "name": "package_teacher",
       "pages": [
-        "my-course/my-course",
         "my-student/my-student",
-        "publish/publish"
+        "my-course/my-course"
       ]
     }
   ],
@@ -48,7 +46,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/punch/punch",
+        "pagePath": "pages/main-func/main-func",
         "text": "打卡",
         "iconPath": "/img/tarbar/clock@3x.png",
         "selectedIconPath": "/img/tarbar/clock@3x.png"
