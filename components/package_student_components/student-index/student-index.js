@@ -37,7 +37,7 @@ Component({
           userId: user.id
         });
         code && this.setData({
-          todaySportTime: data.sportTime,
+          todaySportTime: parseInt(data.sportTime / 10),
           todayScore: data.score
         })
         console.log(res);
