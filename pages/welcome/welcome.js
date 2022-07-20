@@ -1,3 +1,6 @@
+import {
+  login
+} from '../../api/login.js'
 Page({
   data: {
     showAuth: false,
@@ -8,9 +11,13 @@ Page({
       // wx.switchTab({
       //   url: '/pages/index/index',
       // })
+      this.textLogin();
     } catch (error) {
       console.log(error);
     }
+  },
+  onShow() {
+    this.textLogin();
   },
   handleShowAuth: function () {
     this.setData({
@@ -27,5 +34,29 @@ Page({
         icon: 'error'
       })
     })
+  },
+  textLogin: async function () {
+    try {
+      if (!wx.getStorageSync('userInfo')) return;
+      const {
+        code
+      } = await wx.login({});
+      const {
+        code: isExist,
+        data
+      } = await login(code)
+      if (isExist) {
+        wx.setStorageSync("user", data);
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      } else {
+        wx.redirectTo({
+          url: '/pages/login/login',
+        })
+      }
+    } catch (error) {
+      console.log('welcome:Page', error);
+    }
   }
 })

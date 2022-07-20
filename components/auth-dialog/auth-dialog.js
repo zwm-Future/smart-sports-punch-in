@@ -61,35 +61,36 @@ Component({
     },
     handleLogin: async function () {
       try {
-        // const {
-        //   code
-        // } = await wx.login({});
-        // console.log(code);
-        // const {
-        //   code:isExist,
-        //   data
-        // } = await login(code)
-        // if (isExist) {
-        //   wx.setStorageSync("user", data);
-        //   wx.switchTab({
-        //     url: '/pages/index/index',
-        //   })
-        // }else {
-        //   console.log('用户未注册---auth-dialog:Component');
-        // }
-
-        //Product
         const {
-          code: loginCode,
+          code
+        } = await wx.login({});
+        const {
+          code: isExist,
           data
-        } = await loginProduct();
-        if (loginCode) {
+        } = await login(code)
+        if (isExist) {
           wx.setStorageSync("user", data);
-          app.globalData.identityId = data.identityId;
           wx.switchTab({
             url: '/pages/index/index',
           })
+        } else {
+          wx.redirectTo({
+            url: '/pages/login/login',
+          })
         }
+
+        //Product
+        // const {
+        //   code: loginCode,
+        //   data
+        // } = await loginProduct();
+        // if (loginCode) {
+        //   wx.setStorageSync("user", data);
+        //   app.globalData.identityId = data.identityId;
+        //   wx.switchTab({
+        //     url: '/pages/index/index',
+        //   })
+        // }
       } catch (error) {
         console.log('auth-dialog:Component', error);
       }

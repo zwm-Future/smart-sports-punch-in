@@ -14,7 +14,7 @@ export const loginPsw = (number,password,code,weChatCode) => {
   /** 账号密码登录
   * @param {String} number - 学工号
   * @param {String} password - 密码
-  * @param {String} code - 登录验证码
+  * @param {String} code - wxCode
   * @param {String} weChatCode - 登录验证码
   */
     return Request({
