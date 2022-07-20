@@ -36,7 +36,7 @@ Page({
         }
         this.setData({
           courseMes: {
-            unReadSize,
+            unReadSize: unReadSize || 0,
             date
           }
         })

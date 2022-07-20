@@ -1,11 +1,14 @@
-import {Toast} from "../../../public/showTip"
+import {
+  Toast
+} from "../../../public/showTip"
 Component({
   data: {
     formats: {},
     readOnly: false,
     placeholder: '开始输入...',
-    editorHeight: 300,
+    editorHeight: 86,
     keyboardHeight: 0,
+    toolbarTop: 0,
     isIOS: false
   },
 
@@ -23,11 +26,14 @@ Component({
       const {
         windowHeight,
         platform
-      } = wx.getSystemInfoSync()
-      let editorHeight = keyboardHeight > 0 ? (windowHeight - keyboardHeight - toolbarHeight) : windowHeight
+      } = wx.getSystemInfoSync();
+      console.log(wx.getSystemInfoSync());
+      let editorHeight = keyboardHeight > 0 ? (windowHeight - keyboardHeight - toolbarHeight) / windowHeight * 100 : 100 - 14;
+      const toolbarTop = windowHeight - keyboardHeight;
       this.setData({
         editorHeight,
-        keyboardHeight
+        keyboardHeight,
+        toolbarTop
       })
     },
     calNavigationBarAndStatusBar() {
@@ -90,36 +96,42 @@ Component({
         text: formatDate
       })
     },
-    insertImage() {
-      const that = this
-      wx.chooseMedia({
-        count: 1,
-        success: function (res) {
-          that.editorCtx.insertImage({
-            src: res.tempFilePaths[0],
-            data: {
-              id: 'abcd',
-              role: 'god'
-            },
-            width: '80%',
-            success: function () {
-              console.log('insert image success')
-            }
-          })
-        }
-      })
-    },
+    // insertImage() {
+    //   const that = this
+    //   wx.chooseMedia({
+    //     count: 1,
+    //     success: function (res) {
+    //       that.editorCtx.insertImage({
+    //         src: res.tempFiles[0].tempFilePath,
+    //         data: {
+    //           id: 'abcd',
+    //           role: 'god'
+    //         },
+    //         width: '80%',
+    //         success: function () {
+    //           console.log('insert image success')
+    //         }
+    //       })
+    //     }
+    //   })
+    // },
     handleFinish: async function () {
       try {
-        const {text,html} = await this.editorCtx.getContents();
-        //全是换行
-        if(text.search(/^[\n]*$/) == 0) {
-          Toast('当前内容为空','none');
+        const {
+          text,
+          html
+        } = await this.editorCtx.getContents();
+        const res = await this.editorCtx.getContents();
+        console.log(res);
+        if (text.search(/^[\n]*$/) == 0) {
+          Toast('当前内容为空', 'none');
           return;
         }
-        this.triggerEvent('Finish',{html});
+        this.triggerEvent('Finish', {
+          html
+        });
       } catch (error) {
-Toast
+        Toast
       }
     }
   },
@@ -135,6 +147,7 @@ Toast
       let keyboardHeight = 0
       wx.onKeyboardHeightChange(res => {
         if (res.height === keyboardHeight) return
+        console.log(res);
         const duration = res.height > 0 ? res.duration * 1000 : 0
         keyboardHeight = res.height
         setTimeout(() => {

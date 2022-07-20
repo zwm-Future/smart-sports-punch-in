@@ -1,1 +1,3 @@
-<rich-text class="rich-container" nodes="{{nodes}}"></rich-text>
+<view class="mes-view-container">
+  <rich-text class="rich-container" nodes="{{nodes}}"></rich-text>
+</view>

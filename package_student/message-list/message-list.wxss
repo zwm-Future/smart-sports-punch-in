@@ -11,13 +11,6 @@
   padding: 30rpx 20rpx;
   border-bottom: 2rpx solid #efefef;
 }
-
-.content {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .date {
   white-space: nowrap;
   font-size: 24rpx;
