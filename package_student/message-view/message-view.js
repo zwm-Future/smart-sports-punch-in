@@ -14,9 +14,9 @@ Page({
   onLoad(options) {
     const {
       content
-    } = options
+    } = options;
     this.setData({
-      nodes: content
+      nodes: decodeURIComponent(content)
     })
   },
 
