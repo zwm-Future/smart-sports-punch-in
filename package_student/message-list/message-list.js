@@ -17,7 +17,7 @@ Page({
       //消息未读 ->  已读
       if(!messageArr[index].read) this._setRead(messageArr[index].id);
       wx.navigateTo({
-        url: `../message-view/message-view?content=${messageArr[index].msgContent}`,
+        url: `../message-view/message-view?content=${encodeURIComponent(messageArr[index].msgContent)}`,
       })
     }
   },
