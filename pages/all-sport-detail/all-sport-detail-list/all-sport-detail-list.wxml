@@ -3,4 +3,5 @@
     <tag-select  tags="{{tags}}"  bindselectChange="handleSelectChange"></tag-select>
   </view>
   <sport-item-card wx:for="{{list}}" sport="{{list[index]}}" wx:key="id"></sport-item-card>
+  <no-data hidden="{{list.length > 0}}"></no-data>
 </view>

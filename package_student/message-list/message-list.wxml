@@ -6,3 +6,6 @@
     <view class="date" data-index="{{index}}">{{item.createStamp}}</view>
   </view>
 </view>
+<view class="icon-wrap" hidden="{{messageArr.length > 0}}">
+  <no-data></no-data>
+</view>

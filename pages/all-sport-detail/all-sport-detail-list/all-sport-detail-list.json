@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "sport-item-card":"/components/sport-item-card/sport-item-card",
-    "tag-select":"/components/tag-select/tag-select"
+    "tag-select":"/components/tag-select/tag-select",
+    "no-data":"/components/no-data/no-data"
   }
 }
