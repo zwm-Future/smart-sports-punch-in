@@ -1,9 +1,6 @@
 import {
   login
 } from '../../api/login.js'
-import {
-  loginProduct
-} from '../../api/student/login'
 const app = getApp();
 Component({
   /**
@@ -79,18 +76,6 @@ Component({
           })
         }
 
-        //Product
-        // const {
-        //   code: loginCode,
-        //   data
-        // } = await loginProduct();
-        // if (loginCode) {
-        //   wx.setStorageSync("user", data);
-        //   app.globalData.identityId = data.identityId;
-        //   wx.switchTab({
-        //     url: '/pages/index/index',
-        //   })
-        // }
       } catch (error) {
         console.log('auth-dialog:Component', error);
       }

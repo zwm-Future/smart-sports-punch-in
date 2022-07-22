@@ -4,6 +4,11 @@ const showTip = require('../public/showTip');
 export default function Request(options) {
   return new Promise((resolve, reject) => {
     showTip.Loading(1);
+    if (options.url == '/user/login' || options.url == '/test/login') {
+      wx.removeStorage({
+        key: 'Cookie',
+      })
+    }
     wx.request({
       url: baseURL + options.url || '',
       data: options.data || {},
@@ -18,13 +23,9 @@ export default function Request(options) {
         showTip.LoadingOff();
         if (res.statusCode === 200) {
           if (options.url == '/user/login' || options.url == '/test/login') {
-            console.log(res);
             let cookie = '';
             if(res.cookies) cookie = res.cookies[0].split(';')[0];
             else cookie = res.header["Set-Cookie"].split(';')[0];
-            console.log(cookie);
-            // console.log(res.header["Set-Cookie"]);
-            // console.log(res.header["Set-Cookie"].split(';'))
             if (cookie != null) {
               wx.setStorageSync("Cookie", cookie); //服务器返回的Set-Cookie，保存到本地
             }

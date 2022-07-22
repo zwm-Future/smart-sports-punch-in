@@ -28,13 +28,22 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    
     name: {
       type: String,
       value: '未知'
     },
+    date: {
+      type: String,
+      value: ''
+    },
     number: {
-      type: Number,
+      type: String,
       value: 0
+    },
+    unit: {
+      type: String,
+      value: "min"
     },
   },
   /**

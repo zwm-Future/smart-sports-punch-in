@@ -8,7 +8,8 @@
   background: #FFF;
   display: flex;
   border-top: 1rpx solid #e6e6e6;
-  border-radius: 30rpx;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
 }
 
 .tab-bar-item {

@@ -2,14 +2,14 @@
   <view class="{{item.color}}">
     <view class="record-type">
       <text class="type-name">{{name}}</text>
-      <text class="type-date">2021/02/11</text>
+      <text class="type-date">{{date}}</text>
     </view>
     <view class="record-time">
       <text class="time-num">{{number}}</text>
-      <text class="time-unit">min</text>
+      <text class="time-unit">{{unit}}</text>
     </view>
     <view class="{{item.imgClass}}">
-      <image mode="widthFix" src="{{item.img}}"></image>
+      <image class="img" src="{{item.img}}"></image>
     </view>
   </view>
 </view>

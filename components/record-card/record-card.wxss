@@ -57,8 +57,10 @@
   z-index: -1;
 }
 
-.record-card image {
+.record-card .img {
   width: 100%;
+  height: unset;
+  aspect-ratio: 1/1;
 }
 
 @media screen and (min-height:800px) {

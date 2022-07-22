@@ -2,18 +2,22 @@
   width: 100%;
   height: 100%;
 }
+
 .login-container {
   box-sizing: border-box;
   width: 100%;
   margin-top: 80rpx;
   padding: 0 60rpx;
 }
+
 .login-form {
   width: 100%;
 }
+
 .form-header {
   padding: 0 48rpx;
 }
+
 .header-main {
   display: flex;
   justify-content: center;
@@ -23,6 +27,7 @@
   background-color: #44CAAC;
   border-radius: 15rpx;
 }
+
 .header-item {
   flex: 1;
   display: flex;
@@ -31,67 +36,90 @@
   width: 300rpx;
   height: 4.5vh;
   border-radius: 15rpx;
-  color:#fff;
+  color: #fff;
   font-size: 32rpx;
   font-weight: bold;
 }
+
 .header-item.selected {
-  color:#44CAAC;
+  color: #44CAAC;
   background-color: #fff;
 }
+
 .form-item {
   box-sizing: border-box;
   width: 100%;
-  height: 5vh;
+  min-height: 5vh;
   margin-top: 2.5vh;
   padding: 0 40rpx;
 }
+
+.tips {
+  font-size: 24rpx;
+  color: tomato;
+}
+
+.start {
+  vertical-align: middle;
+}
+
 .form-item .form-input {
   height: 100%;
   display: flex;
   align-items: flex-end;
+  font-size: 28rpx;
   border-bottom: 2rpx #cecece solid;
 }
+
 .input-vetify {
   position: relative;
 }
+
 .vetifyImg {
   position: absolute;
-  top:0;
+  top: 0;
   right: 0;
   width: 150rpx;
   height: 100%;
 }
+
 .form-btn {
   width: 100%;
   margin-top: 3vh;
-  color:#fff;
+  font-size: 28rpx;
+  color: #fff;
   background-color: #44CAAC;
 }
+
 .tip-container {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-top: .5vh;
 }
+
 .tip-text {
   font-size: 28rpx;
-  color:#a7a7a7;
+  color: #a7a7a7;
 }
+
 .tip-extra {
   display: flex;
 }
+
 .extra-item {
   font-size: 28rpx;
-  color:#44CAAC;
+  color: #44CAAC;
 }
+
 .register::after {
   content: '|';
   width: 1px;
   height: 5px;
   padding-left: 14rpx;
-  color:#cecece;
+  color: #cecece;
 }
+
 .clause {
   padding-left: 10rpx;
 }

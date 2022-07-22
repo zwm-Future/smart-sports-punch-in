@@ -1,22 +1,23 @@
 import {
   login
 } from '../../api/login.js'
+import {loginProduct} from "../../api/student/login"
+const app = getApp();
 Page({
   data: {
     showAuth: false,
   },
   onLoad: async function () {
     try {
-      // await wx.checkSession();
-      // wx.switchTab({
-      //   url: '/pages/index/index',
-      // })
-      this.textLogin();
+      this.getSystem();
+      this.tryLogin();
     } catch (error) {
       console.log(error);
     }
   },
   onShow() {
+    // this.tryLogin();
+    //Product ⬇
     this.textLogin();
   },
   handleShowAuth: function () {
@@ -35,7 +36,25 @@ Page({
       })
     })
   },
+  //Product
   textLogin: async function () {
+    try {
+      const {
+        code: loginCode,
+        data
+      } = await loginProduct('123'); //123 -> student   321 -> teacger
+      if (loginCode) {
+        wx.setStorageSync("user", data);
+        app.globalData.identityId = data.identityId;
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      }
+    } catch (error) {
+      console.log('welcome:Page', error);
+    }
+  },
+  tryLogin: async function () {
     try {
       if (!wx.getStorageSync('userInfo')) return;
       const {
@@ -58,5 +77,9 @@ Page({
     } catch (error) {
       console.log('welcome:Page', error);
     }
+  },
+  getSystem: function () {
+    const info = wx.getSystemInfoSync();
+    app.globalData.systemInfo = info;
   }
 })

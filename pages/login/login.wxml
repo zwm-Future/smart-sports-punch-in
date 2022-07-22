@@ -14,10 +14,14 @@
       <view class="form-container">
         <form bindsubmit="handleSubmit">
           <view class="form-item"><input name="number" class="form-input" type="text" placeholder="学/工号" /></view>
-          <view class="form-item"><input name="password" password class="form-input" type="safe-password" placeholder="密码" /></view>
-          <view class="form-item"><input name="code" class="form-input input-vetify" type="text" placeholder="验证码" >
+          <view class="form-item"><input name="password" password class="form-input" type="safe-password" placeholder="密码" />
+            <view class="tips">
+              <text class="star">*</text>可用场馆预约账号(初始密码为身份证后六位)
+            </view>
+          </view>
+          <view class="form-item"><input name="code" class="form-input input-vetify" type="text" placeholder="验证码">
             <image bindtap="refreshVetifyCode" class="vetifyImg" src="{{imgSrc}}" alt="验证码" />
-          </input>
+            </input>
           </view>
           <view><button form-type="submit" class="form-btn">登录</button></view>
         </form>

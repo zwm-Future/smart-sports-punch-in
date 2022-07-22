@@ -10,7 +10,7 @@
     </view>
   </picker>
   <picker range="{{areaArray}}" bindchange="bindPickerChange" value="{{selectAreaIndex}}" bindcolumnchange="bindMultiPickerColumnChange">
-    <view class="select-type-container">
+    <view class="select-type-container area-select">
       <text class="type-name">{{areaArray[selectAreaIndex]}}</text>
       <text class="change-text">切换场地</text>
     </view>
