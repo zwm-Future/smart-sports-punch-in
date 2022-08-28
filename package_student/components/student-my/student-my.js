@@ -1,4 +1,6 @@
-import {getMyTeacher} from "../../../api/student/my-teacher"
+import {
+  getMyTeacher
+} from "../../../api/student/my-teacher"
 Component({
   /**
    * 组件的属性列表
@@ -13,7 +15,7 @@ Component({
   data: {
     userInfo: {},
     teacherName: '',
-    number:'',
+    number: '',
   },
 
   /**
@@ -54,16 +56,23 @@ Component({
         error.mes && Toast(error.mes, 'none');
       }
     },
+    openWebView: function () {
+      wx.navigateTo({
+        url: '/pages/web-view/web-view',
+      })
+    }
   },
   lifetimes: {
     ready() {
       const userInfo = wx.getStorageSync('userInfo');
-      const {number} = wx.getStorageSync('user'); 
+      const {
+        number
+      } = wx.getStorageSync('user');
       this.setData({
         userInfo,
         number
       });
       this._setTeacher();
     }
-  }
+  },
 })

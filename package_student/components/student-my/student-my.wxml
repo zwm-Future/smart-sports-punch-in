@@ -7,6 +7,7 @@
         <text class="name">{{userInfo.nickName}}</text>
         <text class="username">学号:{{number}}</text>
         <text class="teacher">绑定的教师：{{teacherName}}</text>
+
       </view>
     </view>
   </view>
@@ -31,5 +32,9 @@
       <text class="item-text">修改密码</text>
       <text class="arrow">></text>
     </view>  -->
+    <view class="list-item" bindtap="openWebView">
+      <text class="item-text">问卷调查</text>
+      <text class="arrow">></text>
+    </view>
   </view>
 </view>
