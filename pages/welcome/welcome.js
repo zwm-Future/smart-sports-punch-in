@@ -10,7 +10,6 @@ Page({
   onLoad: async function () {
     try {
       this.getSystem();
-      this.tryLogin();
     } catch (error) {
       console.log(error);
     }
