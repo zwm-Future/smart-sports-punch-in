@@ -5,11 +5,11 @@ Component({
       imgSrc: '/img/index/notice@3x.png',
       name: '通知公告'
     },
-    {
-      url: '#',
-      imgSrc: '/img/index/essagecenter@3x.png',
-      name: '消息中心'
-    },
+    // {
+    //   url: '#',
+    //   imgSrc: '/img/index/essagecenter@3x.png',
+    //   name: '消息中心'
+    // },
     {
       url:'/package_teacher/my-course/my-course',
       imgSrc: '/img/index/bindingteacher@3x.png',

@@ -14,8 +14,8 @@
       <text class="item-text">我的成绩单（暂定）</text>
       <text class="arrow">></text>
     </view>  -->
-    <navigator url="/package_student/my-teacher/my-teacher" class="list-item">
-      <text class="item-text">我绑定的教师</text>
+    <navigator url="/package_teacher/my-course/my-course" class="list-item">
+      <text class="item-text">我管理的学生</text>
       <text class="arrow">></text>
     </navigator>
     <view class="list-item">
