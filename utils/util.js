@@ -20,15 +20,15 @@ const formatNumber = n => {
  */
 const secondTransform = seconds => {
   if (seconds > 86400) return {
-    number: (seconds / 86400).toFixed(1),
+    number: parseInt((seconds / 86400)),
     unit: "days"
   }
   if (seconds > 3600) return {
-    number: (seconds / 3600).toFixed(1),
+    number: parseInt((seconds / 3600)),
     unit: "h"
   }
   if (seconds > 60) return {
-    number: (seconds / 86400).toFixed(1),
+    number: parseInt((seconds / 60)),
     unit: "min"
   }
 }

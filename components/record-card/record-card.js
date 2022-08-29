@@ -19,7 +19,7 @@ const imgClass = {
 }
 //匹配图片路径
 const imgSrc = {
-  '篮球': baseURL + '/file/basket.png',
+  '篮球': baseURL + '/file/basketball.png',
   '足球': baseURL + '/file/volleyball.png',
   '网球': baseURL + '/file/tennis.png',
   '排球': baseURL + '/file/volleyball.png',
@@ -65,11 +65,9 @@ Component({
     //匹配当前类型
     setClass: function (name) {
       let result = {};
-      if (colorClass[name]) console.log(222);
-      else console.log(111);
       result.color = 'record-card ' + (colorClass[name] ? colorClass[name] : 'basketball-color');
       result.imgClass = 'img-wrap ' + (imgClass[name] ? imgClass[name] : 'basketball-img');
-      result.img = imgSrc[name] ? imgSrc[name] : baseURL + '/file/basket.png';
+      result.img = imgSrc[name] ? imgSrc[name] : baseURL + '/file/basketball.png';
       return result;
     }
   },
