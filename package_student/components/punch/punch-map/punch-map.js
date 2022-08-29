@@ -53,6 +53,8 @@ Component({
   //定时器
   sendTimer: null,
   initPoints: [],
+  //小程序bug show需第二次触发才执行
+  isFirst: false,
   lifetimes: {
     attached: function () {
       this.initPoints = [{
@@ -68,6 +70,7 @@ Component({
       this.currentLatitude = 0;
       this.currentLongitude = 0;
       this.inSide = false;
+      this.isFirst = false;
       this.countCircle = this.selectComponent('#count-circle');
       this.wave_bg = this.selectComponent("#wave_bg");
       this.operation_tab = this.selectComponent("#operation-tab");
@@ -75,6 +78,11 @@ Component({
       this.mapCtx.setLocMarkerIcon({
         iconPath: '/img/map/Indicator@3x.png',
       });
+      //第一次代替show方法中执行_show
+      if (!this.isFirst) {
+        this._show();
+        this.isFirst = true;
+      }
     },
     detached: function () {
       this.handleOnUnload()
@@ -82,6 +90,15 @@ Component({
   },
   pageLifetimes: {
     show: function () {
+      if (this.isFirst) this._show();
+    },
+    hide: function () {
+      if (this.data.status == 1) return;
+      this.handleOnUnload();
+    }
+  },
+  methods: {
+    _show: function () {
       try {
         //已开启后台定位？ -> 定位
         if (this.properties.isOpenLocation) this.setLocation();
@@ -93,12 +110,6 @@ Component({
         console.log(error);
       }
     },
-    hide: function () {
-      if (this.data.status == 1) return;
-      this.handleOnUnload();
-    }
-  },
-  methods: {
     //设置范围
     setRange: function (e) {
       //切换场地时 上锁
@@ -239,17 +250,19 @@ Component({
         } = this.scene;
         const minAndSecond = this.countCircle._getTimes.call(this.countCircle).split(":");
         const sportTime = minAndSecond[0] * 60 + minAndSecond[1] * 1;
-        const {code,} = await addSportRecord({
+        const {
+          code,
+        } = await addSportRecord({
           sceneId,
           sportTime,
           start,
           end
         })
-        if(code) {
-          sportTime >= this.scene.minTime && showTip.Toast('运动达标！','success');
-          sportTime < this.scene.minTime && showTip.Toast('运动未达标','error');
-        }else {
-          showTip.Toast('提交失败','error');
+        if (code) {
+          sportTime >= this.scene.minTime && showTip.Toast('运动达标！', 'success');
+          sportTime < this.scene.minTime && showTip.Toast('运动未达标', 'error');
+        } else {
+          showTip.Toast('提交失败', 'error');
           //重试
         }
         this.setData({
