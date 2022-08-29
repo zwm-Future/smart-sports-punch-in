@@ -2,11 +2,11 @@
   <view class="login-container">
     <view class="login-form">
       <view class="form-header">
-        <view class="header-main">
-          <view class="header-item selected">
+        <view class="header-main" bindtap="turnIdentity">
+          <view class="header-item selected" data-mode="1">
             本校师生登录
           </view>
-          <view class="header-item">
+          <view class="header-item" data-mode="2">
             校外游客登录
           </view>
         </view>
