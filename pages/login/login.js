@@ -4,34 +4,16 @@ import {
 import {
   loginPsw
 } from "../../api/login"
+import {Toast} from "../../public/showTip"
 const app = getApp();
 const baseURL = app.globalData.baseUrl;
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     imgSrc: ``
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow() {
     this.refreshVetifyCode();
   },
@@ -69,7 +51,8 @@ Page({
           code: weChatCode
         } = await wx.login({});
         const {
-          code: loginPswCode
+          code: loginPswCode,
+          message
         } = await loginPsw(number, password, code, weChatCode);
         if (loginPswCode) { //注册完成 （登录）
           wx.removeStorageSync('Cookie');
@@ -77,11 +60,18 @@ Page({
             url: '/pages/welcome/welcome',
           })
         } else { //信息错误
+          Toast(message,'error')
           this.refreshVetifyCode();
+
         }
       }
     } catch (error) {
       console.log(error, '---login:Page');
     }
+  },
+  turnIdentity:function({target}) {
+    const {dataset:{mode}} = target;
+    if(!mode) return;
+    if(mode == 2) Toast('维护中...','none');
   }
 })
