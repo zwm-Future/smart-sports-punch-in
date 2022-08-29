@@ -1,4 +1,4 @@
-import Request from '../request';
+import Request from '../../api/request';
 export const getTeacherCourse = (data) => {
   /**获取老师的课程
   * @param {String} semesterId - 学期id

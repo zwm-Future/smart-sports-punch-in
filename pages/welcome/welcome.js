@@ -1,7 +1,7 @@
 import {
   login
 } from '../../api/login.js'
-import {loginProduct} from "../../api/student/login"
+import {loginProduct} from "../../api/login"
 const app = getApp();
 Page({
   data: {
@@ -41,7 +41,7 @@ Page({
       const {
         code: loginCode,
         data
-      } = await loginProduct('123'); //123 -> student   321 -> teacger
+      } = await loginProduct('321'); //123 -> student   321 -> teacger
       if (loginCode) {
         wx.setStorageSync("user", data);
         app.globalData.identityId = data.identityId;

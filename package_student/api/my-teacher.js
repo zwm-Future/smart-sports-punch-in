@@ -1,4 +1,4 @@
-import Request from '../request';
+import Request from '../../api/request';
 
 export const getAllTeachers = () => {
   /** 获取所有教师

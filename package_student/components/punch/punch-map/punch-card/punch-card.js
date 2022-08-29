@@ -1,11 +1,10 @@
 import {
   getAllSportType,
   getCampus
-} from '../../../../../api/map.js';
+} from '../../../../api/map.js';
 import {
   getAllSports
-} from '../../../../../api/student/sports'
-import pnpoly from '../../../../../utils/pnp';
+} from '../../../../../api/sports'
 const showTip = require('../../../../../public/showTip');
 // 所有区域
 let allArea = [];

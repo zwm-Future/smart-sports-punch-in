@@ -1,9 +1,9 @@
 import {
   getTeacherCourse,
-} from '../../../api/teacher/course';
+} from '../../api/course';
 import {
   addCourseMes
-} from '../../../api/teacher/message';
+} from '../../api/message';
 import {
   Toast
 } from "../../../public/showTip";

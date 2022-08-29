@@ -1,7 +1,7 @@
 import {
   getMessage,
   setMesRead
-} from '../../api/student/message'
+} from '../api/message'
 Page({
   data: {
     messageArr: []

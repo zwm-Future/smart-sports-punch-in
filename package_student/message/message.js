@@ -1,6 +1,6 @@
 import {
   getMessage
-} from '../../api/student/message'
+} from '../api/message'
 Page({
   data: {
     courseMes: {

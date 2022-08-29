@@ -1,7 +1,7 @@
 import {
   getTodaysportRecord,
   getsportRecordTotal
-} from '../../../api/student/sports.js'
+} from '../../../api/sports.js'
 const app = getApp();
 Component({
   data: {

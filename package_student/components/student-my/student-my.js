@@ -1,6 +1,6 @@
 import {
   getMyTeacher
-} from "../../../api/student/my-teacher"
+} from "../../api/my-teacher"
 Component({
   /**
    * 组件的属性列表

@@ -1,4 +1,4 @@
-import Request from '../request';
+import Request from './request';
 export const getAllsportRecord = (params) => {
   /** 获取某学期的各项运动的最近时间 + 积分
    * @param {String} semesterId - 学期id

@@ -1,6 +1,6 @@
 import {
   getAllTeachers
-} from '../../../api/student/my-teacher.js'
+} from '../../api/my-teacher'
 Page({
 
   /**

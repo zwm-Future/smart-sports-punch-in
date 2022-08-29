@@ -1,6 +1,6 @@
 import {
   getMyStudents
-} from '../../api/teacher/student'
+} from '../api/student'
 Page({
 
   /**

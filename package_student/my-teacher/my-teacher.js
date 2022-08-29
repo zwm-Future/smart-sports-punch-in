@@ -1,6 +1,6 @@
 import {
   getMyTeacher
-} from '../../api/student/my-teacher.js'
+} from '../api/my-teacher'
 import {
   Toast
 } from '../../public/showTip'
@@ -13,24 +13,6 @@ Page({
     teacherName: '',
     courseInfo: '',
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
     this._setTeacher();
   },
@@ -38,13 +20,14 @@ Page({
     try {
       let result = wx.getStorageSync('myTeacher');
       if (!result) result = await this._getTeaher();
+      console.log(result);
       const {
-        myTeacher,
-        myCourse
+        myTeacher = {name:''},
+        myCourse = {name:''}
       } = result;
       this.setData({
-        teacherName: myTeacher.name,
-        courseInfo: myCourse.name
+        teacherName: myTeacher.name || '',
+        courseInfo: myCourse.name || ''
       })
     } catch (error) {
       console.log(error);

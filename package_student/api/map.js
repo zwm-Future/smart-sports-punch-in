@@ -1,4 +1,4 @@
-import Request from '../api/request';
+import Request from '../../api/request';
 
 export const getAllSportType = () => {
   /** 获取所有运动区域

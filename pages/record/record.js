@@ -1,7 +1,7 @@
 import {
   getsportRecordTotal,
   getAllsportRecord
-} from '../../api/student/sports'
+} from '../../api/sports'
 import {secondTransform} from "../../utils/util"
 Page({
 
@@ -54,6 +54,7 @@ Page({
       if (code) {
         console.log(data);
         data.sportTime = data.sportTime ? secondTransform(data.sportTime) : {number:'0.0',unit:'min'};
+        data.date = data.date ? data.date : '';
         this.setData({
           allSport: data
         })

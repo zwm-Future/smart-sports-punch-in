@@ -2,7 +2,7 @@ import {
   getTeacherCourse,
   getMyTeacher,
   bindCourse
-} from '../../../api/student/my-teacher.js'
+} from '../../api/my-teacher'
 const showTip = require('../../../public/showTip');
 Page({
 
@@ -89,7 +89,7 @@ Page({
     try {
       const {
         code,
-        message
+        message = '绑定失败'
       } = await bindCourse({
         courseId: slectCourse.id
       });
@@ -105,7 +105,7 @@ Page({
         showTip.Toast('绑定失败','error');
       }
     } catch (error) {
-
+      console.log(error, '---select-course:Component');
     }
   },
   handleTap: function (e) {
@@ -129,7 +129,7 @@ Page({
           this.bindMyCourse(this.data.courseList[index])
         }
       },
-      fail: (res) => {},
+      fail: (res) => {console.log(res);},
     })
   },
 

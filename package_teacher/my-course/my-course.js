@@ -1,7 +1,7 @@
 import {
   getTeacherCourse,
   addTeacherCourse
-} from '../../api/teacher/course'
+} from '../api/course'
 Page({
 
   /**

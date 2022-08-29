@@ -1,7 +1,7 @@
 import {
   getAllsportRecordDetail,
   getOneSportRecordDetail
-} from '../../api/student/sports'
+} from '../../api/sports'
 Page({
   data: {
     record: {

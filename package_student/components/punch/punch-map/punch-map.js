@@ -1,10 +1,10 @@
-import pnpoly from '../../../../utils/pnp.js';
+import pnpoly from '../../../utils/pnp.js';
 import {
   formatTime
 } from "../../../../utils/util"
 import {
   addSportRecord
-} from '../../../../api/student/sports'
+} from '../../../../api/sports'
 const showTip = require('../../../../public/showTip.js');
 Component({
   properties: {
