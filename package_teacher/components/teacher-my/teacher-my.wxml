@@ -18,17 +18,21 @@
       <text class="item-text">我管理的学生</text>
       <text class="arrow">></text>
     </navigator>
-    <view class="list-item">
+    <!-- <view class="list-item">
       <text class="item-text">帮助中心</text>
       <text class="arrow">></text>
-    </view>
-    <view class="list-item">
+    </view> -->
+    <navigator url="/pages/contact-us/contact-us" class="list-item">
       <text class="item-text">联系我们</text>
       <text class="arrow">></text>
-    </view>
-    <!-- <view class="list-item">
+    </navigator>
+    <navigator url="/pages/password-modify/password-modify" class="list-item">
       <text class="item-text">修改密码</text>
       <text class="arrow">></text>
-    </view>  -->
+    </navigator> 
+    <navigator url="/pages/web-view/web-view" class="list-item">
+      <text class="item-text">问卷调查</text>
+      <text class="arrow">></text>
+    </navigator>
   </view>
 </view>

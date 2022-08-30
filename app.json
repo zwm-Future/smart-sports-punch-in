@@ -9,7 +9,10 @@
     "pages/all-sport-detail/all-sport-detail",
     "pages/login/login",
     "pages/main-func/main-func",
-    "pages/web-view/web-view"
+    "pages/web-view/web-view",
+    "pages/agreement/agreement",
+    "pages/password-modify/password-modify",
+    "pages/contact-us/contact-us"
   ],
   "subPackages": [
     {

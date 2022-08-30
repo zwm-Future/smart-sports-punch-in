@@ -56,11 +56,6 @@ Component({
         error.mes && Toast(error.mes, 'none');
       }
     },
-    openWebView: function () {
-      wx.navigateTo({
-        url: '/pages/web-view/web-view',
-      })
-    }
   },
   lifetimes: {
     ready() {
