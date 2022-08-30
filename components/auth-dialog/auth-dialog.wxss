@@ -16,6 +16,8 @@
   margin: 20rpx 0;
 }
 
+
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -45,4 +47,10 @@
 .auth-btn {
   color:#fff;
   background-color: #44caac;
+}
+
+@media screen and (max-width:330px) {
+  .footer {
+    width: 580rpx;
+  }
 }
