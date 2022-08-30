@@ -56,6 +56,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "服务条款",
+          "pathName": "pages/agreement/agreement",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "修复密码",
+          "pathName": "pages/password-modify/password-modify",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

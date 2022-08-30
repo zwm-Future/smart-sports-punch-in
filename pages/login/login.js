@@ -64,6 +64,8 @@ Page({
           this.refreshVetifyCode();
 
         }
+      }else {
+        Toast('请填写全部选项!','none');
       }
     } catch (error) {
       console.log(error, '---login:Page');
