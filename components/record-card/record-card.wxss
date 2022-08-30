@@ -64,7 +64,7 @@
 }
 
 @media screen and (min-height:800px) {
-  .record-card  .img-wrap {
+  .record-card .img-wrap {
     top: 44.2%;
   }
 }
@@ -101,4 +101,16 @@
 .tennis-img,
 .badminton-img {
   width: 228rpx;
+}
+
+.pingpong-img {
+  color: #ffefab;
+}
+
+.swimming-img {
+  color: #267abf;
+}
+
+.Bodybuilding-img {
+  color: #ffbe8d;
 }

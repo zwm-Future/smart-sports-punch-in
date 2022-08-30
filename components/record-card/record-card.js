@@ -1,13 +1,14 @@
-// components/record-card/record-card.js
-const app = getApp();
-const baseURL = app.globalData.baseUrl;
+import {imgSrc} from '../../utils/mappingData' 
 //name --> color
 const colorClass = {
   '篮球': 'basketball-color',
   '足球': 'football-color',
   '网球': 'tennis-color',
   '排球': 'volley-color',
-  '羽毛球': 'badminton-color'
+  '羽毛球': 'badminton-color',
+  '乒乓球':'pingpong-color',
+  '游泳':'swimming-color',
+  '健身':'Bodybuilding-color'
 }
 //name --> imgClass
 const imgClass = {
@@ -15,16 +16,12 @@ const imgClass = {
   '足球': 'football-img',
   '网球': 'tennis-img',
   '排球': 'volley-img',
-  '羽毛球': 'badminton-img'
+  '羽毛球': 'badminton-img',
+  '乒乓球':'pingpong-img',
+  '游泳':'swimming-img',
+  '健身':'Bodybuilding-img'
 }
-//匹配图片路径
-const imgSrc = {
-  '篮球': baseURL + '/file/basketball.png',
-  '足球': baseURL + '/file/volleyball.png',
-  '网球': baseURL + '/file/tennis.png',
-  '排球': baseURL + '/file/volleyball.png',
-  '羽毛球': baseURL + '/file/badminton.png'
-}
+
 Component({
   /**
    * 组件的属性列表
@@ -67,7 +64,7 @@ Component({
       let result = {};
       result.color = 'record-card ' + (colorClass[name] ? colorClass[name] : 'basketball-color');
       result.imgClass = 'img-wrap ' + (imgClass[name] ? imgClass[name] : 'basketball-img');
-      result.img = imgSrc[name] ? imgSrc[name] : baseURL + '/file/basketball.png';
+      result.img = imgSrc[name] ? imgSrc[name] :  '/img/record/baseketball@3x.png';
       return result;
     }
   },
