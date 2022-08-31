@@ -19,7 +19,7 @@ Component({
         name: '本周',
       },
     ],
-    list: []
+    list: ['占用']
   },
   observers:{
     'sportList':function(value) {
@@ -36,7 +36,7 @@ Component({
         value,
         index
       } = e.detail;
-      //节流
+      //（重复点击）
       if (this.selectIndex == index) return;
       const {
         sportList
