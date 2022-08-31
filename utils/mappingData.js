@@ -11,7 +11,7 @@
  }
  //随机匹配图片路径
  export const imgSrcArr = ['/img/record/baseketball@3x.png',
-   '/img/record/volleyball@3x.png',
+   '/img/record/football@3x.png',
    '/img/record/tennis@3x.png',
    '/img/record/volleyball@3x.png',
    '/img/record/badminton@3x.png',
