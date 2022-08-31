@@ -9,7 +9,9 @@
       <text class="time-unit">{{unit}}</text>
     </view>
     <view class="{{item.imgClass}}">
-      <image class="img" src="{{item.img}}"></image>
+      <view class="img-container">
+        <image class="img" src="{{item.img}}"></image>
+      </view>
     </view>
   </view>
 </view>

@@ -49,18 +49,24 @@
 }
 
 .record-card .img-wrap {
-  width: 60%;
   position: absolute;
+  /* width: 70%; */
   top: 50%;
   right: 2%;
   transform: translateY(-50%);
-  z-index: -1;
 }
-
-.record-card .img {
+.record-card .img-container {
+  position: relative;
   width: 100%;
-  height: unset;
-  aspect-ratio: 1/1;
+  height: 0;
+  padding-bottom: 100%;
+}
+.record-card .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (min-height:800px) {
@@ -79,7 +85,7 @@
 
 .basketball-img,
 .volley-img {
-  width: 232rpx;
+  width: 244rpx;
 }
 
 .football-color {
@@ -87,7 +93,7 @@
 }
 
 .football-img {
-  width: 232rpx;
+  width: 244rpx;
 }
 
 .tennis-color {
