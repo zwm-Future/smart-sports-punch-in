@@ -80,7 +80,7 @@ Page({
         let recordsRight = [];
         data.forEach((item, index) => {
           item.sportTime = item.sportTime > 0 ? secondTransform(item.sportTime) : {number:'0.0',unit:'min'};
-          index % 2 == 0 ? recordsLeft.unshift(item) : recordsRight.unshift(item)
+          index % 2 == 1 ? recordsLeft.unshift(item) : recordsRight.unshift(item)
         })
         this.setData({
           recordsLeft,
