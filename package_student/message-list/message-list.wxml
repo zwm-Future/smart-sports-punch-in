@@ -1,7 +1,8 @@
 <view class="message-list" catchtap="handleTapMes">
   <view class="item" wx:for="{{messageArr}}" wx:key="id" data-index="{{index}}">
     <view class="content" data-index="{{index}}">
-      <rich-text space="nbsp" nodes="<div style='display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;line-clamp: 1;overflow: hidden;'>{{item.msgContent}}</div>"></rich-text>
+    <view class="tip-dottor" hidden="{{item.read}}">✶</view>
+      <rich-text class="my-rich-text" space="nbsp" nodes="<div style='display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;line-clamp: 1;overflow: hidden;'>{{item.msgContent}}</div>"></rich-text>
     </view>
     <view class="date" data-index="{{index}}">{{item.createStamp}}</view>
   </view>
