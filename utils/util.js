@@ -31,6 +31,10 @@ const secondTransform = seconds => {
     number: parseInt((seconds / 60)),
     unit: "min"
   }
+  return {
+    number: '0.0',
+    unit: 'min'
+  }
 }
 module.exports = {
   formatTime,
