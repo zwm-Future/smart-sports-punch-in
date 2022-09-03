@@ -7,6 +7,9 @@ import {
 import {
   Toast
 } from "../../public/showTip"
+import {
+  modifyPsw
+} from '../../api/user'
 Page({
 
   /**
@@ -16,7 +19,9 @@ Page({
     //input聚焦第几个
     focusIndex: 0,
     //顶部图片
-    topImgSrc: ''
+    topImgSrc: '',
+    oldPsw: '',
+    newPsw: '',
   },
   onReady: function () {
     this._setImgSrc()
@@ -43,9 +48,23 @@ Page({
   handleModify: async function (e) {
     const data = e.detail.value;
     if (!isEmpty(data)) {
-      console.log(data);
+      if (data.newPsw.length < 8) return Toast('新密码至少8位！', 'none');
+      const {
+        code
+      } = await modifyPsw(data);
+      if (code) {
+        (function modifyCorrect() {
+          Toast('修改成功', 'success');
+          this.setData({
+            oldPsw: '',
+            newPsw: '',
+          })
+        })();
+      } else {
+        Toast('旧密码不正确！', 'error');
+      }
     } else {
-      Toast('请填写全部选项!','none');
+      Toast('请填写全部选项!', 'none');
     };
   },
 })
