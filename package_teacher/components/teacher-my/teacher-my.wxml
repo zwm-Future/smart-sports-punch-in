@@ -18,10 +18,10 @@
       <text class="item-text">我管理的学生</text>
       <text class="arrow">></text>
     </navigator>
-    <!-- <view class="list-item">
+    <view class="list-item">
       <text class="item-text">帮助中心</text>
       <text class="arrow">></text>
-    </view> -->
+    </view>
     <navigator url="/pages/contact-us/contact-us" class="list-item">
       <text class="item-text">联系我们</text>
       <text class="arrow">></text>
