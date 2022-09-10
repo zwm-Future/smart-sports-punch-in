@@ -1,6 +1,6 @@
 <view class="my-teacher-wrap">
   <view class="header grey">
-    2021-2022学年 第2学期
+    {{currentSemester}}
   </view>
   <navigator url="./select-teacher/select-teacher" class="main grey">
     <view class="main-left">
