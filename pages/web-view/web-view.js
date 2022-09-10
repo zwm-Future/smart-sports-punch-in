@@ -5,14 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    webSrc:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const {number} = wx.getStorageSync('user');
+    console.log(number);
+    this.setData({
+      webSrc:`https://www.bingcoke.com/rou/home/#/Index?number=${number}`
+    })
   },
 
   /**
