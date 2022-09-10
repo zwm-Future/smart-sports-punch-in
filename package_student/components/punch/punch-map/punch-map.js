@@ -39,9 +39,10 @@ Component({
       strokeColor: '#e9686b',
       fillColor: '#e9686b15',
       level: 'abovebuildings'
-    }],
-    target: 120
+    }]
   },
+  //手机是否已经开启定位（不是小程序授权，是手机）
+  openPhonePosition: true,
   //当前经纬度
   currentLatitude: 0,
   currentLongitude: 0,
@@ -54,7 +55,7 @@ Component({
   sendTimer: null,
   initPoints: [],
   //小程序bug show需第二次触发才执行
-  isFirst: false,
+  isFirst: true,
   lifetimes: {
     attached: function () {
       this.initPoints = [{
@@ -70,7 +71,8 @@ Component({
       this.currentLatitude = 0;
       this.currentLongitude = 0;
       this.inSide = false;
-      this.isFirst = false;
+      this.isFirst = true;
+      this.openPhonePosition = true;
       this.countCircle = this.selectComponent('#count-circle');
       this.wave_bg = this.selectComponent("#wave_bg");
       this.operation_tab = this.selectComponent("#operation-tab");
@@ -79,9 +81,9 @@ Component({
         iconPath: '/img/map/Indicator@3x.png',
       });
       //第一次代替show方法中执行_show
-      if (!this.isFirst) {
+      if (this.isFirst) {
         this._show();
-        this.isFirst = true;
+        this.isFirst = false;
       }
     },
     detached: function () {
@@ -90,7 +92,7 @@ Component({
   },
   pageLifetimes: {
     show: function () {
-      if (this.isFirst) this._show();
+      if (!this.isFirst) this._show();
     },
     hide: function () {
       if (this.data.status == 1) return;
@@ -100,11 +102,22 @@ Component({
   methods: {
     _show: function () {
       try {
+        const _that = this;
         //已开启后台定位？ -> 定位
+        // console.log(this.properties.isOpenLocation);
         if (this.properties.isOpenLocation) this.setLocation();
+        console.log('_show');
         if (this.data.status == 1) reutrn;
         this.setTimer();
-        wx.onLocationChangeError(res => console.log(res))
+        wx.onLocationChangeError(error => {
+          console.log(error);
+          if (error.errCode == 2 && this.openPhonePosition) {
+            return (function tryOpenPhonePosition() {
+              _that.openPhonePosition = false;
+              showTip.Loading(true, '请开启手机定位!');
+            })()
+          }
+        }) //手机未开启定位
         wx.onLocationChange(this.realTimeLocaton.bind(this))
       } catch (error) {
         console.log(error);
@@ -142,15 +155,17 @@ Component({
       this.hideTabBar();
       //倒计时
       //这里start带参数target
-      await this.wave_bg._handleCount(this.countCircle._start.call(this.countCircle));
+      await this.wave_bg._handleCount(this.countCircle._start.call(this.countCircle, {
+        target: this.scene.minTime
+      }));
       this.startTime = formatTime(new Date());
       this.setData({
-        status: 1,
-        target: this.scene.minTime
+        status: 1
       })
     },
     //位置监听
     realTimeLocaton: function (res) {
+      if(!this.openPhonePosition) {this.setLocation();this.openPhonePosition = true;}
       this.currentLatitude = res.latitude;
       this.currentLongitude = res.longitude;
     },
@@ -191,6 +206,8 @@ Component({
     },
     //出现设置当前定位
     setLocation: function () {
+      showTip.LoadingOff();
+      console.log('setLocation');
       showTip.Loading(false, '定位中...');
       wx.getLocation({
         type: 'gcj02',
@@ -208,6 +225,7 @@ Component({
           showTip.LoadingOff();
         },
         fail: (res) => {
+          console.log('getLocation', res);
           // showTip.Alert('信号有点差，请稍后重试！')
         }
       })

@@ -148,9 +148,8 @@ map {
 }
 
 .modal-text {
-  height: 150rpx;
+  padding: 50rpx 0;
   text-align: center;
-  line-height: 150rpx;
   font-weight: bold;
 }
 .modal-btn {

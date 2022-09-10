@@ -39,6 +39,9 @@ Component({
           })
         },
         fail: (res) => {
+          this.setData({
+            isOpenLocation: false
+          })
           this.getTry();
         }
       })
