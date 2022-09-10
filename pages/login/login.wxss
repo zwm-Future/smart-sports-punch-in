@@ -81,6 +81,7 @@
   right: 0;
   width: 150rpx;
   height: 100%;
+  z-index: 99;
 }
 
 .form-btn {

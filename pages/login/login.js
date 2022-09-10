@@ -74,6 +74,13 @@ Page({
   turnIdentity:function({target}) {
     const {dataset:{mode}} = target;
     if(!mode) return;
-    if(mode == 2) Toast('维护中...','none');
+    if(mode == 2) return Toast('维护中...','none');
+  },
+  handleFootTap:function({target:{dataset:{type}}}) {
+    if(!type) return;
+    if(type == 'register') return Toast('维护中...','none');
+    else wx.navigateTo({
+      url: '/pages/agreement/agreement',
+    })
   }
 })

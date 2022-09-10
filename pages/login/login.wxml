@@ -14,7 +14,7 @@
       <view class="form-container">
         <form bindsubmit="handleSubmit">
           <view class="form-item"><input name="number" class="form-input" type="text" placeholder="学/工号" /></view>
-          <view class="form-item"><input name="password" password class="form-input" type="safe-password" placeholder="密码" />
+          <view class="form-item"><input name="password"  maxlength="16" password class="form-input"  placeholder="密码" />
             <view class="tips">
               <text class="star">*</text>可用场馆预约账号(初始密码为身份证后六位)
             </view>
@@ -28,9 +28,9 @@
       </view>
       <view class="tip-container">
         <view class="tip-text">登录即默认您同意用户服务条款</view>
-        <view class="tip-extra">
-          <view class="extra-item register">校外用户注册</view>
-          <view class="extra-item clause">用户服务条款</view>
+        <view class="tip-extra" bindtap="handleFootTap">
+          <view class="extra-item register" data-type="register">校外用户注册</view>
+          <view class="extra-item clause" data-type="service">用户服务条款</view>
         </view>
       </view>
     </view>

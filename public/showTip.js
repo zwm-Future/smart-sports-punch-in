@@ -9,14 +9,21 @@ const showTip = {
     let Msg = msg ? msg : "加载中"
     wx.showLoading({
       title: Msg,
-      mask: Mask
+      mask: Mask,
+      fail:(res) => {
+        console.log(res);
+      }
     })
   },
   /**
   * Loading取消转圈圈
   */
   LoadingOff (){
-    wx.hideLoading();
+    wx.hideLoading({
+      fail:res => {
+        console.log(res);
+      }
+    });
   },
   /**
   * Toast提示
