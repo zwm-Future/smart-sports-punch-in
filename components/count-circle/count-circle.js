@@ -16,11 +16,6 @@ Component({
       type: String,
       value: 20
     },
-    //目标值
-    target: {
-      type: String,
-      value: 120
-    },
     //是否需要验证
     verify: {
       type: Boolean,
@@ -64,11 +59,12 @@ Component({
     }
   },
   methods: {
-    _start: function () {
+    //target 目标值
+    _start: function ({target = 1200}) {
       this.count = 0;
       this.stepNum = 12;
-      console.log(this.properties.target);
-      this.step = parseInt(this.properties.target / this.stepNum);
+      console.log(target);
+      this.step = parseInt(target / this.stepNum);
       console.log(this.step);
       this.currentStep = 0;
       this.setData({
