@@ -9,3 +9,12 @@
   width: 100rpx;
   height: 100rpx;
 }
+.tips {
+  color:#44CAAC;
+}
+.gps-strength-container {
+  width: 90rpx;
+  height: 90rpx;
+  font-size: 14rpx;
+}
+

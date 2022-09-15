@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "gps-strength":"/components/gps-strength/gps-strength"
+  }
 }
