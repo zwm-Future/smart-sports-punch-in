@@ -1,0 +1,61 @@
+.gps-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 5% 10%;
+  background-color: #ffffff;
+  overflow: hidden;
+  border: none;
+  border-radius: 14rpx;
+  box-shadow: 0 2rpx 2rpx 1rpx rgb(240, 239, 239);
+}
+.gps-contanier {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.gps-retangle-container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  width: inherit;
+  height: inherit;
+  padding: 0 10%;
+}
+.retangle {
+  background-color: #44caac;
+  border-radius: 5rpx;
+}
+.retangle-week {
+  width: 25%;
+  height: 40%;
+}
+.retangle-middle {
+  width: 25%;
+  height: 60%;
+  margin: 0 10%;
+}
+.retangle-high {
+  width: 25%;
+  height: 80%;
+}
+.gps-text {
+  font-size: 2em;
+  font-weight: 900;
+  font-family:Arial Black;
+}
+
+.week {
+  background-color: #FF5733;
+}
+
+.middle {
+  background-color: #FFEB3B;
+}
+
+.high {
+  background-color: #44caac;
+}
