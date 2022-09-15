@@ -7,6 +7,7 @@ import {
 import {
   Toast
 } from '../../public/showTip'
+const app = getApp();
 Page({
 
   /**
@@ -64,19 +65,28 @@ Page({
   },
   _getCurrentSemester: async function () {
     try {
-      const {
-        code,
-        data: {
-          name
+      if (!app.globalData.currentSemester) {
+        const {
+          code,
+          data: {
+            name
+          }
+        } = await getCurrentSemester();
+        if (code) {
+          app.globalData.currentSemester = name;
+        } else {
+          console.log('code 0----my-teacher:Student——Page');
         }
-      } = await getCurrentSemester();
-      if (code) {
+      } else {
+        const {
+          currentSemester
+        } = app.globalData;
         this.setData({
-          currentSemester: name
+          currentSemester
         })
       }
     } catch (error) {
-      console.log('my-teacher:package_student',error);
+      console.log('my-teacher:package_student', error);
     }
   }
 })

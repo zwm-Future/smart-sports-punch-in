@@ -102,7 +102,7 @@ Page({
         showTip.Toast(message,'1');
         this.matchCourse(slectCourse.id)
       } else {
-        showTip.Toast('绑定失败','error');
+        message ? showTip.Toast(message,'error') : showTip.Toast('绑定失败','error');
       }
     } catch (error) {
       console.log(error, '---select-course:Component');
