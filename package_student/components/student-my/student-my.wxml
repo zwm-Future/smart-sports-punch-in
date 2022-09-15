@@ -20,10 +20,10 @@
       <text class="item-text">我绑定的教师</text>
       <text class="arrow">></text>
     </navigator>
-    <view class="list-item">
+    <navigator url="/pages/help-center/help-center" class="list-item">
       <text class="item-text">帮助中心</text>
       <text class="arrow">></text>
-    </view>
+    </navigator>
     <navigator url="/pages/contact-us/contact-us" class="list-item">
       <text class="item-text">联系我们</text>
       <text class="arrow">></text>
