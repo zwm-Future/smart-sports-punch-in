@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "打卡小程序",
   "usingComponents": {
     "publish":"/package_teacher/components/publish/publish",
     "punch":"/package_student/components/punch/punch"
