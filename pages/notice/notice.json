@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "no-data":"/components/no-data/no-data"
   },
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",
