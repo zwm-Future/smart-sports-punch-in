@@ -1,8 +1,7 @@
 <view class="notiece-img">
-  <swiper class="swiper" autoplay="true" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#039d71" circular>
-    <swiper-item class="swiper-item">轮播图（展示重要公告）
-    </swiper-item>
-    <swiper-item class="swiper-item">轮播图（展示重要公告）
+  <swiper class="swiper" autoplay="true" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#039d71" circular bindtap="handleTapImg">
+    <swiper-item class="swiper-item" wx:for="{{imgList}}" wx:key="item">
+      <image class="img-item" src="{{item}}" data-img-index="{{index}}"></image>
     </swiper-item>
   </swiper>
 </view>

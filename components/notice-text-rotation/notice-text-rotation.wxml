@@ -1,6 +1,6 @@
 <view class="notiece-text">
-    <swiper class="swiper" autoplay="true" vertical="true" circular>
-      <swiper-item class="swiper-item">文字公告滚动轮播</swiper-item>
-      <swiper-item class="swiper-item">文字公告滚动轮播</swiper-item>
-    </swiper>
-  </view>
+  <swiper class="swiper" autoplay="true" vertical="true" circular>
+    <swiper-item class="swiper-item" wx:for="{{textList}}" wx:key="id"  bindtap="tapText" data-text-index="{{index}}">{{item.title}}</swiper-item>
+    <swiper-item class="swiper-item" wx:if="{{textList.length < 1}}">暂无公告</swiper-item>
+  </swiper>
+</view>
