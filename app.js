@@ -8,5 +8,6 @@ App({
     user:{},
     systemInfo:{},
     identifyConfirm:0,
+    currentSemester:''
   },
 })

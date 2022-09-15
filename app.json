@@ -12,7 +12,9 @@
     "pages/web-view/web-view",
     "pages/agreement/agreement",
     "pages/password-modify/password-modify",
-    "pages/contact-us/contact-us"
+    "pages/contact-us/contact-us",
+    "pages/help-center/help-center",
+    "pages/notice-text-view/notice-text-view"
   ],
   "subPackages": [
     {

@@ -70,6 +70,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "通知详情页",
+          "pathName": "pages/notice-text-view/notice-text-view",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
