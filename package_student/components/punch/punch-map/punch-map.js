@@ -48,20 +48,32 @@ Component({
   observers: {
     'isOpenWxLocation,isOpenPhonePosition': function (isOpenWxLocation, isOpenPhonePosition) {
       if (!isOpenWxLocation) {
+        if (this.data.status == 1) {
+          this.pauseCount();
+        }
         this.setData({
           modalWxPositionVisible: true,
           modalPhonePositionVisible: false
         })
       } else if (!isOpenPhonePosition) {
+        if (this.data.status == 1) {
+          this.pauseCount();
+        }
         this.setData({
           modalWxPositionVisible: false,
           modalPhonePositionVisible: true
         })
-      } else {
+      } else if (isOpenWxLocation && isOpenPhonePosition) {
+        console.log(this.data.status);
+        if (this.data.status == 1) {
+          this.continueCount();
+        }
         this.setData({
           modalWxPositionVisible: false,
           modalPhonePositionVisible: false
         })
+      } else {
+        console.log('some Error---punch-map:Component');
       }
     },
   },
@@ -110,8 +122,8 @@ Component({
           console.log(e);
         }
       });
-      console.log('onLocationChangeError');
       wx.onLocationChangeError(error => {
+        console.log(error);
         //安卓：手机定位关闭
         if (error.errCode == 2) {
           const {
@@ -148,9 +160,8 @@ Component({
   methods: {
     _show: function () {
       try {
-        console.log('_show');
         if (!this.isFirstSetLocation) this.setLocation();
-        if (this.status == 1) return;
+        if (this.data.status == 1) return;
         this.setTimer();
 
       } catch (error) {
@@ -189,7 +200,7 @@ Component({
       this.hideTabBar();
       //倒计时
       //这里start带参数target
-      await this.wave_bg._handleCount(this.countCircle._start.call(this.countCircle, {
+      await this.wave_bg._handleCount(this.countCircle._start.bind(this.countCircle, {
         target: this.scene.minTime
       }));
       this.startTime = formatTime(new Date());
@@ -200,10 +211,11 @@ Component({
     //位置监听
     realTimeLocaton: function (res) {
       //安卓：手机定位关闭 -> 打开
-      if (!this.properties.openPhonePosition) this.setData({
-        isOpenPhonePosition: true
-      })
-      console.log('accuracy', res.accuracy);
+      if (!this.properties.isOpenPhonePosition) {
+        this.setData({
+          isOpenPhonePosition: true
+        })
+      }
       this.accuracy = res.accuracy;
       this.currentLatitude = res.latitude;
       this.currentLongitude = res.longitude;
@@ -296,7 +308,6 @@ Component({
     },
     //停止计时
     pauseCount: function () {
-      console.log('pause');
       this.countCircle._pause();
     },
     //结束
@@ -312,12 +323,13 @@ Component({
           id: sceneId
         } = this.scene;
         const minAndSecond = this.countCircle._getTimes.call(this.countCircle).split(":");
-        const sportTime = minAndSecond[0] * 60 + minAndSecond[1] * 1;
+        let sportTime = minAndSecond[0] * 60 + minAndSecond[1] * 1;
+        sportTime = encodeTime(sportTime);
         const {
           code,
         } = await addSportRecord({
           sceneId,
-          sportTime: encodeTime(sportTime),
+          sportTime,
           start,
           end
         })
