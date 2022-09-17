@@ -4,4 +4,4 @@
     <view class="count-time">{{times}}</view>
   </view>
 </van-circle>
-<puzzle-verify show="{{verifyShow}}" bindhandleSuccess="cancleVerify"></puzzle-verify>
+<!-- <puzzle-verify show="{{verifyShow}}" bindhandleSuccess="cancleVerify"></puzzle-verify> -->

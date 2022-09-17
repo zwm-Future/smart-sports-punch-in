@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "van-circle": "@vant/weapp/circle/index",
-    "puzzle-verify":"/components/puzzle-verify/puzzle-verify"
+    "van-circle": "@vant/weapp/circle/index"
   }
 }
