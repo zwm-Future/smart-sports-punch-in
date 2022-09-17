@@ -1,6 +1,6 @@
 <view class="punch-wrap">
   <map id="myMap" latitude="{{latitude}}" longitude="{{longitude}}" show-location="true" show-scale="true" enable-rotate min-scale="8" max-scale="20" polygons="{{polygons}}" markers="{{markers}}">
-    <top-bar bindtoLocation="moveToLocation" class="top-bar-wrap"></top-bar>
+    <top-bar bindtoLocation="moveToLocation" class="top-bar-wrap" gpsStrength="{{gpsStrength}}"></top-bar>
     <view class="count-circle-outer" hidden="{{!(status >= 1 )}}">
       <count-circle id="count-circle" size="{{320}}" strokeWidth="{{20}}" verify="{{false}}"></count-circle>
     </view>
@@ -12,4 +12,18 @@
     </view>
     <wave_bg id="wave_bg"></wave_bg>
   </map>
+  <show-modal modalVisible="{{modalWxPositionVisible}}">
+    <view class="modal-title">未开启后台定位授权
+      <view>请选择"使用小程序时和离开后允许"</view>
+    </view>
+    <button class="modal-btn" open-type="openSetting" bindtap="handleCancleModal">去设置</button>
+  </show-modal>
+
+  <show-modal modalVisible="{{modalPhonePositionVisible}}">
+    <view class="modal-title">手机系统定位未开启！
+      <view class="modal-main">请前往系统设置开启定位
+        <van-loading type="spinner" size="28px" />
+      </view>
+    </view>
+  </show-modal>
 </view>

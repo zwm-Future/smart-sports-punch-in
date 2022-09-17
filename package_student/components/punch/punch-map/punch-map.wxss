@@ -5,14 +5,18 @@ map {
 }
 
 .top-bar-wrap {
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 652rpx;
+  width: 100%;
+  padding: 0 49rpx;
   height: 10vh;
   overflow: hidden;
+  backdrop-filter: blur(2rpx);
+  background: linear-gradient(180deg, rgba(250, 250, 250, 0.9), rgba(250, 250, 250, 0.8), 80%, transparent);
 }
 
 .count-circle-outer {
@@ -148,11 +152,17 @@ map {
   margin: 10px 0;
 }
 
-.modal-text {
-  height: 150rpx;
+
+.modal-title {
+  padding: 50rpx 0;
   text-align: center;
-  line-height: 150rpx;
   font-weight: bold;
+}
+
+.modal-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-btn {

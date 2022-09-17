@@ -1,7 +1,1 @@
-<punch-map isOpenLocation="{{isOpenLocation}}"></punch-map>
-<show-modal modalVisible="{{modalVisible}}" bindmodalCancel="handleCancleModal">
-  <view class="modal-text">未开启后台定位授权
-    <view>请选择"使用小程序时和离开后允许"</view>
-  </view>
-  <button class="modal-btn" open-type="openSetting" bindtap="handleCancleModal">去设置</button>
-</show-modal>
+<punch-map isOpenWxLocation="{{isOpenWxLocation}}" isOpenPhonePosition="{{isOpenPhonePosition}}"></punch-map>
