@@ -64,7 +64,6 @@ Component({
           modalPhonePositionVisible: true
         })
       } else if (isOpenWxLocation && isOpenPhonePosition) {
-        console.log(this.data.status);
         if (this.data.status == 1) {
           this.continueCount();
         }
@@ -259,10 +258,11 @@ Component({
         console.log(error);
       }
     },
+    //设置信号强度值
     setGpsStrength: function () {
       let gpsStrength = 2;
-      if (this.accuracy > 50) gpsStrength = 0;
-      else if (this.accuracy > 20) gpsStrength = 1;
+      if (this.accuracy > 100) gpsStrength = 0;
+      else if (this.accuracy > 50) gpsStrength = 1;
       this.setData({
         gpsStrength
       })
@@ -293,6 +293,7 @@ Component({
     //开启定时器
     setTimer: function () {
       this.sendTimer = setInterval(() => {
+        this.setGpsStrength();
         this.judgeInSide();
       }, 1000)
     },
