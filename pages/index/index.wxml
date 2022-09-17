@@ -1,8 +1,8 @@
 <!--index.wxml-->
-<view wx:if="{{identifyId == 2}}">
+<view wx:if="{{identityId == 2}}">
   <teacher-index id="teacher-index">
     </teacher-index>
 </view>
-<view wx:else="{{identifyId == 1}}">
+<view wx:else="{{identityId == 1}}">
   <student-index  id="student-index"></student-index>
 </view>

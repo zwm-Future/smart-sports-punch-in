@@ -1,13 +1,13 @@
 const identityId = getApp().identityId;
 Page({
   data: {
-    identifyId: identityId,
+    identityId: identityId,
   },
   onLoad: function () {
     const user = wx.getStorageSync('user');
     if (user.identityId) {
       this.setData({
-        identifyId: user.identityId
+        identityId: user.identityId
       })
     }
   },
