@@ -324,15 +324,16 @@ Component({
           id: sceneId
         } = this.scene;
         const minAndSecond = this.countCircle._getTimes.call(this.countCircle).split(":");
-        let sportTime = minAndSecond[0] * 60 + minAndSecond[1] * 1;
-        sportTime = encodeTime(sportTime);
+        const  sportTime = minAndSecond[0] * 60 + minAndSecond[1] * 1;
+        const str = encodeTime(sportTime);
         const {
           code,
         } = await addSportRecord({
           sceneId,
           sportTime,
           start,
-          end
+          end,
+          str
         })
         if (code) {
           sportTime >= this.scene.minTime && showTip.Toast('运动达标！', 'success');

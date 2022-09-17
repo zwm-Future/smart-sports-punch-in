@@ -57,7 +57,8 @@ export const addSportRecord = ({
   sceneId,
   sportTime,
   start,
-  end
+  end,
+  str
 }) => {
   /**
    * @param {String} sceneId	 - 场地id
@@ -66,7 +67,7 @@ export const addSportRecord = ({
    * @param {String} end - 结束时间
    */
   return Request({
-    url: '/stu/sport',
+    url: `/stu/sport?str=${str}`,
     method: 'POST',
     data: {
       "sceneId":sceneId,
