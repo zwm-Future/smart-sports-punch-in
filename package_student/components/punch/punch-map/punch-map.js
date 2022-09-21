@@ -1,5 +1,5 @@
 import pnpoly from '../../../utils/pnp.js';
-import encodeTime from "../../../utils/stop"
+import encodeTime from "../../../../utils/stop"
 import {
   formatTime
 } from "../../../../utils/util"
