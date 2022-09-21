@@ -1,6 +1,4 @@
-import {
-  login
-} from '../../api/login.js'
+import setLoginStatus from "../../api/setLoginStatus";
 const app = getApp();
 Component({
   /**
@@ -58,15 +56,8 @@ Component({
     },
     handleLogin: async function () {
       try {
-        const {
-          code
-        } = await wx.login({});
-        const {
-          code: isExist,
-          data
-        } = await login(code)
+       const isExist = await setLoginStatus();
         if (isExist) {
-          wx.setStorageSync("user", data);
           wx.switchTab({
             url: '/pages/index/index',
           })
