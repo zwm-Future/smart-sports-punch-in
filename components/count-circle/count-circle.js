@@ -1,3 +1,5 @@
+import encodeTime from "../../utils/stop";
+import { formatTime } from "../../utils/util";
 Component({
   /**
    * 组件的属性列表
@@ -32,8 +34,10 @@ Component({
     times: '00:00',
     // verifyShow: false,
   },
-  timer: null,
-  count: 0,
+  // timer: null,
+  // count: 0,
+  //已调用缓存次数
+  //storageTimes
   // //步数
   // stepNum: 0,
   // //当前步数
@@ -45,6 +49,10 @@ Component({
    */
   lifetimes: {
     attached: function () {
+      //初始化
+      this.storageTimes = 0;
+      this.count = 0;
+      this.timer = null;
       //适配
       wx.getSystemInfo({
         success: (result) => {
@@ -60,17 +68,21 @@ Component({
   methods: {
     //target 目标值
     _start: function ({
-      target = 1200
+      target = 1200,
+      sceneId
     }) {
       this.count = 0;
       this.target = target;
+      this.sceneId = sceneId;
+      this.start  = formatTime(new Date());
       // this.stepNum = 12;
       // console.log(target);
       // this.step = parseInt(target / this.stepNum);
       // console.log(this.step);
       // this.currentStep = 0;
       this.setData({
-        times: '00:00'
+        times: '00:00',
+        value: 0
       })
       clearInterval(this.timer);
       console.log('_start____');
@@ -97,6 +109,9 @@ Component({
       return minutes + ':' + seconds;
     },
     _timerFunc: function () {
+      const {
+        value
+      } = this.data
       this.count++;
       //以步长增加
       // if (parseInt(this.count / this.step) == this.currentStep + 1 && this.currentStep <= this.stepNum) {
@@ -115,10 +130,13 @@ Component({
       //     value
       //   })
       // }
-      if ((this.target / 10) * (((this.data.value + 10) / 10)) < this.count) this.setData({
-        value: this.data.value + 10
-      });
+      if ((this.target / 10) * (((value + 10) / 10)) < this.count) {
+        this.setData({
+          value: value + 10
+        });
+      }
       const times = this._countToTimes(this.count);
+      this._storageFunc();
       this.setData({
         times,
       });
@@ -129,5 +147,12 @@ Component({
     //     verifyShow: false
     //   })
     // }
-  }
+    _storageFunc: function () {
+      //超过目标的一半才缓存
+      if ( this.target / 2 > this.count || this.count < (this.storageTimes + 1) * 30) return;
+      //缓存 运动时长，   运动场地id， 开始时间， 结束时间
+      wx.setStorageSync('str', `${encodeTime(this.count)},${this.sceneId},${this.start},${formatTime(new Date())}`);
+      this.storageTimes++;
+    }
+  },
 })

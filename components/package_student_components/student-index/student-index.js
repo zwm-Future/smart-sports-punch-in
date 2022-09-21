@@ -1,14 +1,17 @@
 import {
   getTodaysportRecord,
-  getsportRecordTotal
+  getsportRecordTotal,
+  addSportRecord
 } from '../../../api/sports.js'
+import showTip from '../../../public/showTip.js';
 const app = getApp();
 Component({
   data: {
     todaySportTime: 0,
     todayScore: 0,
     allMinutes: 0,
-    allScore: 0
+    allScore: 0,
+    modalStorage: false,
   },
   isOnFresh: false,
   /**
@@ -66,11 +69,45 @@ Component({
       } catch (error) {
         console.log(error);
       }
+    },
+    handleStorageSport: async function () {
+      try {
+        const [str, sceneId, start, end] = sportStorage;
+        const {
+          code,
+        } = await addSportRecord({
+          sceneId,
+          sportTime: 1200,
+          start,
+          end,
+          str
+        })
+        const modalStorage = true;
+        if (code) {
+          showTip.Toast('上传成功', 'none');
+          modalStorage = false;
+        } else {
+          showTip.Toast('上传失败，请稍后重试!','none')
+        }
+        this.setData({
+          modalStorage
+        })
+      } catch (error) {
+        console.log(error, 'index:Page');
+      }
+    },
+    checkStorageSport: function () {
+      const sportStorage = wx.getStorageSync('str');
+      if (!sportStorage) return;
+      this.setData({
+        modalStorage: true,
+      })
     }
   },
   lifetimes: {
     attached: function () {
-      if( wx.getStorageSync('user').identityId == 1) this._initData();
+      if (wx.getStorageSync('user').identityId == 1) this._initData();
+      this.checkStorageSport();
     }
   }
 })
