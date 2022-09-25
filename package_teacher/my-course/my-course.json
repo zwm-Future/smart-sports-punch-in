@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "semester-picker":"/components/semester-picker/semester-picker",
-    "show-modal":"/components/show-modal/show-modal"
-  }
+    "show-modal":"/components/show-modal/show-modal",
+    "no-data":"/components/no-data/no-data"
+  },
+  "backgroundTextStyle": "light",
+  "navigationBarTitleText": "我的课程"
 }

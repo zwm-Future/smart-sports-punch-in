@@ -58,6 +58,10 @@
   flex: 1;
   margin: 0;
   padding: 0;
+  background-color: #fff;
+}
+.bottom-btn .btn.click-class {
+  background-color: #dedede;
 }
 .bottom-btn .btn::after {
   border: none;
@@ -69,5 +73,19 @@
 .cancle-btn {
   border-bottom-right-radius: 40rpx;
   color:#323233;
+}
+
+.icon-wrap {
+  width: 100%;
+  margin-top: 10vh;
+}
+
+.delete-title {
+  padding: 50rpx 0;
+  text-align: center;
+  font-weight: bold;
+}
+.delete-content {
+  font-weight: 300;
 }
 
