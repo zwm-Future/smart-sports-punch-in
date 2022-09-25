@@ -2,12 +2,11 @@ import {
   getMyTeacher
 } from '../api/my-teacher'
 import {
-  getCurrentSemester
-} from '../../api/semester'
+  _getCurrentSemester
+} from "../../utils/currentSemester"
 import {
   Toast
 } from '../../public/showTip'
-const app = getApp();
 Page({
 
   /**
@@ -16,11 +15,14 @@ Page({
   data: {
     teacherName: '',
     courseInfo: '',
-    currentSemester: '2022-2023学年 第1学期'
+    currentSemesterName: '2022-2023学年 第1学期'
   },
   onShow: function () {
+    this._initData();
+  },
+  _initData: async function () {
+    await this._handleCurrentSemester();
     this._setTeacher();
-    this._getCurrentSemester();
   },
   _setTeacher: async function () {
     try {
@@ -50,7 +52,7 @@ Page({
         data,
         other
       } = await getMyTeacher({
-        semesterId: '1'
+        semesterId: this.currentSemesterId
       })
       const result = {
         myTeacher: data,
@@ -63,30 +65,14 @@ Page({
       error.mes && Toast(error.mes, 'none');
     }
   },
-  _getCurrentSemester: async function () {
-    try {
-      if (!app.globalData.currentSemester) {
-        const {
-          code,
-          data: {
-            name
-          }
-        } = await getCurrentSemester();
-        if (code) {
-          app.globalData.currentSemester = name;
-        } else {
-          console.log('code 0----my-teacher:Student——Page');
-        }
-      } else {
-        const {
-          currentSemester
-        } = app.globalData;
-        this.setData({
-          currentSemester
-        })
-      }
-    } catch (error) {
-      console.log('my-teacher:package_student', error);
-    }
+  _handleCurrentSemester: async function () {
+    const {
+      name: currentSemesterName,
+      id
+    } = await _getCurrentSemester();
+    this.currentSemesterId = id;
+    this.setData({
+      currentSemesterName
+    })
   }
 })

@@ -1,6 +1,9 @@
 import {
   getMyTeacher
 } from "../../api/my-teacher"
+import {
+  _getCurrentSemester
+} from "../../../utils/currentSemester"
 Component({
   /**
    * 组件的属性列表
@@ -37,13 +40,14 @@ Component({
       }
     },
     _getTeaher: async function () {
+      await this._handleCurrentSemester();
       try {
         const {
           code,
           data,
           other
         } = await getMyTeacher({
-          semesterId: '1'
+          semesterId: this.currentSemesterId
         })
         const result = {
           myTeacher: data,
@@ -56,9 +60,21 @@ Component({
         error.mes && Toast(error.mes, 'none');
       }
     },
+    _handleCurrentSemester: async function () {
+      const {
+        id
+      } = await _getCurrentSemester();
+      this.currentSemesterId = id;
+    }
   },
   lifetimes: {
-    ready() {
+    created: function () {
+      console.log('student-my created');
+    },
+    attached: function () {
+      console.log('student-my attached');
+    },
+    async ready() {
       const userInfo = wx.getStorageSync('userInfo');
       const {
         number
@@ -67,7 +83,11 @@ Component({
         userInfo,
         number
       });
+      const {
+        teacherName
+      } = this.data;
+      if (teacherName) return;
       this._setTeacher();
     }
-  },
+  }
 })

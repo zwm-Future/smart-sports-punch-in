@@ -1,6 +1,6 @@
 <view class="my-teacher-wrap">
   <view class="header grey">
-    {{currentSemester}}
+    {{currentSemesterName}}
   </view>
   <navigator url="./select-teacher/select-teacher" class="main grey">
     <view class="main-left">
