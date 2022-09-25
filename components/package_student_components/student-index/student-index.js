@@ -72,7 +72,8 @@ Component({
     },
     handleStorageSport: async function () {
       try {
-        const [str, sceneId, start, end] = sportStorage;
+        const sportStorage = wx.getStorageSync('str');
+        const [str, sceneId, start, end] = sportStorage.split(",");
         const {
           code,
         } = await addSportRecord({
@@ -82,12 +83,13 @@ Component({
           end,
           str
         })
-        const modalStorage = true;
+        let modalStorage = true;
         if (code) {
+          wx.removeStorageSync('str');
           showTip.Toast('上传成功', 'none');
           modalStorage = false;
         } else {
-          showTip.Toast('上传失败，请稍后重试!','none')
+          showTip.Toast('上传失败，请稍后重试!', 'none')
         }
         this.setData({
           modalStorage
@@ -106,6 +108,7 @@ Component({
   },
   lifetimes: {
     attached: function () {
+      console.log('student-index attached');
       if (wx.getStorageSync('user').identityId == 1) this._initData();
       this.checkStorageSport();
     }

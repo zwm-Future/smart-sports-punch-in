@@ -19,8 +19,7 @@ Component({
     }
   },
   data: {
-    modalWxPositionVisible: false,
-    modalPhonePositionVisible: false,
+    modalVisible: 0, // 0  -> 无 1 -> 微信定位授权弹窗  2 -> 手机定位开启弹窗 3 -> 提交失败弹窗
     // 0 不运动   1 运动中
     status: 0,
     latitude: 0,
@@ -47,33 +46,27 @@ Component({
   },
   observers: {
     'isOpenWxLocation,isOpenPhonePosition': function (isOpenWxLocation, isOpenPhonePosition) {
+      let modalVisible = 0;
       if (!isOpenWxLocation) {
         if (this.data.status == 1) {
           this.pauseCount();
         }
-        this.setData({
-          modalWxPositionVisible: true,
-          modalPhonePositionVisible: false
-        })
+        modalVisible = 1;
       } else if (!isOpenPhonePosition) {
         if (this.data.status == 1) {
           this.pauseCount();
         }
-        this.setData({
-          modalWxPositionVisible: false,
-          modalPhonePositionVisible: true
-        })
+        modalVisible = 2;
       } else if (isOpenWxLocation && isOpenPhonePosition) {
         if (this.data.status == 1) {
           this.continueCount();
         }
-        this.setData({
-          modalWxPositionVisible: false,
-          modalPhonePositionVisible: false
-        })
       } else {
         console.log('some Error---punch-map:Component');
       }
+      this.setData({
+        modalVisible
+      })
     },
   },
   //当前经纬度
@@ -200,7 +193,8 @@ Component({
       //倒计时
       //这里start带参数target
       await this.wave_bg._handleCount(this.countCircle._start.bind(this.countCircle, {
-        target: this.scene.minTime
+        target: this.scene.minTime,
+        sceneId: this.scene.id
       }));
       this.startTime = formatTime(new Date());
       this.setData({
@@ -314,7 +308,6 @@ Component({
     //结束
     end: async function () {
       try {
-        //写个函数保存本地
         this.endTime = formatTime(new Date());
         const {
           startTime: start,
@@ -324,8 +317,10 @@ Component({
           id: sceneId
         } = this.scene;
         const minAndSecond = this.countCircle._getTimes.call(this.countCircle).split(":");
-        const  sportTime = minAndSecond[0] * 60 + minAndSecond[1] * 1;
+        const sportTime = minAndSecond[0] * 60 + minAndSecond[1] * 1;
+        this.sportTime = sportTime;
         const str = encodeTime(sportTime);
+        let modalVisible = 0;
         const {
           code,
         } = await addSportRecord({
@@ -338,12 +333,54 @@ Component({
         if (code) {
           sportTime >= this.scene.minTime && showTip.Toast('运动达标！', 'success');
           sportTime < this.scene.minTime && showTip.Toast('运动未达标', 'error');
+          wx.removeStorageSync('str');
         } else {
           showTip.Toast('提交失败', 'error');
           //重试
+          modalVisible = 3;
         }
         this.setData({
-          status: 0
+          status: 0,
+          modalVisible
+        })
+        this.showTabBar();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    //重新提交
+    reSubmitSoprtTime: async function () {
+      try {
+        const {
+          startTime: start,
+          endTime: end,
+          sportTime
+        } = this;
+        const {
+          id: sceneId
+        } = this.scene;
+        const str = encodeTime(sportTime);
+        let modalVisible = 0;
+        const {
+          code,
+        } = await addSportRecord({
+          sceneId,
+          sportTime,
+          start,
+          end,
+          str
+        })
+        if (code) {
+          sportTime >= this.scene.minTime && showTip.Toast('运动达标！', 'success');
+          sportTime < this.scene.minTime && showTip.Toast('运动未达标', 'error');
+          wx.removeStorageSync('str');
+        } else {
+          showTip.Toast('提交失败', 'error');
+          //重试
+          modalVisible = 3;
+        }
+        this.setData({
+          modalVisible
         })
         this.showTabBar();
       } catch (error) {
@@ -379,8 +416,7 @@ Component({
     },
     handleCancleModal: function () {
       this.setData({
-        modalPhonePositionVisible: false,
-        modalWxPositionVisible: false,
+        modalVisible: 0,
       })
     },
   }

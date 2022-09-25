@@ -1,5 +1,7 @@
 import encodeTime from "../../utils/stop";
-import { formatTime } from "../../utils/util";
+import {
+  formatTime
+} from "../../utils/util";
 Component({
   /**
    * 组件的属性列表
@@ -71,10 +73,11 @@ Component({
       target = 1200,
       sceneId
     }) {
+
       this.count = 0;
       this.target = target;
       this.sceneId = sceneId;
-      this.start  = formatTime(new Date());
+      this.start = formatTime(new Date());
       // this.stepNum = 12;
       // console.log(target);
       // this.step = parseInt(target / this.stepNum);
@@ -85,6 +88,7 @@ Component({
         value: 0
       })
       clearInterval(this.timer);
+      console.log('sceneId', sceneId);
       console.log('_start____');
       this.timer = setInterval(this._timerFunc.bind(this), 1000);
     },
@@ -105,7 +109,6 @@ Component({
       let minutes = (count - seconds) / 60;
       seconds = seconds < 10 ? '0' + seconds : seconds;
       minutes = minutes < 10 ? '0' + minutes : minutes;
-      console.log(minutes);
       return minutes + ':' + seconds;
     },
     _timerFunc: function () {
@@ -149,7 +152,7 @@ Component({
     // }
     _storageFunc: function () {
       //超过目标的一半才缓存
-      if ( this.target / 2 > this.count || this.count < (this.storageTimes + 1) * 30) return;
+      if (this.count >= this.target / 2 && this.count < (this.storageTimes + 1) * 30) return;
       //缓存 运动时长，   运动场地id， 开始时间， 结束时间
       wx.setStorageSync('str', `${encodeTime(this.count)},${this.sceneId},${this.start},${formatTime(new Date())}`);
       this.storageTimes++;
