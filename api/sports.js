@@ -53,6 +53,18 @@ export const getTodaysportRecord = (params) => {
     data: params
   })
 }
+
+export const getRecentlysportRecord = ({stuId,semesterId}) => {
+  /** 获取最近的运动时间
+   * @param {String} stuId - 学生id
+   * @param {String} semesterId - 学期id
+   */
+  return Request({
+    url: '/sportTime/recently',
+    data: {stuId,semesterId}
+  })
+}
+
 export const addSportRecord = ({
   sceneId,
   sportTime,
@@ -60,20 +72,21 @@ export const addSportRecord = ({
   end,
   str
 }) => {
-  /**
+  /** 新增运动记录
    * @param {String} sceneId	 - 场地id
    * @param {String} sportTime - 长整形 有多少秒
    * @param {String} start - 开始时间
    * @param {String} end - 结束时间
+   * @param {String} str - 密钥
    */
   return Request({
     url: `/stu/sport?str=${str}`,
     method: 'POST',
     data: {
-      "sceneId":sceneId,
-      "sportTime":sportTime,
-      "start":start,
-      "end":end
+      "sceneId": sceneId,
+      "sportTime": sportTime,
+      "start": start,
+      "end": end
     }
   })
 }
