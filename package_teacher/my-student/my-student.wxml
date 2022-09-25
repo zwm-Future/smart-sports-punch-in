@@ -7,4 +7,7 @@
       <student-item name="{{item.name}}" number="{{item.number}}"></student-item>
     </navigator>
   </view>
+  <view class="icon-wrap" hidden="{{studentList.length > 0}}">
+    <no-data></no-data>
+  </view>
 </view>
