@@ -1,16 +1,18 @@
 <view class="record-card-wrap">
-  <view class="{{item.color}}">
+  <view class="{{cardItemConfig.color}}">
     <view class="record-type">
       <text class="type-name">{{name}}</text>
       <text class="type-date">{{date}}</text>
     </view>
     <view class="record-time">
-      <text class="time-num">{{number}}</text>
-      <text class="time-unit">{{unit}}</text>
+      <text wx:for="{{sportTime}}" wx:key="index">
+            <text class="time-num">{{item.number}}</text>
+            <text class="time-unit">{{item.unit}}</text>
+          </text>
     </view>
-    <view class="{{item.imgClass}}">
+    <view class="{{cardItemConfig.imgClass}}">
       <view class="img-container">
-        <image class="img" src="{{item.img}}"></image>
+        <image class="img" src="{{cardItemConfig.img}}"></image>
       </view>
     </view>
   </view>

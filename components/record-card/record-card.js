@@ -1,26 +1,4 @@
-import {imgSrc} from '../../utils/mappingData' 
-//name --> color
-const colorClass = {
-  '篮球': 'basketball-color',
-  '足球': 'football-color',
-  '网球': 'tennis-color',
-  '排球': 'volley-color',
-  '羽毛球': 'badminton-color',
-  '乒乓球':'pingpong-color',
-  '游泳':'swimming-color',
-  '健身':'Bodybuilding-color'
-}
-//name --> imgClass
-const imgClass = {
-  '篮球': 'basketball-img',
-  '足球': 'football-img',
-  '网球': 'tennis-img',
-  '排球': 'volley-img',
-  '羽毛球': 'badminton-img',
-  '乒乓球':'pingpong-img',
-  '游泳':'swimming-img',
-  '健身':'Bodybuilding-img'
-}
+import {imgSrc,colorClass,imgClass} from '../../utils/mappingData' 
 
 Component({
   /**
@@ -36,22 +14,19 @@ Component({
       type: String,
       value: ''
     },
-    number: {
-      type: String,
-      value: 0
-    },
-    unit: {
-      type: String,
-      value: "min"
-    },
+    sportTime:{
+      type:Array,
+      value:[]
+    }
   },
   /**
    * 组件的初始数据
    */
   data: {
-    item: {
+    cardItemConfig: {
       color: '',
-      img: ''
+      img: '',
+      imgClass:''
     }
   },
 
@@ -60,7 +35,7 @@ Component({
    */
   methods: {
     //匹配当前类型
-    setClass: function (name) {
+    _setClass: function (name) {
       let result = {};
       result.color = 'record-card ' + (colorClass[name] ? colorClass[name] : 'basketball-color');
       result.imgClass = 'img-wrap ' + (imgClass[name] ? imgClass[name] : 'basketball-img');
@@ -73,9 +48,9 @@ Component({
       const {
         name
       } = this.data;
-      const item = this.setClass(name);
+      const cardItemConfig = this._setClass(name);
       this.setData({
-        item
+        cardItemConfig
       })
     }
   }
