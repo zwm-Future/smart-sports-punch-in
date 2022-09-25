@@ -1,0 +1,49 @@
+.basketball-color {
+  color: #9a83c9;
+}
+
+.volley-color {
+  color: #3ba8e0;
+}
+
+.football-color {
+  color: #4F705C;
+}
+
+.tennis-color {
+  color: #44caac;
+}
+
+.badminton-color {
+  color: #ffc445;
+}
+
+.pingpong-color {
+  color: #FF7865;
+}
+
+.swimming-color {
+  color: #267abf;
+}
+
+.bodybuilding-color {
+  color: #ffbe8d;
+}
+
+
+.basketball-img,
+.volley-img {
+  width: 244rpx;
+}
+
+.tennis-img,
+.football-img {
+  width: 244rpx;
+}
+
+.badminton-img,
+.bodybuilding-img,
+.pingpong-img,
+.swimming-img {
+  width: 228rpx;
+}
