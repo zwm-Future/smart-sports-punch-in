@@ -1,6 +1,11 @@
 <view class="wrap" bindtap="handleTap">
-  <button wx:for="{{courseList}}" wx:key="id" data-index="{{index}}" class="course-item" >
+  <button wx:for="{{courseList}}" wx:key="id" data-index="{{index}}" class="course-item">
     {{item.name}}
-    <view  hidden="{{!item.selected}}"><van-icon name="success" color="#44caac" size="50rpx"/></view>
+    <view hidden="{{!item.selected}}">
+      <van-icon name="success" color="#44caac" size="50rpx" />
+    </view>
   </button>
+  <view class="icon-wrap" hidden="{{courseList.length > 0}}">
+    <no-data></no-data>
+  </view>
 </view>

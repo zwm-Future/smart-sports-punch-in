@@ -21,3 +21,8 @@ button:after {
 button::after {
   border: none;
 }
+
+.icon-wrap {
+  width: 100%;
+  margin-top: 10vh;
+}

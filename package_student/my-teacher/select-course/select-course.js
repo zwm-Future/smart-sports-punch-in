@@ -3,6 +3,9 @@ import {
   getMyTeacher,
   bindCourse
 } from '../../api/my-teacher'
+import {
+  _getCurrentSemester
+} from "../../../utils/currentSemester"
 const showTip = require('../../../public/showTip');
 Page({
 
@@ -22,6 +25,7 @@ Page({
   },
   initData: async function () {
     console.log(11);
+    await this._handleCurrentSemester();
     await this._getTeacherCourses();
     this._getMyCourse()
   },
@@ -31,7 +35,7 @@ Page({
         code,
         data
       } = await getTeacherCourse({
-        semesterId: 1,
+        semesterId: this.currentSemesterId,
         teacherId: this.teacherId
       });
       code && this.setData({
@@ -59,7 +63,7 @@ Page({
         data,
         other
       } = await getMyTeacher({
-        semesterId: '1'
+        semesterId: this.currentSemesterId
       })
       const result = {
         myTeacher: data,
@@ -95,14 +99,17 @@ Page({
       });
       if (code) {
         const result = wx.getStorageSync('myTeacher');
-        let myTeacher = {id:this.teacherId,name:this.teacherName}
+        let myTeacher = {
+          id: this.teacherId,
+          name: this.teacherName
+        }
         result.myCourse = slectCourse;
         result.myTeacher = myTeacher;
         wx.setStorageSync('myTeacher', result);
-        showTip.Toast(message,'1');
+        showTip.Toast(message, '1');
         this.matchCourse(slectCourse.id)
       } else {
-        message ? showTip.Toast(message,'error') : showTip.Toast('绑定失败','error');
+        message ? showTip.Toast(message, 'error') : showTip.Toast('绑定失败', 'error');
       }
     } catch (error) {
       console.log(error, '---select-course:Component');
@@ -129,8 +136,15 @@ Page({
           this.bindMyCourse(this.data.courseList[index])
         }
       },
-      fail: (res) => {console.log(res);},
+      fail: (res) => {
+        console.log(res);
+      },
     })
   },
-
+  _handleCurrentSemester: async function () {
+    const {
+      id
+    } = await _getCurrentSemester();
+    this.currentSemesterId = id;
+  }
 })
