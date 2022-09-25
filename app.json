@@ -74,6 +74,10 @@
   "requiredBackgroundModes": [
     "location"
   ],
+  "requiredPrivateInfos": [
+    "startLocationUpdateBackground",
+    "onLocationChange"
+  ],
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的定位,请选择第二个选项"
