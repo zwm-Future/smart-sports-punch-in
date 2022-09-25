@@ -1,13 +1,33 @@
+/* 去掉背景色和内外边距 */
+button {
+  margin: 0;
+  padding: 0;
+}
+
+button:after {
+  content: none;
+}
+
+/* 去掉边框 */
+button::after {
+  border: none;
+}
+
 .back-top-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  color:#44caac;
+  color: #44caac;
   font-size: 36rpx;
   font-weight: bold;
   background-color: #fff;
   border-radius: 10rpx;
   box-shadow: 0 0 20rpx 10rpx #efeff1;
+  transition: all .2s;
+}
+
+.click-class {
+  transform: scale(1.1);
 }

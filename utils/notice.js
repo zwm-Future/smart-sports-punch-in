@@ -1,3 +1,9 @@
+/**
+ *  这是处理文字公告和通知公告页的逻辑合在一块 不重复写 
+ * 
+ * 
+ */
+
 import {
   getTextNotice
 } from "../api/notice"

@@ -30,9 +30,5 @@
       <text class="item-text">修改密码</text>
       <text class="arrow">></text>
     </navigator> 
-    <navigator url="/pages/web-view/web-view" class="list-item">
-      <text class="item-text">问卷调查</text>
-      <text class="arrow">></text>
-    </navigator>
   </view>
 </view>
