@@ -6,7 +6,8 @@ export const getAllSemesters = () => {
   */
     return Request({
       url:'/semester/all',
-    })
+    },
+    0)
 }
 
 export const getCurrentSemester = () => {

@@ -4,7 +4,7 @@ import {
 
 
 /**设置登录状态
- * @returns {Boolean} true -> 存在用户  false -> 不存在该用户
+ * @returns {Object:[Boolean,error]} true -> 存在用户  false -> 不存在该用户 error -> 请求出错
  */
 export default async function setLoginStatus() {
   try {
@@ -17,11 +17,16 @@ export default async function setLoginStatus() {
     } = await login(code)
     if (isExist && data.id) {
       wx.setStorageSync("user", data);
-      return true;
+      return {
+        isExist: true
+      };
     } else {
-      return false;
+      return {
+        isExist: false
+      };
     }
   } catch (error) {
     console.log(error, 'setLoginStatus:Api');
+    return {error}
   }
 }

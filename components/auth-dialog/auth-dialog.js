@@ -56,7 +56,11 @@ Component({
     },
     handleLogin: async function () {
       try {
-       const isExist = await setLoginStatus();
+        const {
+          isExist,
+          error
+        } = await setLoginStatus();
+        if (error) return;
         if (isExist) {
           wx.switchTab({
             url: '/pages/index/index',
@@ -66,7 +70,6 @@ Component({
             url: '/pages/login/login',
           })
         }
-
       } catch (error) {
         console.log('auth-dialog:Component', error);
       }
