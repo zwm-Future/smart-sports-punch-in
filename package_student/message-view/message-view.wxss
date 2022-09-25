@@ -1,7 +1,3 @@
 .mes-view-container {
   padding: 30rpx;
 }
-
-.rich-container {
-  text-indent: 2em;
-}

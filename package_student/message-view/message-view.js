@@ -15,8 +15,11 @@ Page({
     const {
       content
     } = options;
+    //空格不解析 转为&nbsp;
+    let result = decodeURIComponent(content)
+    result = result.replace(/ /g, '\xa0');
     this.setData({
-      nodes: decodeURIComponent(content)
+      nodes: result
     })
   },
 
