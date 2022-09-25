@@ -49,8 +49,9 @@ Page({
   _getMyCourse: async function () {
     try {
       let result = wx.getStorageSync('myTeacher');
-      if (!result) result = _getTeaher();
-      this.matchCourse(result.myCourse.id)
+      if (!result) result = await this._getTeaher();
+      console.log(result);
+      if (result.myCourse) this.matchCourse(result.myCourse.id)
     } catch (error) {
       console.log(error);
     }
@@ -98,7 +99,10 @@ Page({
         courseId: slectCourse.id
       });
       if (code) {
-        const result = wx.getStorageSync('myTeacher');
+        let result = {
+          myCourse: {},
+          myTeacher: {}
+        };
         let myTeacher = {
           id: this.teacherId,
           name: this.teacherName
