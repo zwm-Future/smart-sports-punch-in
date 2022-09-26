@@ -1,6 +1,6 @@
 import {
-  getAllSemesters
-} from '../../api/semester'
+  _getAllSemester
+} from "../../utils/currentSemester"
 Component({
   /**
    * 组件的属性列表
@@ -36,26 +36,21 @@ Component({
       this.triggerEvent("semesterPickChange", semesterRange[e.detail.value])
     },
     initData: async function () {
-      await this.getSemesters();
+      await this._setSemesters();
       this.semesterChange({
         detail: {
           value: 0
         }
       });
     },
-    getSemesters: async function () {
+    _setSemesters: async function () {
       try {
-        const {
-          code,
-          data
-        } = await getAllSemesters();
-        if (code) {
-          this.setData({
-            semesterRange: data
-          })
-        }
+        const semesterRange = await _getAllSemester();
+        this.setData({
+          semesterRange
+        })
       } catch (error) {
-        console.log(error);
+        console.log(error, 'semester-picker:Component');
       }
 
     },
