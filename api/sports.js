@@ -25,6 +25,9 @@ export const getAllsportRecordDetail = (params) => {
   /** 获取某学期的各项运动的详情
    * @param {String} semesterId - 学期id
    * @param {String} stuId - 学生id
+   * @param {String} cur - 页数
+   * @param {String} size - 一页的数据量
+   * @param {String} type - 类型  all -> 全部  month -> 本月 week -> 本周
    */
   return Request({
     url: '/sportTime/semester',
@@ -37,6 +40,9 @@ export const getOneSportRecordDetail = (params) => {
    * @param {String} semesterId - 学期id
    * @param {String} sportId - 运动id
    * @param {String} stuId - 学生id
+   * @param {String} cur - 页数
+   * @param {String} size - 一页的数据量
+   * @param {String} type - 类型  all -> 全部  month -> 本月 week -> 本周
    */
   return Request({
     url: '/sportTime/sportExact',

@@ -21,15 +21,14 @@ Component({
     ],
     list: ['占用']
   },
-  observers:{
-    'sportList':function(value) {
+  observers: {
+    'sportList': function (value) {
       this.sportList = value;
       this.setData({
-        list:value
+        list: value
       })
     }
-  }
-  ,
+  },
   methods: {
     handleSelectChange: function (e) {
       const {
@@ -38,22 +37,17 @@ Component({
       } = e.detail;
       //（重复点击）
       if (this.selectIndex == index) return;
-      const {
-        sportList
-      } = this;
-      let newData = [];
+      //全部
+      let type = 'all';
       //本月
       if (index == 1) {
-        newData = filterCurrentMonth(sportList);
+        type = 'month';
       } else if (index == 2) { //本周
-        newData = filterCurrenWeek(sportList);
-      } else { //全部
-        newData = sportList;
-      }
-      this.setData({
-        list: newData
+        type = 'week';
+      } 
+      this.triggerEvent('tagChange', {
+        type
       });
-      this.triggerEvent('tagChange',{data:newData});
       this.selectIndex = index;
     },
   }

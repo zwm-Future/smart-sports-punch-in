@@ -1,7 +1,7 @@
 <view class="all-sport-wrap">
   <semester-picker bind:semesterPickChange="handleSemesterChange"></semester-picker>
   <view class="main">
-    <all-accumualte-card record="{{record}}"></all-accumualte-card>
+    <all-accumualte-card record="{{recordTotal}}"></all-accumualte-card>
     <all-sport-detail-list bindtagChange="handleTagChange" sportList="{{sportList}}"></all-sport-detail-list>
   </view>
 </view>
