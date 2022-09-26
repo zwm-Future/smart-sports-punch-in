@@ -116,7 +116,7 @@ Page({
     this._getList(semester.id);
   },
   onReachBottom: function (e) {
-    if (this.total < this.cur * this.size) {
+    if (this.total <= this.cur * this.size) {
       Toast('已经到底啦！咔咔', 'none');
       return
     }
