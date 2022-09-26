@@ -1,5 +1,5 @@
 import {
-  minTransform
+  secondTransform
 } from "../../utils/util"
 Component({
   /**
@@ -14,7 +14,7 @@ Component({
   observers: {
     "record": function (record) {
       console.log(record);
-      record.sportTime = record.sportTime ? minTransform(record.sportTime) : [{
+      record.sportTime = record.sportTime ? secondTransform(record.sportTime) : [{
         number: 0.0,
         unit: 'min'
       }]
