@@ -318,26 +318,31 @@ Component({
         } = this.scene;
         const minAndSecond = this.countCircle._getTimes.call(this.countCircle).split(":");
         const sportTime = minAndSecond[0] * 60 + minAndSecond[1] * 1;
+
         this.sportTime = sportTime;
         const str = encodeTime(sportTime);
         let modalVisible = 0;
-        const {
-          code,
-        } = await addSportRecord({
-          sceneId,
-          sportTime,
-          start,
-          end,
-          str
-        })
-        if (code) {
-          sportTime >= this.scene.minTime && showTip.Toast('运动达标！', 'success');
-          sportTime < this.scene.minTime && showTip.Toast('运动未达标', 'error');
-          wx.removeStorageSync('str');
+        if (sportTime < 180) { // 少于3分钟 不记录
+          showTip.Toast('运动未达标', 'error');
         } else {
-          showTip.Toast('提交失败', 'error');
-          //重试
-          modalVisible = 3;
+          const {
+            code,
+          } = await addSportRecord({
+            sceneId,
+            sportTime,
+            start,
+            end,
+            str
+          })
+          if (code) {
+            sportTime >= this.scene.minTime && showTip.Toast('运动达标！', 'success');
+            sportTime < this.scene.minTime && showTip.Toast('运动未达标', 'error');
+            wx.removeStorageSync('str');
+          } else {
+            showTip.Toast('提交失败', 'error');
+            //重试
+            modalVisible = 3;
+          }
         }
         this.setData({
           status: 0,
