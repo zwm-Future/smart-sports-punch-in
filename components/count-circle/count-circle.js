@@ -32,7 +32,7 @@ Component({
   data: {
     sizeRpx: 50,
     strokeWidthRpx: 10,
-    value: 0,
+    value: 100,
     times: '00:00',
     // verifyShow: false,
   },
@@ -73,7 +73,6 @@ Component({
       target = 1200,
       sceneId
     }) {
-
       this.count = 0;
       this.target = target;
       this.sceneId = sceneId;
@@ -152,7 +151,7 @@ Component({
     // }
     _storageFunc: function () {
       //超过目标的一半才缓存
-      if (this.count >= this.target / 2 && this.count < (this.storageTimes + 1) * 30) return;
+      if (this.count < this.target / 2 || this.count < (this.storageTimes + 1) * 30) return;
       //缓存 运动时长，   运动场地id， 开始时间， 结束时间
       wx.setStorageSync('str', `${encodeTime(this.count)},${this.sceneId},${this.start},${formatTime(new Date())}`);
       this.storageTimes++;
