@@ -50,5 +50,10 @@ Component({
       });
       this.selectIndex = index;
     },
+  },
+  lifetimes:{
+    attached:function() {
+      this.selectIndex = 0;
+    }
   }
 })

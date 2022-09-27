@@ -113,6 +113,10 @@ Page({
   handleSemesterChange: function (e) {
     console.log(e);
     const semester = e.detail;
+    this.preSportList = [];
+    this.cur = 1;
+    this.size = 8;
+    this.total = 8;
     this._getList(semester.id);
   },
   onReachBottom: function (e) {
