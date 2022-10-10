@@ -14,7 +14,7 @@ Page({
   },
   onShow() {
     this.tryLogin();
-    //Product ⬇
+    // Product ⬇
     // this.textLogin();
   },
   handleShowAuth: function () {
@@ -54,7 +54,9 @@ Page({
   tryLogin: async function () {
     try {
       if (!wx.getStorageSync('userInfo')) return;
-      const isExist = await setLoginStatus();
+      const {isExist,error} = await setLoginStatus();
+      console.log(isExist,error);
+      if(error) return;
       if (isExist) {
         wx.switchTab({
           url: '/pages/index/index',
