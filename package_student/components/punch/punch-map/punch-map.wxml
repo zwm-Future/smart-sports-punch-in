@@ -33,6 +33,6 @@
         <view>出了点状况，请稍后重试!</view>
       </view>
     </view>
-    <button class="modal-btn" bindtap="reSubmitSoprtTime">确定</button>
+    <button class="modal-btn" bindtap="reSubmitSoprtTime">重新提交</button>
   </show-modal>
 </view>
