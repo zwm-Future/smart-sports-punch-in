@@ -25,7 +25,8 @@ export default function Request(options, loading = 1) {
         const {
           statusCode,
           cookies,
-          data
+          data,
+          header
         } = res
         if (statusCode === 200) {
           if (options.url == '/user/login' || options.url == '/test/login') {
