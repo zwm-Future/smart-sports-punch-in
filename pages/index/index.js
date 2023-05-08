@@ -1,34 +1,32 @@
-// index.js
-// 获取应用实例
-const app = getApp()
-
+const identityId = getApp().identityId;
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    identityId: identityId,
   },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad() {
-    if (wx.getUserProfile) {
+  onLoad: function () {
+    const user = wx.getStorageSync('user');
+    if (user.identityId) {
       this.setData({
-        canIUseGetUserProfile: true
+        identityId: user.identityId
       })
     }
   },
   onShow: function () {
+    console.log('index,onShow');
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         selected: 0
       })
+    }
+  },
+  onPullDownRefresh: function (e) {
+    try {
+      let comp;
+      if (this.selectComponent("#student-index")) comp = this.selectComponent("#student-index");
+      else comp = this.selectComponent("#teacher-index");
+      comp.onRefresh && comp.onRefresh();
+    } catch (error) {
+      console.log(error, '——index:Page');
     }
   },
 })

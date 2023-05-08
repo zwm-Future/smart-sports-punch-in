@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="select-tag-wrap">
+    <tag-select tags="{{tags}}" bindselectChange="handleSelectChange"></tag-select>
+  </view>
+  <sport-item-card wx:for="{{list}}" sport="{{list[index]}}" wx:key="id"></sport-item-card>
+  <view hidden="{{list.length > 0}}">
+    <no-data></no-data>
+  </view>
+</view>

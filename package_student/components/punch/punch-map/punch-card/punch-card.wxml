@@ -1,0 +1,19 @@
+<view class="type-wrap">
+  <view class="type-title">
+    <view class="title-icon-wrap"><image class="title-icon" mode="widthFix" src="/img/map/Marker@3x.png"></image></view>
+    <text class="title-text">运动打卡区域</text>
+  </view>
+  <picker range="{{campusName}}" bindchange="bindCampusChange" value="{{selectCampusIndex}}" bindcolumnchange="bindPickerCampusChange">
+    <view class="select-type-container">
+      <text class="type-name">{{campusName[selectCampusIndex]}}</text>
+      <text class="change-text">切换校区</text>
+    </view>
+  </picker>
+  <picker range="{{areaArray}}" bindchange="bindPickerChange" value="{{selectAreaIndex}}" bindcolumnchange="bindMultiPickerColumnChange">
+    <view class="select-type-container area-select">
+      <text class="type-name">{{areaArray[selectAreaIndex]}}</text>
+      <text class="change-text">切换场地</text>
+    </view>
+  </picker>
+  <button class="punch-btn" bindtap="bindBegin">开始运动打卡</button>
+</view>

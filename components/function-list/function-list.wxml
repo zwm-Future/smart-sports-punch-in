@@ -1,0 +1,10 @@
+<view class="function-list-wrap">
+  <view class="function-list">
+    <navigator wx:for="{{functionList}}" url="{{item.url}}" class="function-item" wx:key="url">
+      <view class="image-wrap">
+        <image class="image" src="{{item.imgSrc}}" alt="{{item.name}}"></image>
+      </view>
+      <text>{{item.name}}</text>
+    </navigator>
+  </view>
+</view>

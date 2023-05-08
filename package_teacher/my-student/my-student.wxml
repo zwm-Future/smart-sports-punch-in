@@ -1,0 +1,13 @@
+<view class="my-student-wrap">
+  <view class="header">
+    <mp-searchbar ext-class="search-bar" placeholder="请输入学生名字" search="{{search}}"></mp-searchbar>
+  </view>
+  <view class="main">
+    <navigator url="/pages/record/record?stuId={{item.id}}" wx:for="{{studentList}}" wx:key="id">
+      <student-item name="{{item.name}}" number="{{item.number}}"></student-item>
+    </navigator>
+  </view>
+  <view class="icon-wrap" hidden="{{studentList.length > 0}}">
+    <no-data></no-data>
+  </view>
+</view>

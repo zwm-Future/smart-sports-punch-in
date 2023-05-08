@@ -1,0 +1,3 @@
+<button class="back-top-container" bindtap="handleToTOp" hover-class="click-class">
+    返回顶部
+</button>

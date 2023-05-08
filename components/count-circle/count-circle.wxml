@@ -1,0 +1,7 @@
+<van-circle value="{{ value }}" layer-color="#303e54" color="#44caac" size="{{sizeRpx}}" stroke-width="{{strokeWidthRpx}}">
+  <view class="count-main" style="width:{{sizeRpx}}px;height:{{sizeRpx}}px;">
+    <view class="title">已运动时长</view>
+    <view class="count-time">{{times}}</view>
+  </view>
+</van-circle>
+<!-- <puzzle-verify show="{{verifyShow}}" bindhandleSuccess="cancleVerify"></puzzle-verify> -->

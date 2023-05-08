@@ -1,0 +1,42 @@
+<view class="my-course-wrap">
+  <semester-picker bindsemesterPickChange="turnSemester"></semester-picker>
+  <view class="my-course-main" bindlongpress="handleLongPress">
+    <navigator url="../my-student/my-student?courseId={{item.id}}&name={{item.name}}" wx:for="{{courseList}}" wx:key="id" class="course-item" data-id="{{item.id}}" data-course-index="{{index}}">
+      {{item.name}}
+    </navigator>
+  </view>
+  <view class="icon-wrap" hidden="{{courseList.length > 0}}">
+    <no-data></no-data>
+  </view>
+</view>
+<view class="btn-container">
+  <button class="add-btn" bindtap="showAddModal">+</button>
+</view>
+<show-modal modalVisible="{{addModal}}" wx:if="{{addModal}}">
+  <view class="add-main">
+    <form bindsubmit="handleAdd">
+      <view class="add-form">
+        <semester-picker bindsemesterPickChange="addTurnSemester"></semester-picker>
+        <view class="ipt-container">
+          <text>课程名称：</text> <input name="name" class="add-ipt" type="text" />
+        </view>
+      </view>
+      <view class="bottom-btn">
+        <button formType="submit" class="confirm-btn btn" hover-class="click-class">确定</button>
+        <button class="cancle-btn btn" hover-class="click-class" bindtap="handleCancle">取消</button>
+      </view>
+    </form>
+  </view>
+</show-modal>
+
+<show-modal modalVisible="{{deleteModal}}">
+  <view class="delete-title">确认删除该课程？
+    <view class="delete-content">
+      {{deleteCourse}}
+    </view>
+  </view>
+  <view class="bottom-btn">
+    <button class="confirm-btn btn" hover-class="click-class" bindtap="deleteCourse">确定</button>
+    <button class="cancle-btn btn" hover-class="click-class" bindtap="handleCancle">取消</button>
+  </view>
+</show-modal>

@@ -1,0 +1,10 @@
+.header {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 5.54vh;
+  padding: 40rpx;
+  font-size: 32rpx;
+}

@@ -1,0 +1,16 @@
+.notiece-text {
+  width: 100%;
+  height: 6vh;
+}
+
+.notiece-text .swiper {
+  height: 100%;
+}
+.notiece-text .swiper-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#00B386;
+  font-size: 32rpx;
+  font-weight: 600;
+}

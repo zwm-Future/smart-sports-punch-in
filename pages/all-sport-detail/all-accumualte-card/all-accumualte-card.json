@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "sport-accmulate-card":"/components/sport-accmulate-card/sport-accmulate-card"
+  }
+}

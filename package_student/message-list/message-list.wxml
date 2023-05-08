@@ -1,0 +1,12 @@
+<view class="message-list">
+  <view class="item" wx:for="{{messageArr}}" bindtap="handleTapMes" wx:key="id" data-index="{{index}}">
+    <view class="content" data-index="{{index}}">
+      <view class="tip-dottor" hidden="{{item.read}}">✶</view>
+      <view class="my-rich-text" style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;line-clamp: 1;overflow: hidden;">{{item.msgContent}}</view>
+    </view>
+    <view class="date" data-index="{{index}}">{{item.createStamp}}</view>
+  </view>
+</view>
+<view class="icon-wrap" hidden="{{messageArr.length > 0}}">
+  <no-data></no-data>
+</view>

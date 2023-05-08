@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mp-searchbar": "weui-miniprogram/searchbar/searchbar",
+    "student-item":"../components/student-item/student-item",
+    "no-data":"/components/no-data/no-data"
+  }
+}

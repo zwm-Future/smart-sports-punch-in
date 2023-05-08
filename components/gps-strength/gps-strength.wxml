@@ -1,0 +1,10 @@
+<view class="gps-wrap">
+  <view class="gps-contanier">
+    <view class="gps-retangle-container">
+      <view class="retangle-week retangle {{strengthClass}}"></view>
+      <view class="retangle-middle retangle {{strengthClass}}" hidden="{{strength < 1}}"></view>
+      <view class="retangle-high retangle {{strengthClass}}" hidden="{{strength < 2}}"></view>
+    </view>
+    <view class="gps-text">GPS</view>
+  </view>
+</view>

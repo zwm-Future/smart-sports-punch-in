@@ -1,2 +1,14 @@
-<!--pages/notice/notice.wxml-->
-<text>pages/notice/notice.wxml</text>
+<view class="notice-wrap">
+  <view class="notice-item" wx:for="{{textList}}"  bindtap="tapText" wx:key="id" data-text-index="{{index}}">
+    <view class="notice-title">{{item.title}}</view>
+    <view class="notice-foot">
+      <view class="notice-publisher">
+        <text>发布者  {{item.author}}</text>
+      </view>
+      <view class="notice-time">{{item.date}}</view>
+    </view>
+  </view>
+  <view class="no-data-container" hidden="{{textList.length > 0}}">
+    <no-data></no-data>
+  </view>
+</view>

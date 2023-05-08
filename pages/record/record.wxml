@@ -1,2 +1,33 @@
-<!--pages/record/record.wxml-->
-<text>pages/record/record.wxml</text>
+<view class="record-wrap">
+  <semester-picker bindsemesterPickChange="turnSemester"></semester-picker>
+  <view class="record-main">
+    <view class="main-left">
+      <navigator url="/pages/all-sport-detail/all-sport-detail?title=所有运动&stuId={{stuId}}" class="record-all">
+        <view class="record-type">
+          <text class="type-name">所有运动</text>
+          <text class="type-date">{{allSport.date}}</text>
+        </view>
+        <view class="record-time">
+          <text wx:for="{{allSport.sportTime}}" wx:key="index">
+            <text class="time-num">{{item.number}}</text>
+            <text class="time-unit">{{item.unit}}</text>
+          </text>
+        </view>
+      </navigator>
+      <navigator url="/pages/all-sport-detail/all-sport-detail?title={{item.sportName}}&sportId={{item.sportId}}&sportName={{item.sportName}}&stuId={{stuId}}" class="record-item" wx:for="{{recordsLeft}}" wx:key="sportId">
+        <record-card name="{{item.sportName}}" sportTime="{{item.sportTime}}"  date="{{item.date}}"></record-card>
+      </navigator>
+      <view class="back-top-wrap" hidden="{{bakcTop != 1}}">
+        <back-to-top></back-to-top>
+      </view>
+    </view>
+    <view class="main-right">
+      <navigator url="/pages/all-sport-detail/all-sport-detail?title={{item.sportName}}&sportId={{item.sportId}}&sportName={{item.sportName}}&stuId={{stuId}}" class="record-item" wx:for="{{recordsRight}}" wx:key="sportId">
+        <record-card name="{{item.sportName}}" sportTime="{{item.sportTime}}" date="{{item.date}}"></record-card>
+      </navigator>
+      <view class="back-top-wrap" hidden="{{bakcTop != 2}}">
+        <back-to-top></back-to-top>
+      </view>
+    </view>
+  </view>
+</view>

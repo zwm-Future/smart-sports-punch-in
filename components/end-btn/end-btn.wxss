@@ -1,0 +1,166 @@
+@keyframes circle_right {
+  0% {
+      transform: rotate(-135deg);
+  }
+
+  50%,
+  100% {
+      transform: rotate(45deg);
+  }
+}
+
+@keyframes circle_left {
+
+  0%,
+  50% {
+      transform: rotate(-135deg);
+  }
+
+  100% {
+      transform: rotate(45deg);
+  }
+}
+
+.btn-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+.btn-wrap .btn-main {
+  width: 100% !important;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.btn-main .btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 77%;
+  height: 0;
+  padding-bottom: 77%;
+  margin: auto;
+  border: none;
+  border-radius: 50%;
+  background-color: #FA5151;
+}
+
+.btn-main .square-white {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 25%;
+  height: 0;
+  padding-bottom: 25%;
+  margin: auto;
+  background-color: #fff;
+}
+
+.circle_process {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.circle_process .wrapper {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
+
+.circle_process .right {
+  right: 0;
+}
+
+.circle_process .left {
+  left: 0;
+}
+
+.circle_process .circle {
+  display: flex;
+  align-items: center;
+  width: 201.7%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  background-color: #fa5151;
+  transform: rotate(-135deg);
+}
+
+.circle .circle-inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.circle .retangle-inner {
+  /* position: absolute; */
+  width: 50%;
+  height: 120%;
+  background-color: #fff;
+  transform: rotate(-45deg);
+}
+
+
+.circle_process .rightcircle {
+  justify-content: flex-start;
+  right: 0;
+}
+
+.rightcircle .retangle-inner {
+  transform-origin: right center;
+}
+
+.circle_process .leftcircle {
+  justify-content: flex-end;
+  left: 0;
+}
+
+.leftcircle .retangle-inner {
+  transform-origin: left center;
+}
+
+.circle-precess-wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fdb9b9;
+  opacity: .4;
+  border-radius: 50%;
+}
+
+
+.circle_process .rightcircle.animation {
+  animation: circle_right 1s linear 1 forwards;
+}
+
+.circle_process .leftcircle.animation {
+  animation: circle_left 1s linear 1 forwards;
+}

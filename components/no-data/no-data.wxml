@@ -1,0 +1,4 @@
+<view class="icon-container">
+<van-icon class-prefix="iconfont" name="wushuju" custom-style="font-size:150rpx;opacity:.3;"></van-icon>
+  <text style="color:#c8c8c8;">空空如也~</text>
+</view>

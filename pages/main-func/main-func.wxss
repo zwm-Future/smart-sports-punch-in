@@ -1,0 +1,29 @@
+/* 未选中的背景样式 */
+checkbox.course-item .wx-checkbox-input{
+  border-radius: 50%;
+}
+
+/* 选中后的背景样式 */
+checkbox.course-item .wx-checkbox-input.wx-checkbox-input-checked{
+  background: #37C674;
+}
+
+/* 选中后的勾子样式 */
+checkbox.course-item .wx-checkbox-input.wx-checkbox-input-checked::before{
+  color:#FFF; 
+}
+
+/* 未选中的背景样式 */
+checkbox.select-all .wx-checkbox-input {
+  border-radius: 50%;
+}
+
+/* 选中后的勾子样式 */
+checkbox.select-all .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  border-radius: 50%;
+  background: #3ada7f;
+  opacity: .7;
+}

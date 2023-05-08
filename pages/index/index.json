@@ -3,5 +3,9 @@
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "首页",
   "navigationBarTextStyle": "black",
-  "usingComponents": {}
+  "usingComponents": {
+    "teacher-index":"/components/package_teacher_components/teaher-index/teaher-index",
+    "student-index":"/components/package_student_components/student-index/student-index"
+  },
+  "enablePullDownRefresh": true
 }

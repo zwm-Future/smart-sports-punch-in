@@ -1,0 +1,44 @@
+.show-modal-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.mask-show {
+  opacity: 0.4;
+}
+
+.container {
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 0 50rpx;
+  min-height: 100rpx;
+  overflow: hidden;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.main {
+  background: #fff;
+  border-radius: 40rpx;
+}

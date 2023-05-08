@@ -1,2 +1,9 @@
-<!--pages/welcome/welcome.wxml-->
-<text>pages/welcome/welcome.wxml</text>
+<image src="/img/index/welcom.png" mode="aspectFit" class="bg-img"></image>
+<view class="mark-container" bindtap="handleShowAuth">
+  <image src="/img/index/mark.png" mode="aspectFit" class="mark">
+  </image>
+  <view class="tap-area">
+  </view>
+</view>
+
+<auth-dialog show="{{showAuth}}" bindhandleAuthFail="authFail"></auth-dialog>

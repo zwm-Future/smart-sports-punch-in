@@ -3,12 +3,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100px;
+  height: 14vh;
   padding: 0 68rpx 0 68rpx;
   background: #FFF;
   display: flex;
   border-top: 1rpx solid #e6e6e6;
-  border-radius: 30rpx;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
 }
 
 .tab-bar-item {
@@ -21,6 +22,7 @@
 }
 .tab-bar-item .image {
   width: 36rpx;
+  height: 36rpx;
   margin-bottom: 9px;
 }
 .bulge {
@@ -39,7 +41,8 @@
 .bulge .image{
   position: absolute;
   width: 220rpx;
-  top: -35px;
+  height: 220rpx;
+  top: -27.5%;
 }
 
 .tab-bar-item .tab-bar-view {

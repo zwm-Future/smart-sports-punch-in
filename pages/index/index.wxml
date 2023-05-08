@@ -1,76 +1,8 @@
 <!--index.wxml-->
-<view class="index-wrap">
-  <view class="notiece-text">
-    <swiper autoplay="true" vertical="true" circular>
-      <swiper-item>文字公告滚动轮播</swiper-item>
-      <swiper-item>文字公告滚动轮播</swiper-item>
-    </swiper>
-  </view>
-  <view class="notiece-img">
-    <swiper autoplay="true" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#039d71" circular>
-      <swiper-item>轮播图
-      </swiper-item>
-      <swiper-item>轮播图</swiper-item>
-    </swiper>
-  </view>
-  <view class="function-list-wrap">
-    <view class="function-list">
-      <view class="function-item">
-        <image src="/img/index/notice@3x.png" alt="通知"></image>
-        <text>通知公告</text>
-      </view>
-      <view class="function-item">
-        <image src="/img/index/essagecenter@3x.png" alt="消息中心"></image>
-        <text>消息中心</text>
-      </view>
-      <view class="function-item">
-        <image src="/img/index/clocktask@3x.png" alt="打卡任务"></image>
-        <text>打卡任务</text>
-      </view>
-      <view class="function-item">
-        <image src="/img/index/bindingteacher@3x.png" alt="绑定教师"></image>
-        <text>绑定教师</text>
-      </view>
-      <view class="function-item">
-        <image src="/img/index/motionrecording@3x.png" alt="运动记录"></image>
-        <text>运动记录</text>
-      </view>
-    </view>
-  </view>
-  <view class="card-wrap">
-    <view class="card">
-      <view class="card-main">
-        <view class="punch-time main-item">
-          <text class="text">已打卡（分钟）</text>
-          <text class="num">35</text>
-        </view>
-        <view class="target-time main-item">
-          <text class="text">任务目标（分钟）</text>
-          <text class="num">100</text>
-        </view>
-      </view>
-      <view class="card-foot">
-        <view class="text">
-          <view class="progress-text">打卡进度</view>
-          <view class="progress-nun">35%</view>
-        </view>
-        <progress percent="35" color="#44caac" active="" stroke-width="5" class="line"></progress>
-      </view>
-    </view>
-  </view>
-  <view class="today-done-wrap">
-    <view class="today-done">
-      <view class="done-title">
-        <text class="tip-text">今日已打卡</text>
-        <text class="detail-text">详细信息＞</text>
-      </view>
-      <view class="done-main">
-        <view class="done-type">跑步</view>
-        <view class="done-time">
-          <text class="time-num">35</text>
-          <text class="time-unit">min</text>
-        </view>
-      </view>
-    </view>
-  </view>
+<view wx:if="{{identityId == 2}}">
+  <teacher-index id="teacher-index">
+    </teacher-index>
+</view>
+<view wx:else="{{identityId == 1}}">
+  <student-index  id="student-index"></student-index>
 </view>

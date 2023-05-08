@@ -1,0 +1,28 @@
+.wrap {
+  width: 100%;
+}
+.wrap button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 30rpx;
+  background: transparent;
+  font-size: 34rpx;
+  font-weight: normal;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+
+button:after {
+  content: none;
+}
+
+/* 去掉边框 */
+button::after {
+  border: none;
+}
+
+.icon-wrap {
+  width: 100%;
+  margin-top: 10vh;
+}

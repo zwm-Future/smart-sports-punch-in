@@ -1,0 +1,40 @@
+<view class="my-wrap">
+  <view class="my-bg">
+    <image src="/img/my/personalbackground@3x.png" class="bg-img"></image>
+    <view class="person-container">
+      <image class="person-avatar" src="{{userInfo.avatarUrl}}"></image>
+      <view class="person-msg">
+        <text class="name">{{userInfo.nickName}}</text>
+        <text class="username">学号:{{number}}</text>
+        <text class="teacher">绑定的教师：{{teacherName}}</text>
+
+      </view>
+    </view>
+  </view>
+  <view class="my-list">
+    <!-- <view class="list-item">
+      <text class="item-text">我的成绩单（暂定）</text>
+      <text class="arrow">></text>
+    </view>  -->
+    <navigator url="/package_student/my-teacher/my-teacher" class="list-item">
+      <text class="item-text">我绑定的教师</text>
+      <text class="arrow">></text>
+    </navigator>
+    <navigator url="/pages/help-center/help-center" class="list-item">
+      <text class="item-text">帮助中心</text>
+      <text class="arrow">></text>
+    </navigator>
+    <navigator url="/pages/contact-us/contact-us" class="list-item">
+      <text class="item-text">联系我们</text>
+      <text class="arrow">></text>
+    </navigator>
+    <navigator url="/pages/password-modify/password-modify" class="list-item">
+      <text class="item-text">修改密码</text>
+      <text class="arrow">></text>
+    </navigator> 
+    <navigator url="/pages/web-view/web-view" class="list-item">
+      <text class="item-text">问卷调查</text>
+      <text class="arrow">></text>
+    </navigator>
+  </view>
+</view>

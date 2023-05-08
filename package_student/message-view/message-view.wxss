@@ -1,0 +1,3 @@
+.mes-view-container {
+  padding: 30rpx;
+}

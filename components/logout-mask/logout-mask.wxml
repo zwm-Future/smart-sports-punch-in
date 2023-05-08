@@ -1,0 +1,6 @@
+<view class="show-modal-wrap" hidden="{{!logoutModalVisible}}">
+  <view class="mask {{visible ? 'mask-show' : ''}}" bindtap="_onCancel"></view>
+  <view class="logout-icon-wrap">
+    <image src="/img/index/logout.png" class="logout-icon"></image>
+  </view>
+</view>

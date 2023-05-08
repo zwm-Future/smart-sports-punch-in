@@ -1,66 +1,77 @@
-// pages/welcome/welcome.js
+import setLoginStatus from "../../api/setLoginStatus";
+import {loginProduct} from "../../api/login"
+const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    showAuth: false,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad: async function () {
+    try {
+      this.getSystem();
+    } catch (error) {
+      console.log(error);
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onShow() {
+    // this.tryLogin();
+    // Product ⬇
+    this.textLogin();
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  handleShowAuth: function () {
+    this.setData({
+      showAuth: true
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  authFail: function (e) {
+    console.log('authFail');
+    this.setData({
+      showAuth: false
+    }, () => {
+      wx.showToast({
+        title: e.detail ? e.detail : '授权失败',
+        icon: 'error'
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  //Product
+  textLogin: async function () {
+    try {
+      const {
+        code: loginCode,
+        data
+      } = await loginProduct('321'); //123 -> student   321 -> teacger
+      if (loginCode) {
+        wx.setStorageSync("user", data);
+        app.globalData.identityId = data.identityId;
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      }
+    } catch (error) {
+      console.log('welcome:Page', error);
+    }
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  tryLogin: async function () {
+    try {
+      if (!wx.getStorageSync('userInfo')) return;
+      const {isExist,error} = await setLoginStatus();
+      console.log(isExist,error);
+      if(error) return;
+      if (isExist) {
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      } else {
+        wx.redirectTo({
+          url: '/pages/login/login',
+        })
+      }
+    } catch (error) {
+      console.log('welcome:Page', error);
+    }
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  getSystem: function () {
+    const info = wx.getSystemInfoSync();
+    app.globalData.systemInfo = info;
   }
 })

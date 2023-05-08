@@ -1,20 +1,22 @@
-// custom-tar-bar/index.js
+const app = getApp();
 Component({
   data: {
-    selected:null,
+    //是否隐藏
+    hide: false,
+    // 当前选中 index
+    selected: null,
     color: "#9EA1A7",
     selectedColor: "#44CAAC",
     backgroundColor: "#ffffff",
-    list: [
-      {
+    list: [{
         pagePath: "/pages/index/index",
         text: "首页",
         iconPath: "/img/tarbar/home@3x.png",
         selectedIconPath: "/img/tarbar/home-selected@3x.png"
       },
       {
-        pagePath: "/pages/punch/punch",
-        bulge:true,
+        pagePath: "/pages/main-func/main-func",
+        bulge: true,
         iconPath: "/img/tarbar/clock@3x.png",
         selectedIconPath: "/img/tarbar/clock@3x.png"
       },
@@ -26,21 +28,34 @@ Component({
       }
     ]
   },
- 
-  /**
-   * 组件的方法列表
-   */
-  onLoad() {
-   console.log(111);
-  },
-  onShow: function () {
-    console.log(222);
-  },
   methods: {
     switchTab(e) {
       const data = e.currentTarget.dataset
       const url = data.path
-      wx.switchTab({url})
+      wx.switchTab({
+        url
+      })
+    }
+  },
+  lifetimes: {
+    ready: function () {
+      if (app.globalData.identifyConfirm < 3) {
+        let {
+          list
+        } = this.data;
+        const userIdentityId = app.globalData.identityId || wx.getStorageSync('user').identityId;
+        if (userIdentityId == 2) {
+          list[1].iconPath = '/img/tarbar/publish@3x.png';
+          list[1].selectedIconPath = '/img/tarbar/publish@3x.png';
+        }
+        if (userIdentityId && list.length > 0) {
+          this.setData({
+            list
+          }, () => {
+            app.globalData.identifyConfirm++;
+          });
+        }
+      }
     }
   }
 })

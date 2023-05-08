@@ -1,0 +1,36 @@
+.notice-text-view-container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 20rpx;
+}
+
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30rpx 0;
+  text-align: center;
+}
+.title {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.content {
+  text-indent: 2em;
+  font-size: 30rpx;
+  padding: 0 18rpx;
+}
+.footer {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 20rpx;
+  margin-top: 20rpx;
+}
+.foot-right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

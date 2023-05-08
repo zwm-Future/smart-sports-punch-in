@@ -1,0 +1,7 @@
+<cover-view class="container" wx:if="{{show}}">
+  <cover-view class="circle-item circle-inner">
+    <cover-view class="count-num" animation="{{animationData}}">{{count}}</cover-view>
+  </cover-view>
+  <cover-view class="circle-item circle-middle"></cover-view>
+  <cover-view class="circle-item circle-out"></cover-view>
+</cover-view>

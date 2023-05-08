@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "no-data":"/components/no-data/no-data"
+  },
+  "navigationBarTitleText":"选择我的课程"
+}

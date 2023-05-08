@@ -1,0 +1,12 @@
+<view class="notice-text-view-container">
+  <view class="header">
+    <view class="title">{{title}}</view>
+  </view>
+  <view class="content">{{content}}</view>
+  <view class="footer">
+    <view class="foot-right-container">
+      <view class="author">{{author}}</view>
+      <view class="date">{{date}}</view>
+    </view>
+  </view>
+</view>

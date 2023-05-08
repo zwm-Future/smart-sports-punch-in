@@ -1,0 +1,13 @@
+<mp-half-screen-dialog bindbuttontap="buttontap" show="{{show}}" maskClosable="{{true}}" closabled="{{false}}"  extClass="dialog">
+  <view slot="title" class="title">授权前说明</view>
+  <view slot="desc" class="desc">
+    <view class="header">本小程序使用前需要用户授权，原因与用途如下：</view>
+    <view class="intro-one text-index">1.本小程序需要为用户绑定唯一ID，确保一微信号一账号，避免盗号</view>
+    <view class="intro-tow text-index">2.小程序需要根据用户的Token判断用户类型，用于教师绑定，推送公告等</view>
+  </view>
+  <view slot="footer" class="footer" bindtap="handdleTap">
+    <button  data-type="logout" class="logout-btn btn">退出小程序</button>
+    <button disabled="{{disable}}" loading="{{disable}}" data-type="auth" class="auth-btn btn">去授权</button>
+  </view>
+</mp-half-screen-dialog>
+<logout-mask logoutModalVisible="{{logoutModalVisible}}" bindmodalCancel="handleCancleModal"></logout-mask>

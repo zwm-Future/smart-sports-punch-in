@@ -1,0 +1,88 @@
+/* 去掉背景色和内外边距 */
+button {
+  margin: 0;
+  padding: 0;
+}
+
+button:after {
+  content: none;
+}
+
+/* 去掉边框 */
+button::after {
+  border: none;
+}
+
+.continue-btn-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.continue-btn-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  background-color: #44caac;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.btn {
+  width: 100% !important;
+  height: 0;
+  padding-bottom: 100%;
+  background-color: #44caac;
+  border-radius: 50%;
+}
+
+.click-color {
+  background-color: #44caac !important;
+  opacity: .7;
+}
+
+.main-rectangle-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 70.7%;
+  height: 0;
+  padding-bottom: 70.7%;
+  margin: auto auto;
+  overflow: hidden;
+}
+
+.main-rectangle-wrap .main-rectangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 35%;
+  width: 80%;
+  height: 46%;
+  /* padding-bottom: 86%; */
+  margin: auto 0;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.main-rectangle .rectangle-top {
+  box-sizing: border-box;
+  position: absolute;
+  width: 200%;
+  height: 124%;
+  background-color: #44caac;
+  transform: translate(0%, -30%) rotate(30deg);
+}
+
+.main-rectangle .rectangle-buttom {
+  box-sizing: border-box;
+  position: absolute;
+  width: 200%;
+  height: 124%;
+  background-color: #44caac;
+  transform: translate(0%, 10%) rotate(-30deg);
+}

@@ -1,0 +1,6 @@
+<view wx:if="{{identityId == 1}}">
+  <punch></punch>
+</view>
+<view wx:if="{{identityId == 2}}">
+  <publish></publish>
+</view>

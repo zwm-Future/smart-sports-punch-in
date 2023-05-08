@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "wave_bg":"/components/wave_bg/wave_bg",
+    "my-animation":"/components/my-animation/my-animation"
+  },
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "打卡任务",
+  "navigationBarTextStyle": "black"
 }

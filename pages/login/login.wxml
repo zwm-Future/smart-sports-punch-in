@@ -1,0 +1,38 @@
+<view class="login-wrap">
+  <view class="login-container">
+    <view class="login-form">
+      <view class="form-header">
+        <view class="header-main" bindtap="turnIdentity">
+          <view class="header-item selected" data-mode="1">
+            本校师生登录
+          </view>
+          <view class="header-item" data-mode="2">
+            校外游客登录
+          </view>
+        </view>
+      </view>
+      <view class="form-container">
+        <form bindsubmit="handleSubmit">
+          <view class="form-item"><input name="number" class="form-input" type="text" placeholder="学/工号" /></view>
+          <view class="form-item"><input name="password"  maxlength="16" password class="form-input"  placeholder="密码" />
+            <view class="tips">
+              <text class="star">*</text>可用场馆预约账号(初始密码为身份证后六位)
+            </view>
+          </view>
+          <view class="form-item"><input name="code" class="form-input input-vetify" type="text" placeholder="验证码">
+            <image bindtap="refreshVetifyCode" class="vetifyImg" src="{{imgSrc}}" alt="验证码" />
+            </input>
+          </view>
+          <view><button form-type="submit" class="form-btn">登录</button></view>
+        </form>
+      </view>
+      <view class="tip-container">
+        <view class="tip-text">登录即默认您同意用户服务条款</view>
+        <view class="tip-extra" bindtap="handleFootTap">
+          <view class="extra-item register" data-type="register">校外用户注册</view>
+          <view class="extra-item clause" data-type="service">用户服务条款</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

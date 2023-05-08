@@ -1,0 +1,18 @@
+.my-student-wrap {
+  width: 100%;
+}
+.header {
+  position: sticky;
+}
+.search-bar {
+  background-color: #fff;
+}
+.search-bar .weui-search-bar__form,
+.search-bar .weui-search-bar__label {
+  background-color: #f5f5f5;
+  border-radius: 50rpx;
+}
+.icon-wrap {
+  width: 100%;
+  margin-top: 10vh;
+}

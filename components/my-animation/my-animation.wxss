@@ -1,0 +1,55 @@
+@keyframes slidein {
+  0% {
+    transform: rotateX(90deg);
+  }
+
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes slideout {
+  0% {
+    transform: rotateX(0deg);
+  }
+
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+.number {
+  font-size: 100rpx;
+  transform-origin: center center 50px;
+}
+
+.pre-number {
+  float: left;
+}
+
+.next-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateX(90deg);
+}
+
+.slide-out {
+  animation: slideout 0.7s linear 1 forwards;
+  animation-duration: 0.7s;
+  animation-delay: 0s;
+}
+
+
+
+.slide-in {
+  animation-fill-mode: forwards;
+  animation-name: slidein;
+  animation-duration: 0.7s;
+  animation-delay: 0s;
+}

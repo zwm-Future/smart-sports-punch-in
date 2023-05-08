@@ -1,0 +1,7 @@
+<view class="top-bar">
+  <image bindtap="ToLoaction" class="top-bar-icon" src="/img/map/location.png"></image>
+  <text class="tips">请在有效区域内进行定位</text>
+  <view class="gps-strength-container">
+    <gps-strength strength="{{gps-strength}}"></gps-strength>
+  </view>
+</view>

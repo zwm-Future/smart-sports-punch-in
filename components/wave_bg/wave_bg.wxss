@@ -1,0 +1,85 @@
+@keyframes wave_middle {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+}
+
+@keyframes wave_out {
+  0% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(2.5);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #44caac;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.circle-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 25vh;
+  height: 25vh;
+  margin: auto;
+  background-color: #6dd6be;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.circle-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#ffffff;
+  z-index: 9;
+}
+.circle-inner .count-num {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+
+.circle-middle {
+  opacity: .9;
+  animation: wave_middle 1.5s linear .5s infinite;
+}
+
+.circle-out {
+  opacity: 0;
+  transform: scale(2);
+  animation: wave_out 1.5s linear 2s infinite;
+}
+

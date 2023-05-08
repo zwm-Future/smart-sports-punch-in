@@ -1,0 +1,91 @@
+.my-course-wrap {
+  width: 100%;
+  height: calc(100vh - 170rpx);
+  overflow-y: scroll;
+}
+
+.my-course-wrap .course-item {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 30rpx;
+  font-size: 34rpx;
+  font-weight: normal;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+.btn-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 0;
+}
+.add-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 130rpx;
+  height: 130rpx;
+  font-size: 80rpx;
+  color:#fff;
+  background-color: #44CAAC;
+  border-radius: 50%;
+}
+.add-form {
+  padding-top: 20rpx;
+}
+
+.ipt-container {
+  display: flex;
+  padding: 0 38rpx;
+}
+
+.add-ipt {
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.bottom-btn {
+  width: 100%;
+  display: flex;
+  margin-top: 5px;
+}
+.bottom-btn .btn {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+.bottom-btn .btn.click-class {
+  background-color: #dedede;
+}
+.bottom-btn .btn::after {
+  border: none;
+}
+.confirm-btn {
+  border-bottom-left-radius: 40rpx;
+  color:#44CAAC;
+}
+.cancle-btn {
+  border-bottom-right-radius: 40rpx;
+  color:#323233;
+}
+
+.icon-wrap {
+  width: 100%;
+  margin-top: 10vh;
+}
+
+.delete-title {
+  padding: 50rpx 0;
+  text-align: center;
+  font-weight: bold;
+}
+.delete-content {
+  font-weight: 300;
+}
+

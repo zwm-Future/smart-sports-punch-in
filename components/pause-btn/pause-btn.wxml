@@ -1,0 +1,6 @@
+<view class="btn-wrap" bindtap="handlePause">
+  <button class="btn" hover-class="click-color">
+    <view class="white-strip left"></view>
+    <view class="white-strip right"></view>
+  </button>
+</view>

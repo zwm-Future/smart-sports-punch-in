@@ -1,0 +1,5 @@
+<view class="teacher-index-wrap">
+  <notice-text-rotation></notice-text-rotation>
+  <notice-img-rotation></notice-img-rotation>
+  <teacher-function-list></teacher-function-list>
+</view>

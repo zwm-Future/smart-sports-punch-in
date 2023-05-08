@@ -9,14 +9,21 @@ const showTip = {
     let Msg = msg ? msg : "加载中"
     wx.showLoading({
       title: Msg,
-      mask: Mask
+      mask: Mask,
+      fail:(res) => {
+        console.log(res);
+      }
     })
   },
   /**
   * Loading取消转圈圈
   */
   LoadingOff (){
-    wx.hideLoading();
+    wx.hideLoading({
+      fail:res => {
+        console.log(res);
+      }
+    });
   },
   /**
   * Toast提示
@@ -25,7 +32,7 @@ const showTip = {
   * @param {number} time - 提示存在时长
   */
   Toast (msg, icon, time){
-    let Icon = icon === 1 ? "success" : "none";
+    let Icon = icon === 1 ? "success" : icon;
     wx.showToast({
       title: msg,
       icon: Icon,

@@ -1,0 +1,24 @@
+<view class="puzzle-vf-wrap" wx:if="{{show}}">
+  <view class="mask"></view>
+  <view class="vf-container transition {{statusClass}}">
+    <view class="vf-header">请拖动滑块完成拼图</view>
+    <view class="vf-main">
+      <canvas id="vf" class="vf-canvas" canvas-id="vf" style="height: {{canvasHeight}}px;"></canvas>
+      <view class="vf-block transition" style="width: {{l}}px;height: {{l}}px;top: {{top}}px;left: {{left}}px;"></view>
+      <movable-area class="vf-movable-area" style="height:{{canvasHeight}}px;top: {{top}}px;">
+        <movable-view x="{{dragX}}px" bindchange="drag" bindtouchend="end" animation="true" inertia="true" direction="horizontal" class="vf-movable-view" style="width: {{l}}px">
+          <image class="vf-img transition" src="{{pic}}" style="width: {{l}}px;height: {{l}}px;top: {{top}}px;">
+          </image>
+          <view class="vf-movable-block">
+            <view class="capsule-container">
+              <capsule></capsule>
+            </view>
+          </view>
+        </movable-view>
+        <view class="bottom-strip-wrap">
+          <view class="bottom-strip"></view>
+        </view>
+      </movable-area>
+    </view>
+  </view>
+</view>

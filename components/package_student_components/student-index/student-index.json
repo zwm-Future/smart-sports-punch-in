@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "accumulate-card":"../accumulate-card/accumulate-card",
+    "today-done-card":"../today-done-card/today-done-card",
+    "notice-img-rotation":"/components/notice-img-rotation/notice-img-rotation",
+    "notice-text-rotation":"/components/notice-text-rotation/notice-text-rotation",
+    "student-function-list":"../student-function-list/student-function-list",
+    "show-modal":"/components/show-modal/show-modal"
+  }
+}

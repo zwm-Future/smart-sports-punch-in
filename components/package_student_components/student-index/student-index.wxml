@@ -1,0 +1,17 @@
+<view class="student-index-wrap">
+  <notice-text-rotation></notice-text-rotation>
+  <notice-img-rotation></notice-img-rotation>
+  <student-function-list></student-function-list>
+  <view class="accumulate-card-wrap">
+    <accumulate-card minutes="{{allMinutes}}" score="{{allScore}}"></accumulate-card>
+  </view>
+  <today-done-card sportTime="{{todaySportTime}}" score="{{todayScore}}"></today-done-card>
+  <show-modal modalVisible="{{modalStorage}}">
+    <view class="modal-title">提示
+      <view class="modal-content">上次异常退出，数据尚未上传
+        <view>是否提交？</view>
+      </view>
+    </view>
+    <button class="modal-btn" bindtap="handleStorageSport">确定</button>
+  </show-modal>
+</view>

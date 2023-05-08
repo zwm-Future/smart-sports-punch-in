@@ -1,0 +1,28 @@
+.message-list {
+  box-sizing: border-box;
+}
+
+.item {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 20rpx;
+  border-bottom: 2rpx solid #efefef;
+}
+.date {
+  white-space: nowrap;
+  font-size: 24rpx;
+  color: #c6c6c6;
+}
+.icon-wrap {
+  width: 100%;
+  margin-top: 10vh;
+}
+.content {
+  display: inline-flex;
+}
+.tip-dottor {
+  color: tomato;
+}
