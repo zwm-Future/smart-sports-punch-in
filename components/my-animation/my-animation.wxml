@@ -1,0 +1,8 @@
+<view>
+  number:
+  <view class="container">
+    <text class="{{slideInAnimaiton}} number next-number">{{number}}</text>
+    <text class="{{slideOutAnimaiton}} number pre-number">{{preNumber}}</text>
+  </view>
+</view>
+<button bindtap="count">+1</button>

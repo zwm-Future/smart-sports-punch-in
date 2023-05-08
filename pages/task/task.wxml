@@ -1,4 +1,5 @@
 <view>
   <button bindtap="showWave">click</button>
-    <wave_bg id="wave_bg" bindcountEnd="{{handleCountEnd}}"></wave_bg>
+  <wave_bg id="wave_bg" bindcountEnd="{{handleCountEnd}}"></wave_bg>
+  <my-animation></my-animation>
 </view>

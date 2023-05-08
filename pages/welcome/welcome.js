@@ -13,9 +13,9 @@ Page({
     }
   },
   onShow() {
-    this.tryLogin();
+    // this.tryLogin();
     // Product ⬇
-    // this.textLogin();
+    this.textLogin();
   },
   handleShowAuth: function () {
     this.setData({

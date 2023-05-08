@@ -43,12 +43,12 @@ Component({
         let {
           list
         } = this.data;
-        const user = wx.getStorageSync('user');
-        if (user.identityId == 2) {
+        const userIdentityId = app.globalData.identityId || wx.getStorageSync('user').identityId;
+        if (userIdentityId == 2) {
           list[1].iconPath = '/img/tarbar/publish@3x.png';
           list[1].selectedIconPath = '/img/tarbar/publish@3x.png';
         }
-        if (user.identityId && list.length > 0) {
+        if (userIdentityId && list.length > 0) {
           this.setData({
             list
           }, () => {
